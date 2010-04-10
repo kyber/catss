@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>CATSS - Cat (or other mobile item) Surveillance System</title>
+
+
+
+ 
+<link type="text/css" href="tabs/css/ui-darkness/jquery-ui-1.8.custom.css" rel="stylesheet" />	
+<link href="style.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript" src="tabs/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="tabs/js/jquery-ui-1.8.custom.min.js"></script>
+<script type="text/javascript" src="jquery.rotate.1-1.js"></script>
+<link href="facebox/facebox.css" media="screen" rel="stylesheet" type="text/css"/>
+<script src="facebox/facebox.js" type="text/javascript"></script>
+
+<script type="text/javascript"> 
+	$(document).ready(function() {
+		$(".topMenuAction").click( function() {
+			if ($("#openCloseIdentifier").is(":hidden")) {
+				$("#slider").animate({ 
+					marginTop: "-135px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="images/open.png" alt="open" />');
+				$("#openCloseIdentifier").show();
+			} else {
+				$("#slider").animate({ 
+					marginTop: "0px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="images/close.png" alt="close" />');
+				$("#openCloseIdentifier").hide();
+			}
+		});  
+	});
+	</script> 
+
+<script type="text/javascript">
+  $(function(){
+  
+  // Tabs
+  $('#tabs').tabs();
+ // alert('arrow next');
+  $('#c-arrow').rotateRight(0);
+  $('a[rel*=facebox]').facebox(); 
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#rotate-do").click( function () {
+	kulma = document.getElementById('aste').value;
+        vanhakulma = document.getElementById('v-aste');
+       // alert('reset arrow');
+        asteint = parseInt(kulma);
+        $('#c-arrow').rotateLeft(parseInt(vanhakulma.value));
+       // alert('set new ankle');
+        $('#c-arrow').rotateRight(asteint);
+        vanhakulma.value = asteint;
+
+    });
+});
+</script>
+
+
+
+</head>
+
+<body>
+
+<div id="sliderWrap"> 
+		<div id="openCloseIdentifier"></div> 
+		<div id="slider"> 
+		  <div id="rpx"><a class="rpxnow" onclick="return false;"
+href="https://catss.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Fcatss.5w.fi%2Frpx.php">tai käytä 3-osapuolen kirjautumista</a></div>
+			<div id="sliderContent"> 
+			  
+			  <ul>
+			    <li class="first">Tunnus:<span class="fill">&nbsp;</span><input class="login" type="text" name="username"/></li>
+			  </ul>
+			  <ul>
+			    <li class="last">Salasana:<input class="login-btn" type="submit" value="login" onClick="alert('not implemented yet');"/><input class="login" type="password" name="password"/></li>
+			  </ul>
+		  
+			</div> 
+			<div id="openCloseWrap"> 
+				<a href="#" class="topMenuAction" id="topMenuImage"> 
+					<img src="images/open.png" alt="open" /> 
+				</a> 
+			</div> 
+		</div> 
+	</div> 
+
+<!--header paer start -->
+<div id="headerPan">
+
+<h1></h1>
+<h2>CATSS </h2><br/><h3>Cat (or other mobile item) Surveillance System</h3>
+<form name="search_box" method="post"  action="">
+<label>search</label>
+<input type="text" name="textbox" value="Your Email" />
+<input type="button" name="buttone" class="button" value="" title="button" />
+</form>
+</div>
+<!--header part end -->
+<!--body part start -->
+<div id="mainBody">
+<!--left side start -->
+<div id="leftPan">
+<h2>Julkiset</h2>
+<ul>
+<li><a class="first last" href="#">Toiwo-kissa</a></li>
+</ul>
+
+<h2>Yksityiset</h2>
+<ul>
+<li><a class="first" href="#">Jaana-vaimo</a></li>
+<li><a href="#" class="selected last">Wille-poika</a></li>
+</ul>
+
+<h3>Karttamerkit</h3>
+<ul>
+<li class="first">Oma sijainti:</li>
+<li class="last">Kohde:</li>
+</ul>
+
+<h3>Tietoja</h3>
+<ul>
+<li class="first">Tekijät: kyb3R ja sergimon. <a href="http://5w.fi/con/index.php/projektit/catss">Lue lisää projektista!</a></li>
+<li class="last">Hackerspace Tampere<a href="http://5w.fi"><img border="0" src="http://5w.fi/data/logo/logo-120x50.png"/></a></li>
+</ul>
+</div>
+
+
+
+<!--left side end -->
+<!--right side start -->
+<div id="rightPan">
+
+  <h2></h2>
+  <div id="tabs" style="border:none;background:none;height:500px;width:850px;"> <!-- 850px -->
+    <ul style="height:25px;border:none;background:none;min-height:25px;padding:0;">
+      <li style="width:250px;margin-left:-200px;"><a href="#tabs-1">Sijainti</a></li>
+      <li style="width:300px;"><a href="#tabs-2">Laitteiden asetukset</a></li>
+      <li style="width:213px;"><a href="#tabs-3">Historia</a></li>
+    </ul>
+			<div id="tabs-1" style="background:none;width:100%;">
+			  <div style="float:left;margin-left:-200px;width:300px;padding-left:0px;height:400px;padding-bottom:10px;background:none;"><br/>
+			    <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span></br><br/>
+<div style="margin-top:10px;float:left;width:210px;border:solid 1px #797878;height:330px;  -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;background-color:#444444;color:#fff;font-size:0.9em;"><span class="item-title">Koordinaatit:</span> 
+<div style="margin-top:5px;padding-left:15px;font-weight:bold;">latitude <span style="float:right;padding-right:10px;"><input type="text" class="coord" size="7" style="font-size:0.8em;" value="47.643186"/>°</span></div><br/>
+<div style="margin-top:-10px;padding-left:15px;font-weight:bold;">longitude <span style="float:right;padding-right:10px;"><input class="coord" size="7" type="text" style="font-size:0.8em;" value="11.228027"/>°</span></div>
+<br/><span class="item-title">Suunta:</span><br/>
+
+<div class="wraptocenter"><img id="c-arrow" src="images/compas-arrow.png"/>
+</div>
+<span class="item-title">Etäisyys:<span style="float:right;padding-right:10px;"><input class="coord" size="8" type="text" style="font-size:0.7em;" value="1,3 km"/></span></span>
+</div>
+			  <div style="margin-top:10px;float:right;width:70px;border:solid 1px #797878;height:330px;  -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;background-color:#444444;color:#fff;"><span id="zoom-text">zoom</span>
+			    <ul id="icons" class="ui-widget ui-helper-clearfix">
+			     <li class="ui-state-default ui-corner-all" style="height:16px;width:18px;list-style:none;float:left;margin-left:3px;" title="">
+			       <span class="ui-icon ui-icon-zoomin"/>
+			     </span>
+			  </li>
+			  <li class="ui-state-default ui-corner-all" style="height:16px;width:18px;list-style:none;float:left;margin-left:3px;" title=""><span class="ui-icon ui-icon-zoomout"/>
+			</span></li>
+		
+			</ul>
+			  </div>
+</div>
+
+
+<!-- ######### KARTTA ############# -->
+<div id="kartta" style="float:left;width:510px;height:398px;padding-bottom:2px;padding-left:10px;padding-right:5px;padding-top:10px;">
+  <iframe width="480" height="385" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.fi/?ie=UTF8&amp;ll=61.509432,23.607216&amp;spn=0.013572,0.035577&amp;z=15&amp;output=embed"></iframe><br />
+</div>
+</div>
+
+
+<div id="tabs-2" style="text-indent:none;border:none;">
+  <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
+    
+    <div id="sijainti-kohde">Wille-poika</span><span style="font-size:0.5em;padding-top:10px;"> (4.4.2010 14:56:03)</div></br><br/>
+<span id="tallenna"><input type="button" value="tallenna"/><input type="button" value="poista"/></span>
+<h3>Laitteen asetukset palvelimella</h3>
+<ol id="asetus">
+<li class='fancy-li'>
+Nimi<span class="asetukset-desc">
+<select name="nimi" class="asetukset-input-select" style="border:solid 1px #fff;">
+<option value="0">Wille-poika</option>
+<option value="1">Jaana-vaimo</option>
+<option value="3">Toiwo-kissa</option>
+<!-- <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> -->
+</select>
+
+</span>
+</li>
+
+<li class='fancy-li'>
+Näkyvyys:<span class="asetukset-desc" style="width:250px;">
+<select name="public" class="asetukset-input-select" style="border:solid 1px #fff;">
+<option value="1">Näkyy vain minulle (Yksityinen)</option>
+<option value="0">Näkyy kaikille (Julkinen)</option>
+<!-- <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> -->
+</select>
+
+</span>
+</li>
+
+
+
+
+<li class='fancy-li'>
+Tarkkailupaikan koordinaatit (lat/long):
+<span class="asetukset-desc" style="width:250px;"><input type="text" class="asetukset-input-text" style="width:95px;" value="47.643186"/><input type="text" class="asetukset-input-text" style="width:95px;margin-left:10px;" value="07.643186"/></span>
+</li>
+
+<li class='fancy-li'>
+Hälytysraja (metriä):
+<span class="asetukset-desc"><input type="text" class="asetukset-input-text" value="100"/></span>
+</li>
+
+</ol>
+<span id="tallenna"><input type="button" value="tallenna"/></span>
+<h3>Laitteen omat asetukset</h3>
+<ol id="asetus">
+<li class='fancy-li'>
+IMEI-koodi:<span class="asetukset-desc"><input type="text" class="asetukset-input-text" value="as324543254dfdfg345"/></span>
+</li>
+
+<li class='fancy-li'>
+Koordinaatin lähetystiheys (minuuttia):<span class="asetukset-desc" style="width:250px;">
+<select name="update-freq" class="asetukset-input-select" style="border:solid 1px #fff;">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="7">7</option>
+<option value="10">10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+<option value="30">30</option>
+<option value="45">45</option>
+<option value="60">60</option>
+<!-- <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> -->
+</select>
+
+</span>
+</li>
+<li class='fancy-li'>
+Lähtöpaikan koordinaatit (lat/long):
+<span class="asetukset-desc" style="width:250px;"><input type="text" class="asetukset-input-text" style="width:95px;" value="47.643186"/><input type="text" class="asetukset-input-text" style="width:95px;margin-left:10px;" value="07.643186"/></span>
+</li>
+</ol>
+
+
+  </div>
+</div>
+<div id="tabs-3" style="text-indent:none;border:none;">
+  <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
+    <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span></br><br/>
+<a href="#kartta" rel="facebox">text</a>
+<div id="info" style="display:none;"> 
+  Popup sisään divistä.
+</div>
+<!--
+<iframe src="http://catss.rpxnow.com/openid/embed?token_url=http%3A%2F%2Fcatss.5w.fi%2Frpx.php" scrolling="yes" frameBorder="no" allowtransparency="true" style="width:200px;height:440px"></iframe>
+-->
+  </div>
+
+</div>
+
+</div>
+
+
+</div>
+<!--right side end -->
+<br class="blank" />
+</div>
+<!--body part end -->
+<!--footer start -->
+
+
+<div id="footerMain">
+<div id="footer">
+
+</div>
+</div>
+
+<!--footer end -->
+
+<script type="text/javascript">
+  var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+  document.write(unescape("%3Cscript src='" + rpxJsHost +
+"rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  RPXNOW.overlay = true;
+  RPXNOW.language_preference = 'en';
+</script>
+
+</body>
+</html>
