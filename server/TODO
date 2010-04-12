@@ -4,7 +4,14 @@ Formaatti:
 [yyyy-mm-dd]      asia  
 -----------------------------------------------------------------------------------------------
 [2010-04-12]
-Lisää kartan päivitysprosessiin että piirtää kaikki siinä olleet objektit.
+Lisää kartan päivitysprosessiin että piirtää kaikki siinä 
+olleet objektit.
 
 [2010-04-12]
-Korjaa päällekkäisten objektien välisten viivojen uudelleenpiirto kun zoomaa...
+Korjaa päällekkäisten objektien välisten viivojen uudelleenpiirto 
+kun zoomaa...
+
+[2010-04-13]
+Kun valitsee historia välilehden pitää sijainti välilehden päivitys
+pysähtyä. Näin saadaan lisää 'potkua' historia karttaan. Vastaavasti
+kun klikkaa sijainti välilehteä pitää päivityksen taas alkaa rullaamaan.
