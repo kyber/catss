@@ -1,10 +1,10 @@
-TODO-lista 
+TODO-lista (uusin ensin) POISTA kun valmis
 Formaatti: 
-               X kun valmis
-[yyyy-mm-dd]  [ ]    asia  
+
+[yyyy-mm-dd]      asia  
 -----------------------------------------------------------------------------------------------
-[2010-04-12][] 
+[2010-04-12]
 Lisää kartan päivitysprosessiin että piirtää kaikki siinä olleet objektit.
 
-[2010-04-12][] 
+[2010-04-12]
 Korjaa päällekkäisten objektien välisten viivojen uudelleenpiirto kun zoomaa...
