@@ -1,0 +1,17 @@
+
+function ajaxAppendTable(){ 
+    $("#sortable").tablesorter(); 
+    $("#ajax-append").click(function() { 
+         $.get("assets/ajax-content.html", function(html) { 
+             // append the "ajax'd" data to the table body 
+             $("table tbody").append(html); 
+            // let the plugin know that we made a update 
+            $("#sortable").trigger("update"); 
+            // set sorting column and direction, this will sort on the first and third column 
+            var sorting = [[1,0],[0,0]]; 
+            // sort on the first column 
+            $("#sortable").trigger("sorton",[sorting]); 
+        }); 
+        return false; 
+    }); 
+}      

@@ -1,25 +1,30 @@
-{"markers": [
-     {"lat":61.51359, "lng":23.60562, "html":"<span class='item'>Object:<br><b>Toiwo-kissa</b></span>","label":"22:55:03"},
-     {"lat":61.51313, "lng":23.60462, "html":"<span class='item'>Object:<br><b>Toiwo-kissa</b></span>","label":"22:50:11"},
-     {"lat":61.52359, "lng":23.60562, "html":"<span class='item'>Object:<br><b>Toiwo-kissa</b></span>","label":"22:45:09"},
-     {"lat":61.51359, "lng":23.60462, "html":"<span class='item'>Object:<br><b>Toiwo-kissa</b></span>","label":"22:45:09"}
-   ],
-
-
- "lines": [
-     {"colour":"#FF0000", "width":2, "points":[ new GLatLng(43.65654,-79.90138),
-                                                new GLatLng(43.91892,-78.89231),
-                                                new GLatLng(43.82589,-79.10040)
-                                              ]
-     },
-     {"colour":"#008800", "width":4, "points":[ new GLatLng(43.9078,-79.0264),
-                                                new GLatLng(44.1037,-79.6294),
-                                                new GLatLng(43.5908,-79.2567),
-                                                new GLatLng(44.2248,-79.2567),
-                                                new GLatLng(43.7119,-79.6294),
-                                                new GLatLng(43.9078,-79.0264)
-                                              ]
-     }
+{"markers": 
+   [
+     {"lat":61.52459, 
+      "lng":23.61862, 
+      "html":"<span class='item'>Jaana-vaimo</span>",
+      "label":"22:55:03",
+      "type":"private"},
+     {"lat":61.52313, 
+      "lng":23.63462, 
+      "html":"<span class='item'>Wille-poika</span>",
+      "label":"22:50:11", 
+      "type":"private"},
+     {"lat":61.52359, 
+      "lng":23.65562, 
+      "html":"<span class='item'>Bussi 26</span>",
+      "label":"22:45:09",
+      "type":"public"},
+     {"lat":61.51359, 
+      "lng":23.60462, 
+      "html":"<span class='item'>BMW X5</span>",
+      "label":"22:45:09",
+      "type":"private"},
+     {"lat":61.50359, 
+      "lng":23.64462, 
+      "html":"<span class='item'>Toiwo-kissa</span>",
+      "label":"22:42:19",
+      "type":"public"}
    ]
 
 }

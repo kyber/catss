@@ -574,9 +574,9 @@ margin-top: 29%;
     overflow:hidden;
     text-align: center;
     vertical-align: middle;
-    width: 136px;
-    height: 136px;
-    background:url('images/compass.jpg') no-repeat;
+    width: 146px;
+    height: 146px;
+    background:url('images/compass.png') no-repeat;
     margin-left:15px;
     margin-bottom:5px;
     margin-top:5px;
@@ -996,7 +996,7 @@ div.gmnoprint {
     
 }
 #logocontrol {
-    display:none;
+/*    display:none; */
 }
 
 div[style*="-webkit-user-select"]  {
@@ -1070,6 +1070,12 @@ margin-left:5px;
     border:1px #006699 solid;
     color:#000;
 }
+
+img.private-icon{
+margin-left:10px;
+padding-left:20px;
+}
+
 
 /* #### USER CONFIG #### */
 
