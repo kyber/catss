@@ -154,6 +154,12 @@ $(document).ready(function() {
 }
 </script>
 
+<script>
+$(document).ready(function() {
+    $("#historyslider").slider();
+  });
+
+</script>
 
 </head>
 
@@ -440,7 +446,8 @@ Lähtöpaikan koordinaatit (lat/long):
 <div id="tabs-3" style="text-indent:none;border:none;">
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
     <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span></br><br/>
-
+<div id="historyslider"></div>
+<div id="historymap"></div>
 
   </div>
 
@@ -503,6 +510,11 @@ Lähtöpaikan koordinaatit (lat/long):
 
       var map = new GMap2(document.getElementById("map"));
  
+var map2 = new GMap2(document.getElementById("historymap"));
+    var point2 = new GLatLng(61.51131, 23.60474);
+    map2.setCenter(point2, 12);
+    map2.addControl(new GSmallMapControl());
+  
 /* ###### MISC HELPER FUNCTIONS ############ */
 
  function appendTable(html, i){
@@ -1340,6 +1352,24 @@ $(".row input").each(function(index){
       var geocoder = new GClientGeocoder(); 
       // put the maptypes in configuration div
       setMapTypeOptions();        
+
+
+
+
+/*
+ var mapNaviControl2 = new GSmallMapControl();
+      var topRight2 = new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(1,1));
+      historymap.addControl(mapNaviControl2, topRight2); // new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(1,1))
+      historymap.removeControl(mapNaviControl);
+      var bounds2 = new GLatLngBounds(); // needed by drawcircle()
+      // reverse lat/long to address
+      var geocoder2 = new GClientGeocoder(); 
+ */
+
+
+
+
+
 
       // ====== set up marker mouseover tooltip div ======
       var tooltip = document.createElement("div");
