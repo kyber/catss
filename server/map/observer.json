@@ -1,4 +1,17 @@
-{"markers": [ {"lat":61.51131, "lng":23.60474, "html":"<span class='item'>Object:<br><b>Tarkkailusijainti</b></span>","label":"Oma sijainti"} ],
+{"markers": 
+    [ {
+      "lat":61.51131, 
+      "lng":23.60474, 
+      "html":"<span class='item'>Object:<br><b>Tarkkailusijainti</b></span>",
+      "label":"Oma sijainti"
+    } ],
 
-"config": [ {"alertrad":0.12} ]
+"config": 
+    [ {
+      "alertrad":0.12, 
+      "updatefreq":30, 
+      "trgimei":0123456789, 
+      "homelat":61.51131, 
+      "homelng":23.60474
+    } ]
 }

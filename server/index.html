@@ -486,6 +486,7 @@ Lähtöpaikan koordinaatit (lat/long):
     //<![CDATA[
  
     if (GBrowserIsCompatible()) {
+      var firstUpdate = 'true';
       var observerPoint = "";
       var trgPoint = "";
       var side_bar_html = "";
@@ -499,7 +500,15 @@ Lähtöpaikan koordinaatit (lat/long):
       var poly; // warning circle
       var polyline1; // connectionline to selected object
       var drawConnection = 'false';
-      var json; // object data
+      var json; // object data (json.markers)
+ 
+      var eventdata; // event list data (json.markers)
+
+      var jsonobs; // observer data;
+      var obsLat;
+      var obsLng;
+      var updatefreq = 10;
+
       var polyroute;
       var pointCount;
       var alertCircle = 'false';
@@ -535,31 +544,36 @@ var map2 = new GMap2(document.getElementById("historymap"));
             // let the plugin know that we made a update 
             $("#sortable").trigger("update"); 
             // set sorting column and direction, this will sort on the first and third column 
-            var sorting = [[1],[0]]; 
+            var sorting = [[0,0],[2,0]]; 
             // sort on the first column 
             $("#sortable").trigger("sorton",[sorting]); 
      
             // and make the links to rows
-            $("#sortable tr").bind("click", function(){ 
-                  window.location = 'http://ww.5w.fi/'; 
-            });
+//            $("#sortable tr").bind("click", function(){ 
+//                  window.location = 'http://ww.5w.fi/'; 
+//            });
         return false; 
  }  
 
 
 function updateLoop() {
-        setTime();
+
+if(firstUpdate == 'false'){
+    setTime();
     
     // let's remove the data first from the map...
         map.clearOverlays();
     try{
+       updateGetEventMarkers();
        updateGetObjectMarkers();
-       var len =  newdata.length;
+       updateGetObserverData();
+       reDrawMarkers();
+       var len =  eventdata.length;
        var newhtml ="";
        if(len > 0){
          for (var i = 0; i < len; i++) {
           // obtain the attributes of each marker
-          var marker_in = newdata[i];
+          var marker_in = eventdata[i];
           var lat = marker_in.lat;
           var lng = marker_in.lng;
           var html = marker_in.html;
@@ -574,25 +588,84 @@ function updateLoop() {
          
          appendTable(newhtml, len);
         }
-        var newhtml ="";
-    }catch(error){
 
-    }
- // draw the connection between objects if checked 
-  if(document.getElementById('cbShowRoute').checked){
-   document.getElementById('cbShowRoute').checked = true;
+
+
+        // draw the connection between objects if checked 
+        if(document.getElementById('cbShowRoute').checked){
+         try {
+          //  map.removeOverlay(polyroute);
+          //alert(newdata);
+           reDrawRoute();
+           }
+            catch (error)
+           {
+            alert(error);
+         }
+        }
+ // redraw alert circle if checked
+  if(document.getElementById('cbShowRadius').checked){
+   document.getElementById('cbShowRadius').parentNode.className='row';
     try {
-        map.removeOverlay(polyroute);
-        drawRoute();
+       drawCircle(observerPoint, alertRad, 60);
         }
          catch (error)
         {
-        //  alert(error);
+          alert(error);
         }
-  }
- // set the next update
- setTimeout("updateLoop()", 10000);
+
+   }
+ // redraw observer ALWAYS   
+ try {
+   
+   var marker = createObserverMarker(obsLat,obsLng,'oma sijainti','oma sijainti');
+   map.addOverlay(marker);
+    }catch(error)
+      {
+     alert(error);
  }
+
+ // redraw connection to latest object if checked
+  if(document.getElementById('cbDrawConnection').checked){
+
+    try {
+       // 
+       drawLineBetween(observerPoint, trgPoint);
+        }
+         catch (error)
+        {
+          alert(error);
+        } 
+   
+  }
+
+    var newhtml ="";
+    }catch(error){
+
+    } // end of first try
+
+
+  var newupdatefreq = updatefreq * 1000;
+ // set the next update
+ setTimeout("updateLoop()", newupdatefreq);
+ }else{
+  firstUpdate = 'false';
+  setTime();
+    try{
+       updateGetEventMarkers();
+       updateGetObjectMarkers();
+       updateGetObserverData();
+     }catch(error){
+
+    }
+  var newupdatefreq = updatefreq * 1000;
+  setTimeout("updateLoop()", newupdatefreq);
+ }
+}
+
+
+
+
 
 function setTime(){
 
@@ -657,12 +730,69 @@ function setOtherEventsTime(){
         success: function(data){
            json = eval('(' + data + ');');
            newdata = json.markers;
-           reDrawMarkers();
+           
 //map.clearOverlays();
         }    
       });
      
  }
+
+function updateGetEventMarkers(){
+      var events;
+      $.ajax({
+        url: "map/events.json",
+        cache: false,
+        success: function(data){
+           events = eval('(' + data + ');');
+           eventdata = events.markers;
+        }    
+      });
+     
+ }
+
+function updateGetObserverData(){
+      var observer;
+      $.ajax({
+        url: "map/observer.json",
+        cache: false,
+        success: function(data){
+           observer = eval('(' + data + ');');
+           updatefreq = config[0].updatefreq;
+        }    
+      });
+     
+ }
+
+
+/* ###### REDRAW ROUTE ############ */
+
+function reDrawRoute(){
+        try{
+          map.removeOverlay(polyroute);
+
+         }catch(error){
+
+         }
+    	var points = [];
+        var markers = newdata;
+        var nMarkers = markers.length; 
+       
+        for (var i = 0; i < nMarkers; i++) {
+          // obtain the attributes of each marker
+          var marker_in = markers[i];
+          var lat = marker_in.lat;
+          var lng = marker_in.lng;
+          var html = marker_in.html;
+          var label = marker_in.label;
+          var point = new GLatLng(lat,lng); 
+          points.push(point);
+        }
+          points.reverse(); // must be reversed to get the arrows to point correct direction
+          polyroute = new BDCCArrowedPolyline(points,"#FF0000",2,0.3,null,60,7,"#0000FF",2,0.5);
+		map.addOverlay(polyroute);
+        
+
+}
 
 function reDrawMarkers(){
        side_bar_html = "";
@@ -714,7 +844,7 @@ function reDrawMarkers(){
 
          var marker = new GMarker(point,{icon:sprite(1),zIndexProcess:orderOfCreation});
          marker.importance = 100;
-         trgPoint = point;
+        // trgPoint = point;
          
        }else{        
          var marker = (new GMarker(point,{draggable:false, icon:sprite(3)}));
@@ -876,6 +1006,8 @@ function reDrawMarkers(){
           // set the new coordinated to user settings tab also. User must save settings. 
           var newlat = position.lat();
           var newlng = position.lng();
+          obsLat = newlat;
+          obsLng = newlng;
           setSettingsNewObserverPos(newlat, newlng);
 
          // and naturally try to draw the line to target again
@@ -1039,7 +1171,8 @@ function drawRoute(){
 
          }
     	var points = [];
-        var markers = json.markers, nMarkers = markers.length; 
+        var markers = json.markers;
+        nMarkers = markers.length; 
        
         for (var i = 0; i < nMarkers; i++) {
           // obtain the attributes of each marker
@@ -1356,21 +1489,6 @@ $(".row input").each(function(index){
 
 
 
-/*
- var mapNaviControl2 = new GSmallMapControl();
-      var topRight2 = new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(1,1));
-      historymap.addControl(mapNaviControl2, topRight2); // new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(1,1))
-      historymap.removeControl(mapNaviControl);
-      var bounds2 = new GLatLngBounds(); // needed by drawcircle()
-      // reverse lat/long to address
-      var geocoder2 = new GClientGeocoder(); 
- */
-
-
-
-
-
-
       // ====== set up marker mouseover tooltip div ======
       var tooltip = document.createElement("div");
       document.getElementById("map").appendChild(tooltip);
@@ -1409,6 +1527,8 @@ $(".row input").each(function(index){
         var markers = jsonobs.markers, nMarkers = markers.length;  
         var config = jsonobs.config;
         var rad = config[0].alertrad;
+        updatefreq = config[0].updatefreq;
+        //alert(updatefreq);
         alertRad = rad;
         $("#user-settings-alarm-meters").val(rad+" km");
         for (var i = 0; i < nMarkers; i++) {
@@ -1423,6 +1543,8 @@ $(".row input").each(function(index){
           // put the point to global var observerPoint for later use on 
           // figuring out the distance of objects to observer.
           observerPoint = point;
+          obsLat = lat;
+          obsLng = lng;
           setSettingsNewObserverPos(lat,lng);
           // create the marker
           var marker = createObserverMarker(lat,lng,label,html);

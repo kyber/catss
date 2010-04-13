@@ -1,0 +1,126 @@
+21:52 < kyb3R> mutta pitää ensin tosin tehdä tuo sinne RoR:iin 
+21:52 < kyb3R> edes pohja
+21:52 < kyb3R> ilman mitään muuta 
+21:52 < kyb3R> ja niitä testejä sitten ruveta kirjottaan
+21:53 < kyb3R> siinähän sitä on hommaa jo muutamaks kuukaudeks
+21:53 < kyb3R> afk
+22:00 < kyb3R> öö
+22:00 < kyb3R> ET > EET tz, onko ero 7 tuntia, vai miten se meni?
+22:00 < kyb3R> siis US/ET
+22:01 < kyb3R> taitaa olla 
+22:01 < kyb3R> nyt afk
+22:16 -!- kyber [~kyber@sergimon.tontut.fi] has joined #5W
+22:16 < kyber> tesmi
+22:16 < kyber> ja puis
+22:16 -!- kyber [~kyber@sergimon.tontut.fi] has quit [Client Quit]
+22:19 < sergimon> =D
+22:21 < kyb3R> http://wiki.archlinux.org/index.php/RubyOnRails
+22:22 < kyb3R> hetko, siis Capistrano?
+22:22 < kyb3R> nginx?
+22:22 < kyb3R> unicorn
+22:22 < kyb3R> omalle koneelle Capistrano kait
+22:36 < ion> Elämä on kovaa. 
+             http://www.aamulehti.fi/uutiset/ulkomaat/175535.shtml
+22:37 < ion> Tuossa jotain capistranosta. 
+             http://railscasts.com/episodes/133-capistrano-tasks
+22:37 < kyb3R> ok, kiitos
+22:37 < kyb3R> meillä on nyt se tilanne että kone missä pyörii onkin arch linux
+22:38 < kyb3R> ettei elämä olisi liian yksinkertaista
+22:38 < kyb3R> sinne on tuupattu tuo nginx
+22:38 < kyb3R> mutta ei tätä tänään jaksa
+22:40 < ion> Tuo capistrano siis tekee uuden koodiversion deploymentin 
+             helpoksi. Yksi komento vain ja projektiin tehty 
+             capistrano-skripti hoitaa homman. Se myös säilyttää muutaman 
+             vanhemman version palvelimella helppoa rollbackia varten.
+22:42 < kyb3R> okei
+22:44 < ion> Se tuuppaa määrittelemällämme tavalla uusimman koodiversion 
+             palvelimelle timestampin sisältävään hakemistoon, ajaa 
+             tietokantamigraatiot ja muut tarvittavat jutut, muuttaa symlinkin 
+             viittaamaan äsken luotuun hakemistoon ja käskee palvelinta 
+             restarttaamaan.
+22:44 < ion> timestampin nimessään sisältävään hakemistoon
+
+
+
+
+
+22:23 <kyb3R> okei eli pitää asentaa: pacman -S nginx
+22:23 <kyb3R> jos ei ole ko
+22:23 <kyb3R> s/ko/jo/
+22:23 <kyb3R> daemon, jonkun tyyppinen
+22:24 <sergimon> tottelen
+22:24 <kyb3R> hahaha
+22:24 <kyb3R> siis kevyempi kuin apache
+22:24 <sergimon> done
+22:25 <kyb3R> en tiedä mikä homma on sitten laittaa pyörimään apachen päällä
+22:25 <sergimon> jaahas =D
+22:25 <kyb3R> mutta uskon kun ion sanoo, että tuolla kannattaa tehdä
+22:25 <sergimon> katotaas
+22:25 <sergimon> http://wiki.archlinux.org/index.php/NginX
+22:25 <sergimon> löytyy kohtuu hyviä ohjeita aina tälle
+22:25 <kyb3R> samalla sivulla :)
+22:25 <sergimon> =)
+22:25 <sergimon> dodi katotaas
+22:26 <kyb3R> ei siellä oo ku perinteiset miten saan PHP:en :)
+22:26 <sergimon> näköjää =)
+22:26 <kyb3R> okei ja vähän tuunausta kerneliin liittyen että saa nopeutta
+22:26 <sergimon> --> kone paskana
+22:26 <sergimon> =D
+22:28 <kyb3R> minkäs muun distron kanssa tätä voi rinnastaa
+22:28 <kyb3R> ?
+22:28 <sergimon> ei kait minkää =)
+22:29 <sergimon> tämä on kiva distro kun on ihan tyhjä ku lähtee liikkeelle
+22:29 <kyb3R> ai
+22:29 <kyb3R> ok
+22:29 <sergimon> ei oo käytännössä mittää
+22:29 <kyb3R> nice
+22:29 <sergimon> ainaki mysli tarvitaan
+22:29 <sergimon> kannan nimi?
+22:29 <kyb3R> ööööö
+22:30 <kyb3R> ei siis ei toi :)
+22:30 <sergimon> what =D
+22:30 <kyb3R> catss
+22:30 <kyb3R> tietty
+22:30 <sergimon> jaanii =D
+22:30 <sergimon> kesti älytä
+22:30 <kyb3R> :)
+22:30 <sergimon> lisään catsin baseen
+22:30 <kyb3R> mikäs tuo Unicorn on mistä ion höpäjää?
+22:31 <kyb3R> http://blog.steveklabnik.com/?tag=quicktip
+22:31 <kyb3R> "So, I've started using Unicorn instead of Passenger lately."
+22:32 <kyb3R> okei siis sillä tehdään deploy
+22:33 <sergimon> db: catss pw: jduaq123FsuwisKd8
+22:33 <kyb3R> just, pitää pistää talteen
+22:33 <sergimon> sormet generoi passun =)
+
+
+Global setup:
+
+ Download and install Git
+  git config --global user.name "Your Name"
+  git config --global user.email jm60697@gmail.com
+        
+Next steps:
+
+  mkdir catss
+  cd catss
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:kyber/catss.git
+  git push origin master
+      
+Existing Git Repo?
+
+  cd existing_git_repo
+  git remote add origin git@github.com:kyber/catss.git
+  git push origin master
+      
+Importing a Subversion Repo?
+
+  Click here
+      
+When you're done:
+
+  Continue
