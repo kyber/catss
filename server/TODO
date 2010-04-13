@@ -4,10 +4,6 @@ Formaatti:
 [yyyy-mm-dd]      asia  
 -----------------------------------------------------------------------------------------------
 [2010-04-12]
-Lisää kartan päivitysprosessiin että piirtää kaikki siinä 
-olleet objektit.
-
-[2010-04-12]
 Korjaa päällekkäisten objektien välisten viivojen uudelleenpiirto 
 kun zoomaa...
 
