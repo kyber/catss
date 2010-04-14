@@ -9,7 +9,7 @@
 "config": 
     [ {
       "alertrad":0.12, 
-      "updatefreq":30, 
+      "updatefreq":15, 
       "trgimei":0123456789, 
       "homelat":61.51131, 
       "homelng":23.60474

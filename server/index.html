@@ -156,7 +156,16 @@ $(document).ready(function() {
 
 <script>
 $(document).ready(function() {
-    $("#historyslider").slider();
+    $("#historyslider").slider( { animate: true } );
+    $("#historyslider").slider( "option", "max", 7 );
+    $("#historyslider").slider({
+        'slide': function(event, ui) { 
+         var cur = ui.value;
+         $("#sliderval").val(cur);
+        
+        }
+    });
+
   });
 
 </script>
@@ -222,9 +231,9 @@ $(document).ready(function() {
 <li><a class="first last" href="#">Toiwo-kissa</a></li>
 </ul>
 
-<h2>Yksityiset <img src="images/private.png" border="0"/></h2>
+<h2>Yksityiset <img class="navi-private-icon" src="images/private.png" border="0"/></h2>
 <ul>
-<li><a class="first" href="#">Jaana-vaimo</a></li>
+<li><a class="first" href="#">Jaana-vaimo<div class="off-line-div"></div></a></li>
 <li><a href="#" class="selected last">Wille-poika</a></li>
 </ul>
 
@@ -235,9 +244,9 @@ $(document).ready(function() {
 
 <h3>Karttamerkit</h3>
 <ul>
-<li class="first"><img src="images/iconObs.png" border="0"/>Oma sijainti</li>
-<li class="middle"><img src="images/irconTrg.png" border="0"/>Kohde, viimeisin paikkka</li>
-<li class="last"><img src="images/iconTrgOld.png" border="0"/>Kohde, aikaisemmat paikat</li>
+<li class="first">Oma sijainti<div class="icon-observer"></div></li>
+<li class="middle">Kohde, viimeisin paikkka<div class="icon-object-last"></div></li>
+<li class="last">Kohde, aikaisemmat paikat<div class="icon-object-old"></div></li>
 </ul>
 
 <h3>Tietoja</h3>
@@ -258,12 +267,19 @@ $(document).ready(function() {
     <ul style="height:25px;border:none;background:none;min-height:25px;padding:0;">
       <li style="width:250px;margin-left:-200px;"><a href="#tabs-1">Sijainti</a></li>
       <li style="width:300px;"><a href="#tabs-2">Laitteiden asetukset</a></li>
-      <li style="width:213px;"><a href="#tabs-3">Historia</a></li>
+      <li style="width:213px;"><a href="#tabs-3">Laitteiden historia</a></li>
     </ul>
     <div id="tabs-1" style="background:none;width:100%;">
       <div id="detailsMap" style="float:left;margin-left:-200px;padding-left:0px;height:400px;padding-bottom:10px;background:none;"><br/>
-	<span id="sijainti-kohde">Wille-poika<img class="private-icon" src="images/private.png" border="0"/></span><br/>
-	<span id="timeNow" style="font-size:0.7em;padding-top:10px;padding-left:5px;"></span>
+	<span id="sijainti-kohde">Wille-poika<img class="private-icon" src="images/private.png" border="0"/> <!-- <img class="offline-icon" src="images/off-line.png" border="0"/> --></span><br/>
+        <!-- ### POWER INDICATOR ### -->
+        <div id="powerindicator"> 
+	  <div id="power-level">12%</div>
+          <div id="power-left">&nbsp;</div>
+	  <div id="power-middle" class="high" style="width:42px;">&nbsp;</div>
+          <div id="power-right"></div>
+        </div>
+	<span id="timeNow" style="font-size:0.7em;padding-top:10px;padding-left:5px;">yyyy-mm-dd, hh:mm:ss</span>
       </br><br/>
       <div class="item-basic">
 	<span class="item-title">Koordinaatit:</span> 
@@ -444,8 +460,40 @@ Lähtöpaikan koordinaatit (lat/long):
   </div>
 </div>
 <div id="tabs-3" style="text-indent:none;border:none;">
-  <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
-    <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span></br><br/>
+  <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:780px;border:dotted 0px #ddd;float:left;">
+    <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span>
+
+<select name="nimi" class="left-input" style="border:solid 1px #fff;margin-left:50px;font-size:0.8em;">
+<option value="0">Wille-poika</option>
+<option value="1">Jaana-vaimo</option>
+<option value="3">Toiwo-kissa</option>
+
+</select>
+<select name="aika" style="border:solid 1px #fff;margin-left:0px;font-size:0.8em;">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="18">18</option>
+</select>
+<select name="yksikko" style="border:solid 1px #fff;margin-left:0px;font-size:0.8em;">
+<option value="1">tuntia</option>
+<option value="3">vuorokautta</option>
+<option value="4">kuukautta</option>
+</select>
+<input type="button" value="näytä" style="border:solid 1px #fff;margin-left:0px;font-size:0.8em;"/>
+
+<input type="button" value="lisää..." class="right-input" style="border:solid 1px #fff;margin-left:20px;font-size:0.8em;"/>
+</br><br/>
+<input type="text" id="sliderval" value="1"/>
 <div id="historyslider"></div>
 <div id="historymap"></div>
 
@@ -488,6 +536,7 @@ Lähtöpaikan koordinaatit (lat/long):
     if (GBrowserIsCompatible()) {
       var firstUpdate = 'true';
       var observerPoint = "";
+      var trgName;
       var trgPoint = "";
       var side_bar_html = "";
       var gmarkers = [];
@@ -730,8 +779,43 @@ function setOtherEventsTime(){
         success: function(data){
            json = eval('(' + data + ');');
            newdata = json.markers;
+           var powerlevel = json.config[0].power;
+           var kerroin = 57/100;
+           var l = powerlevel*kerroin;
+           var len = l.toFixed(0)+"px";
+           $("#power-middle").removeClass(); 
+           $("#power-middle").css('width',len);
+           if(powerlevel > 20){
+              $("#power-level").text(powerlevel+"%");
+              $("#power-middle").addClass("high");
+           }else{
+              $("#power-level").text(powerlevel+"%");
+              $("#power-middle").addClass("low");
+           }
+           var len =  newdata.length;
+           // set trgPoint. Must be set to get connection line from observer to target object to work properly
+           // The previous point could have moved or something...
+           if(len > 0){
+            
+             var hasLabel = function(trgLabel) {
+	       var i = null;
+	       for (i = 0; len > i; i += 1) {
+                var marker_in = newdata[i];
+                alert(marker_in);
+		 if (marker_in.label === trgLabel) {
+			alert('found:' + trgLabel);return true;
+		 }
+	       }
+               // not found so...create it from last one
+	       return false;
+             };
+
+             //var marker_in = newdata[i];
+             //var lat = marker_in.lat;
+             //var lng = marker_in.lng;
+             
+           }
            
-//map.clearOverlays();
         }    
       });
      
@@ -757,7 +841,7 @@ function updateGetObserverData(){
         cache: false,
         success: function(data){
            observer = eval('(' + data + ');');
-           updatefreq = config[0].updatefreq;
+           updatefreq = observer.config[0].updatefreq;
         }    
       });
      
@@ -945,7 +1029,7 @@ function reDrawMarkers(){
           });
         gmarkers[i] = marker;
         htmls[i] = html;
-        side_bar_html += '<a href="javascript:myclick(' + i + ',' + lat + ', ' + lng + ')" onmouseover="mymouseover(' + i + ',' + lat + ', ' + lng + ')" onmouseout="mymouseout()">' + name + '<\/a><br>';
+        side_bar_html += '<a href="javascript:myclick(' + i + ',' + lat + ', ' + lng + ', ' + name + ')" onmouseover="mymouseover(' + i + ',' + lat + ', ' + lng + ')" onmouseout="mymouseout()">' + name + '<\/a><br>';
         
         i++;
         return marker;
@@ -989,6 +1073,7 @@ function reDrawMarkers(){
 /* ###### CREATE OBSERVER MARKER ############ */
       // A function to create the observer marker and set up the event window
       function createObserverMarker(lat,lng,name,html) {
+       
        var point = new GLatLng(lat,lng); 
          var marker = (new GMarker(point,{draggable:true, icon:sprite(2)}));
         observerPoint = point;
@@ -1039,10 +1124,11 @@ function reDrawMarkers(){
         return marker;
       }
  
-      function myclick(i, lat, lng) {
+      function myclick(i, lat, lng, name) {
         var point = new GLatLng(lat,lng); 
         var item_addr;
         trgPoint = point;
+        trgName = name;
         //alert(point);
          // get and put the human readable address to UI object id = item-address
           if (point) {

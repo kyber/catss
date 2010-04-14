@@ -176,7 +176,7 @@ background: #288db1; color:#fff; width:90px; height:34px; display:block;
 	margin:0px 0 0 8px; font: normal 24px/34px Arial, Helvetica, sans-serif; padding: 0 0 0 25px;
 text-shadow: #000 2px 2px 3px;*/
 	background:url(images/yksityiset-v.png) no-repeat 0 2px; color:#fff; height:34px; display:block;  
-	color:#fff; width:144px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
+	color:#fff; width:152px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
 	font: normal 24px/24px Arial, Helvetica, sans-serif; 
 	text-shadow: #000 2px 2px 3px;
 	
@@ -255,6 +255,31 @@ font:12px/24px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none
 font:12px/24px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none; background-color:#626262; display:block;
 	padding:9px;
 
+}
+
+div.icon-observer{
+background:url(images/iconObs.png) no-repeat;
+background-position: right;
+margin-right:-6px;
+float:right;
+width:30px;
+height:32px;
+}
+div.icon-object-last{
+background:url(images/irconTrg.png) no-repeat;
+background-position: right;
+margin-right:-6px;
+float:right;
+width:30px;
+height:32px;
+}
+div.icon-object-old{
+background:url(images/iconTrgOld.png) no-repeat;
+background-position: right;
+margin-right:-6px;
+float:right;
+width:30px;
+height:32px;
 }
 
 
@@ -1098,6 +1123,30 @@ margin-left:10px;
 padding-left:20px;
 }
 
+img.offline-icon{
+margin-left:5px;
+}
+
+img.navi-private-icon {
+float:right;
+}
+
+
+
+.offline {
+background-image:url(images/off-line.png);
+background-repeat:no-repeat;
+background-position: right;
+}
+
+.off-line-div {
+background-image:url(images/off-line.png);
+background-repeat:no-repeat;
+background-position: right;
+float:right;
+width:30px;
+height:20px;
+}
 
 /* #### USER CONFIG #### */
 
@@ -1112,3 +1161,63 @@ padding:10px;
 */
 }
 
+.left-input{
+   -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-left: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-left: 5px;
+    border-bottom-left-radius: 5px;
+}
+.right-input{
+   -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-right: 5px;
+    border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-right: 5px;
+    border-bottom-right-radius: 5px;
+}
+#powerindicator{
+background-image:url(images/power.png);
+background-repeat:no-repeat;
+background-position: left;
+width:75px;
+height:34px;
+float:left;
+margin-top:4px;
+margin-left:3px;
+border: solid 0px #fff;
+}
+#power-level{
+position:relative;
+top:6px;
+left:20px;
+z-index:999;
+}
+#power-left {
+position:relative;
+top:-16px;
+float:left;
+width:8px;
+}
+#power-middle {
+position:relative;
+top:-20px;
+float:left;
+height:30px;
+}
+.low {
+background-image:url(images/level-low.png);
+background-repeat:repeat-x;
+background-position: left;
+}
+.high {
+background-image:url(images/level-high.png);
+background-repeat:repeat-x;
+background-position: left;
+}
+#power-right {
+position:relative;
+top:-16px;
+float:left;
+}

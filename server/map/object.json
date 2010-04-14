@@ -1,7 +1,7 @@
 {"markers": 
    [
-     {"lat":61.52659, 
-      "lng":23.61962, 
+     {"lat":61.51659, 
+      "lng":23.61012, 
       "html":"<span class='item'>Wille-poika</span>",
       "label":"22:55:03",
       "type":"private"},
@@ -25,6 +25,12 @@
       "html":"<span class='item'>Wille-poika</span>",
       "label":"22:42:19",
       "type":"public"}
-   ]
+   ],
+
+"config":
+   [ {
+      "power":64,
+      "imei":123456789
+    } ]
 
 }
