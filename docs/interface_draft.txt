@@ -1,0 +1,68 @@
+GSM - Server
+---------------
+POST
+"data": 
+{
+  "device": 
+  [
+    { "type": "tracker",              "value": 1.4 },
+    { "type": "addr", "unit": "imei", "value": 1234567 },
+    { "type": "hwRel",                "value": 1.8 }
+  ],
+  
+
+  "meas": 
+  [
+    { "type": "location", "unit": "wgs84",      "value": "1234.8473,4321.3747", "seq": 3  },
+    { "type": "altitude", "unit": "m",          "value": 160,                   "seq": 7  },
+    { "type": "speed",    "unit": "kmh",        "value": 80,                    "seq": 4  },
+    { "type": "bearing",  "unit": "degree",     "value": 120,                   "seq": 42 },
+    { "type": "battery",  "unit": "voltage",    "value": 4.0,                   "seq": 1  },
+    { "type": "battery",  "unit": "percentage", "value": 60,                    "seq": 90 },
+    { ... }
+  ],
+
+
+  "intervals":
+  [
+    { "type": "transmission", "unit": "seconds", "value": 300 },
+    { "type": "location",     "unit": "seconds", "value": 120 },
+    { ... }
+  ],
+  
+
+  "units":
+  [
+    { "type": "location", "unit": "utm32n" },
+    { "type": "speed",    "unit": "mph" },
+    { ... }
+  ],
+
+
+  "errors": [ 400, 627 ]
+  // OR
+  [
+    { "type": "location", "value": 400 },
+    { "type": "runtime", "value": 600 },
+  ]
+  
+}
+
+----
+
+"res":
+{
+  "msgId": 1234,
+  "status": [123, 500] // Errors?
+}
+
+
+Server - GSM
+---------------
+
+"cmd":
+{
+  "msgId": 1234,
+  ...
+}
+
