@@ -1,0 +1,37 @@
+#/bin/bash
+
+var0=0
+LIMIT=1
+ARRAY=( 'el 1' 'el 2' 'el 3' 'el 4' 'el 5' 'el 6' )
+# get number of elements in the array
+ELEMENTS=${#ARRAY[@]}
+
+
+let count=0
+
+while [ "$var0" -lt "$LIMIT" ]
+
+#                          
+# Spaces, because these are "test-brackets" . . .
+do
+  # echo each element in array 
+  # for loop
+    for (( i=0;i<$ELEMENTS;i++)); do
+      echo ${ARRAY[${i}]}
+      sleep 1;
+    done 
+    ((count++))
+    echo "---";
+     # move first arr item to last
+      array2=( "${ARRAY[@]}" )
+      first=${ARRAY[0]};
+      echo "-first: ";
+      echo $first;
+      unset array2[0];
+      array2[$ELEMENTS+1]=$first;
+      ARRAY=$array2;
+      ELEMENTS=${#ARRAY[@]}
+
+done                      # Various other methods also work.
+
+

@@ -40,9 +40,9 @@ BDCCArrowedPolyline.prototype.initialize = function(map) {
     this.lstnMoveEnd = GEvent.addListener(map,"zoomend",function(){
         if(document.getElementById('cbShowRoute').checked){
 	    //map.removeOverlay(polyroute);
-            this.remove();
-	    //rdrw ();
-            this.recalc();
+            //this.remove();
+	    rdrw ();
+            //recalc();
 	}
 
     });

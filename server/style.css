@@ -1121,6 +1121,7 @@ margin-left:5px;
 img.private-icon{
 margin-left:10px;
 padding-left:20px;
+
 }
 
 img.offline-icon{
@@ -1220,4 +1221,25 @@ background-position: left;
 position:relative;
 top:-16px;
 float:left;
+}
+
+#is-offline{
+background-image:url(images/off-line-big.png);
+background-repeat:no-repeat;
+background-position: left;
+width:75px;
+height:34px;
+float:left;
+margin-top:4px;
+margin-left:3px;
+border: solid 0px #fff;
+display:none;
+}
+
+#event-log {
+float:right;
+}
+
+#event-log span {
+font-size:0.8em;
 }

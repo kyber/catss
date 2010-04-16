@@ -100,6 +100,8 @@ $(document).ready(function() {
  // alert('arrow next');
   $('#c-arrow').rotateRight(0);
   $('a[rel*=facebox]').facebox(); 
+  $('input[rel*=facebox]').facebox(); 
+  $("#isPrivate").hide();
   });
 </script>
 
@@ -246,7 +248,7 @@ $(document).ready(function() {
 <ul>
 <li class="first">Oma sijainti<div class="icon-observer"></div></li>
 <li class="middle">Kohde, viimeisin paikkka<div class="icon-object-last"></div></li>
-<li class="last">Kohde, aikaisemmat paikat<div class="icon-object-old"></div></li>
+<li class="last">Kohde, paikat<div class="icon-object-old"></div></li>
 </ul>
 
 <h3>Tietoja</h3>
@@ -271,14 +273,15 @@ $(document).ready(function() {
     </ul>
     <div id="tabs-1" style="background:none;width:100%;">
       <div id="detailsMap" style="float:left;margin-left:-200px;padding-left:0px;height:400px;padding-bottom:10px;background:none;"><br/>
-	<span id="sijainti-kohde">Wille-poika<img class="private-icon" src="images/private.png" border="0"/> <!-- <img class="offline-icon" src="images/off-line.png" border="0"/> --></span><br/>
+	<span id="sijainti-kohde">Wille-poika</span><span><img id="isPrivate" class="private-icon" src="images/private.png" border="0"/></span><br/>
         <!-- ### POWER INDICATOR ### -->
         <div id="powerindicator"> 
-	  <div id="power-level">12%</div>
+	  <div id="power-level">?? %</div>
           <div id="power-left">&nbsp;</div>
-	  <div id="power-middle" class="high" style="width:42px;">&nbsp;</div>
+	  <div id="power-middle" class="high" style="width:0px;">&nbsp;</div>
           <div id="power-right"></div>
         </div>
+        <div id="is-offline"></div>
 	<span id="timeNow" style="font-size:0.7em;padding-top:10px;padding-left:5px;">yyyy-mm-dd, hh:mm:ss</span>
       </br><br/>
       <div class="item-basic">
@@ -326,6 +329,7 @@ $(document).ready(function() {
     <div id="control_and_map" class="control_and_map">
       <div id="control"><input type="text" id="item-address" style="width:280px;" value="address..."/>
 	<a href="#map_options" rel="facebox" class="first last">Kartan asetukset...</a>
+        <!-- <span id="tallenna"><input href="#map_options" rel="facebox" value="Kartan asetukset..."></input></span> -->
 	<div id="map_options" style="display:none;">
 	  <h3>Kartan asetukset</h3>
           <div class="row">
@@ -351,7 +355,7 @@ $(document).ready(function() {
 </div>
    <!-- ####### map event table ######### -->
    <div id="eventTable">
-  <h3>Muut tapahtumat/objektit<span id="otherEventsTime"></span></h3>
+  <h3>Muut tapahtumat/objektit<span id="otherEventsTime"></span><span id="event-log"></span></h3>
      <table id="sortable" cellspacing="1" class="tablesorter">             
        <thead>
          <tr> 
@@ -463,7 +467,7 @@ Lähtöpaikan koordinaatit (lat/long):
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:780px;border:dotted 0px #ddd;float:left;">
     <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span>
 
-<select name="nimi" class="left-input" style="border:solid 1px #fff;margin-left:50px;font-size:0.8em;">
+<select name="nimi" id="history-name-select" class="left-input" style="border:solid 1px #fff;margin-left:50px;font-size:0.8em;">
 <option value="0">Wille-poika</option>
 <option value="1">Jaana-vaimo</option>
 <option value="3">Toiwo-kissa</option>
@@ -557,6 +561,8 @@ Lähtöpaikan koordinaatit (lat/long):
       var obsLat;
       var obsLng;
       var updatefreq = 10;
+      var trgname; // name of the trg object from object.json
+      var trgpublicity;
 
       var polyroute;
       var pointCount;
@@ -652,41 +658,38 @@ if(firstUpdate == 'false'){
             alert(error);
          }
         }
- // redraw alert circle if checked
-  if(document.getElementById('cbShowRadius').checked){
-   document.getElementById('cbShowRadius').parentNode.className='row';
-    try {
-       drawCircle(observerPoint, alertRad, 60);
+        // redraw alert circle if checked
+        if(document.getElementById('cbShowRadius').checked){
+         document.getElementById('cbShowRadius').parentNode.className='row';
+         try {
+          drawCircle(observerPoint, alertRad, 60);
+          }
+            catch (error)
+          {
+            alert(error);
+         }
+
         }
-         catch (error)
-        {
+         // redraw observer ALWAYS   
+        try {
+         var marker = createObserverMarker(obsLat,obsLng,'oma sijainti','oma sijainti');
+         map.addOverlay(marker);
+         }catch(error)
+         {
           alert(error);
         }
 
-   }
- // redraw observer ALWAYS   
- try {
-   
-   var marker = createObserverMarker(obsLat,obsLng,'oma sijainti','oma sijainti');
-   map.addOverlay(marker);
-    }catch(error)
-      {
-     alert(error);
- }
-
- // redraw connection to latest object if checked
-  if(document.getElementById('cbDrawConnection').checked){
-
-    try {
-       // 
-       drawLineBetween(observerPoint, trgPoint);
-        }
-         catch (error)
-        {
+       // redraw connection to latest object if checked
+       if(document.getElementById('cbDrawConnection').checked){
+       try {
+          drawLineBetween(observerPoint, trgPoint);
+         }
+          catch (error)
+         {
           alert(error);
-        } 
+       } 
    
-  }
+    }
 
     var newhtml ="";
     }catch(error){
@@ -704,6 +707,7 @@ if(firstUpdate == 'false'){
        updateGetEventMarkers();
        updateGetObjectMarkers();
        updateGetObserverData();
+       putEvent('<span>päivitettiin tapahtumien tiedot...</span>');
      }catch(error){
 
     }
@@ -750,6 +754,32 @@ function setTime(){
     $("#timeNow").text(timeString); 
  }
 
+function putEvent(html){
+      $("#event-log").fadeIn(1500);
+      $("#event-log").html(html); 
+      $("#event-log").delay(3*1000).fadeOut("slow");
+      
+
+}
+
+function setHistoryObjectOptions(){
+       var len = eventdata.length;  
+       var options = "";
+       if(len > 0){
+         for (var i = 0; i < len; i++) {
+          var markin = eventdata[i];
+          var name2 = markin.html;
+          var imei = markin.imei;
+          options += "<option value='"+imei+"'>"+name2+"</option>";
+          }
+      // alert(options);
+       // clear all options and put new options :) 
+       $('#history-name-select').empty().append(options);
+       }   
+       
+}
+
+
 
 function setOtherEventsTime(){
    var now    = new Date();
@@ -780,29 +810,50 @@ function setOtherEventsTime(){
            json = eval('(' + data + ');');
            newdata = json.markers;
            var powerlevel = json.config[0].power;
-           var kerroin = 57/100;
-           var l = powerlevel*kerroin;
-           var len = l.toFixed(0)+"px";
-           $("#power-middle").removeClass(); 
-           $("#power-middle").css('width',len);
-           if(powerlevel > 20){
+           var status = json.config[0].status; // 0 = offline | 1 = online
+           trgname = json.config[0].name;
+           $("#sijainti-kohde").text(trgname);
+           trgpublicity = parseInt(json.config[0].public); // 0 = private | 1 = public
+           if(trgpublicity == 1){
+            $("#isPrivate").hide();
+           }else{
+            $("#isPrivate").show();
+           }           
+          
+
+           if(status == 0){
+            $("#powerindicator").hide();
+            $("#is-offline").show();
+           }else{
+            $("#powerindicator").show();
+            $("#is-offline").hide();
+            var kerroin = 57/100;
+            var l = powerlevel*kerroin;
+            var len = l.toFixed(0)+"px";
+            $("#power-middle").removeClass(); 
+            $("#power-middle").css('width',len);
+            
+            if(powerlevel > 20){
               $("#power-level").text(powerlevel+"%");
               $("#power-middle").addClass("high");
-           }else{
+            }else{
               $("#power-level").text(powerlevel+"%");
               $("#power-middle").addClass("low");
+            }
+
            }
-           var len =  newdata.length;
+           var len2 = newdata.length;
+           // ################ FIXME FIXME FIXME ###########################
            // set trgPoint. Must be set to get connection line from observer to target object to work properly
            // The previous point could have moved or something...
-           if(len > 0){
+           if(len2 > 0){
             
              var hasLabel = function(trgLabel) {
 	       var i = null;
-	       for (i = 0; len > i; i += 1) {
+	       for (i = 0; len2 > i; i += 1) {
                 var marker_in = newdata[i];
                 alert(marker_in);
-		 if (marker_in.label === trgLabel) {
+		 if (marker_in.label == trgLabel) {
 			alert('found:' + trgLabel);return true;
 		 }
 	       }
@@ -810,13 +861,14 @@ function setOtherEventsTime(){
 	       return false;
              };
 
-             //var marker_in = newdata[i];
+             //var marker_in = newdata[len];
              //var lat = marker_in.lat;
              //var lng = marker_in.lng;
              
            }
            
         }    
+      //putEvent('<span>päivitettiin seurattavan objektin tiedot...</span>');
       });
      
  }
@@ -829,6 +881,7 @@ function updateGetEventMarkers(){
         success: function(data){
            events = eval('(' + data + ');');
            eventdata = events.markers;
+           setHistoryObjectOptions();
         }    
       });
      
@@ -846,6 +899,8 @@ function updateGetObserverData(){
       });
      
  }
+
+
 
 
 /* ###### REDRAW ROUTE ############ */
@@ -914,6 +969,7 @@ function reDrawMarkers(){
         
         var navi_content = "";
         document.getElementById("side_bar_items").innerHTML = side_bar_html;
+        putEvent('<span>päivitettiin karttaobjektit...</span>');
 
 
 
@@ -1029,7 +1085,7 @@ function reDrawMarkers(){
           });
         gmarkers[i] = marker;
         htmls[i] = html;
-        side_bar_html += '<a href="javascript:myclick(' + i + ',' + lat + ', ' + lng + ', ' + name + ')" onmouseover="mymouseover(' + i + ',' + lat + ', ' + lng + ')" onmouseout="mymouseout()">' + name + '<\/a><br>';
+        side_bar_html += '<a href="javascript:myclick(' + i + ',' + lat + ', ' + lng + ')" onmouseover="mymouseover(' + i + ',' + lat + ', ' + lng + ')" onmouseout="mymouseout()">' + name + '<\/a><br>';
         
         i++;
         return marker;
@@ -1124,11 +1180,11 @@ function reDrawMarkers(){
         return marker;
       }
  
-      function myclick(i, lat, lng, name) {
+      function myclick(i, lat, lng) {
         var point = new GLatLng(lat,lng); 
         var item_addr;
         trgPoint = point;
-        trgName = name;
+        //trgName = name;
         //alert(point);
          // get and put the human readable address to UI object id = item-address
           if (point) {
@@ -1548,11 +1604,13 @@ try {
 }
 
 function initConfig(){
+// clear all cached selections, at least FF remembers settings otherwise...
 $(".row input").each(function(index){
    $(this).removeAttr("checked");
  });
 
 //$("#cbShowRadius").attr("checked", "false");
+
 
 }
 
@@ -1585,7 +1643,45 @@ $(".row input").each(function(index){
       
       GDownloadUrl("map/object.json", function (data) {
         json = eval( '(' + data + ')' );
-        var markers = json.markers, nMarkers = markers.length;  
+        var markers = json.markers;
+        var nMarkers = markers.length; 
+        markers.reverse(); 
+
+        var powerlevel = json.config[0].power;
+        var status = json.config[0].status; // 0 = offline | 1 = online
+        trgname = json.config[0].name;
+        $("#sijainti-kohde").text(trgname);
+        trgpublicity = json.config[0].public; // 0 = private | 1 = public
+           if(trgpublicity == 1){
+            $("#isPrivate").hide();
+           }else{
+            $("#isPrivate").show();
+           }
+
+           if(status == 0){
+            $("#powerindicator").hide();
+            $("#is-offline").show();
+           }else{
+            $("#powerindicator").show();
+            $("#is-offline").hide();
+            var kerroin = 57/100;
+            var l = powerlevel*kerroin;
+            var len = l.toFixed(0)+"px";
+            $("#power-middle").removeClass(); 
+            $("#power-middle").css('width',len);
+            
+            if(powerlevel > 20){
+              $("#power-level").text(powerlevel+"%");
+              $("#power-middle").addClass("high");
+            }else{
+              $("#power-level").text(powerlevel+"%");
+              $("#power-middle").addClass("low");
+            }
+
+           }
+
+
+
         //markers.reverse(); 
         for (var i = 0; i < nMarkers; i++) {
           // obtain the attributes of each marker
@@ -1604,6 +1700,7 @@ $(".row input").each(function(index){
         i = 0;
         var navi_content = document.getElementById("side_bar_items").innerHTML;
         document.getElementById("side_bar_items").innerHTML = navi_content.concat(side_bar_html);
+        setTime();
       });
 
       /* ###### GET THE OBSERVER DATA FORM JSON FILE ############ */
@@ -1642,12 +1739,22 @@ $(".row input").each(function(index){
           var angle = drawArrow(trgPoint);
           //alert(angle);
           rotateImg(angle);
-         
+
+/*
+           try{
+             var distis = calculateDistance(trgPoint);
+             document.getElementById('item-distance').value = distis;
+             }catch(error){
+
+           }
+
+  */       
         }
         var navi_content = document.getElementById("obs_pos").innerHTML;
         document.getElementById("obs_pos").innerHTML = navi_content.concat(observer_bar_html);
       });
 
+    
 
     initConfig();
    
