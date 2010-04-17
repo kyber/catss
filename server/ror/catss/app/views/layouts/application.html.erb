@@ -3,12 +3,215 @@
 <head>
   <title><%= controller.action_name %> &ndash; <%= controller.controller_name %> &ndash; Catss</title>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' %>
-  <%= javascript_include_tag 'rails', :cache => true %>
+  <%= javascript_include_tag 'rails', 'jquery-ui-1.8.custom.min.js', 'jquery.rotate.1-1.js', 'facebox.js', 'BdccArrowedPolyline.js' , 'jquery.tablesorter.js', :cache => true %>
+  <%= stylesheet_link_tag 'jquery-ui-1.8.custom', 'style', 'table' %>
   <%= csrf_meta_tag %>
+
+<!-- MAP STUFF -->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAAwyXJyclH0lUZHl1NSsXBBR-GnEQV2Q1KV0CZ-zB-cw9e0o6BBSsLtv7MMXi3qBcHQ9ey3TPSQSLPw" type="text/javascript"></script>
+
+<script type="text/javascript"> 
+	$(document).ready(function() {
+		$(".topMenuAction").click( function() {
+			if ($("#openCloseIdentifier").is(":hidden")) {
+				$("#slider").animate({ 
+					marginTop: "-135px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="images/open.png" alt="open" />');
+				$("#openCloseIdentifier").show();
+			} else {
+				$("#slider").animate({ 
+					marginTop: "0px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="images/close.png" alt="close" />');
+				$("#openCloseIdentifier").hide();
+			}
+		});  
+	});
+
+
+	$(document).ready(function() {
+		$(".topMenuAction2").click( function() {
+			if ($("#openCloseIdentifier2").is(":hidden")) {
+				$("#topMenuImage2").html('<img  border="0" src="images/min.png" alt="open" />');
+                                $("#headerPan").css({height:"260px"});
+                                $("#headerPan h3").show();
+                                $("#headerPan h2").show();
+                                $("#openCloseIdentifier2").show();
+			} else {
+				$("#topMenuImage2").html('<img border="0" src="images/max.png" alt="close" />');
+                                
+                                $("#headerPan").css({height:"30px"});
+                                $("#headerPan h3").hide();
+                                $("#headerPan h2").hide();
+                                $("#openCloseIdentifier2").hide();
+			}
+		});  
+	});
+
+</script> 
+<script type="text/javascript">
+$(document).ready(function() {
+		$("#FIXMEcbShowRadius").change( function() {
+                   if(!this.checked){
+                     this.checked=true;
+                   }
+                   else{
+                     this.checked=false;
+                   }
+                   toggleAlertCircle();
+		});  
+	});
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+ $('.row').click(function(){ 
+       var $checkbox = $(this).find(':checkbox');
+       $checkbox.attr('checked', !$checkbox.is(':checked'));
+ });
+});
+
+</script>
+<script type="text/javascript">
+  $(function(){
+  
+  // Tabs
+  $('#tabs').tabs();
+ // alert('arrow next');
+  $('#c-arrow').rotateRight(0);
+  $('a[rel*=facebox]').facebox(); 
+  $('input[rel*=facebox]').facebox(); 
+  $("#isPrivate").hide();
+  });
+</script>
+
+
+
+<script type="text/javascript">
+  function FIXMErotateImg(uusikulma) {
+        var vanhakulma = document.getElementById('v-aste');
+        var aste = document.getElementById('aste');
+        vaste = parseInt(vanhakulma.value);
+        asteint = parseInt(uusikulma);
+
+        if(vaste < asteint){
+         uusikulma = asteint-1;
+         $('#c-arrow').rotateRight(1);
+         vanhakulma.value = vaste+1;
+         aste.value = uusikulma;
+         if(vaste != uusikulma){
+          setTimeout("rotateImg("+uusikulma+")", 10);
+         }
+        }
+        else if (vaste > asteint) {
+         uusikulma = asteint+1;
+         $('#c-arrow').rotateLeft(1);
+         vanhakulma.value = vaste-1;
+         aste.value = uusikulma;
+         if(vaste != uusikulma){
+          setTimeout("rotateImg("+uusikulma+")", 10);
+         }
+        }
+        else{
+        vaste = asteint;
+        vanhakulma.value = asteint;
+        uusikulma = asteint;
+       
+        }
+        //alert(vaste+"/"+asteint);
+        if(vaste != asteint){
+         
+        }
+}
+
+  function rotateImg(uusikulma) {
+        vanhakulma = document.getElementById('v-aste');
+        vaste = parseInt(vanhakulma);
+        asteint = parseInt(uusikulma);
+        if(vaste != 0){
+         $('#c-arrow').rotateLeft(parseInt(vanhakulma.value));
+        }
+        $('#c-arrow').rotateRight(asteint);
+        vanhakulma.value = asteint;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+    $("#historyslider").slider( { animate: true } );
+    $("#historyslider").slider( "option", "max", 7 );
+    $("#historyslider").slider({
+        'slide': function(event, ui) { 
+         var cur = ui.value;
+         $("#sliderval").val(cur);
+        
+        }
+    });
+
+  });
+
+</script>
+
+
 </head>
-<body>
+<body onunload="GUnload()">
+<div id="sliderWrap2"> 
+  <div id="openCloseIdentifier2"></div> 
+  <div id="slider2"> 
+    <div id="sliderContent2"></div> 
+    <div id="openCloseWrap2"> 
+      <a href="#" class="topMenuAction2" id="topMenuImage2"> 
+	<img  border="0" src="/images/min.png" alt="maximize mapview" /> 
+      </a> 
+    </div> 
+  </div> 
+</div> 
+
+<div id="sliderWrap"> 
+  <div id="openCloseIdentifier"></div> 
+  <div id="slider"> 
+    <div id="rpx">
+      <a class="rpxnow" onclick="return false;" href="https://catss.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Fcatss.5w.fi%2Frpx.php">tai käytä 3-osapuolen kirjautumista</a>
+    </div>
+    <div id="sliderContent"> 
+      <ul>
+	<li class="first">Tunnus:<span class="fill">&nbsp;</span><input class="login" type="text" name="username"/></li>
+      </ul>
+      <ul>
+	<li class="last">Salasana:<input class="login-btn" type="submit" value="login" onClick="alert('not implemented yet');"/><input class="login" type="password" name="password"/></li>
+      </ul>
+    </div> 
+    <div id="openCloseWrap"> 
+      <a href="#" class="topMenuAction" id="topMenuImage"> 
+	<img src="/images/open.png" alt="open" /> 
+      </a> 
+    </div> 
+  </div> 
+</div> 
+
+<!--header paer start -->
+<div id="headerPan"> <!-- // 260px height -->
+
+
+<div id="titlebar">
+<h1></h1>
+<h2>CATSS </h2><br/><h3>Cat (or other mobile item) Surveillance System</h3>
+</div>
+</div>
+<!--header part end -->
+
 <p class="notice"><%= notice %> </p>
 <%= yield %>
+
+<!--footer start -->
+<div id="footerMain">
+<div id="footer">
+</div>
+</div>
+<!--footer end -->
 </body>
 </html>
 

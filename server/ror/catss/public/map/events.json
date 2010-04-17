@@ -1,0 +1,52 @@
+{
+   "markers":[
+      {
+         "lat":61.52459,
+         "lng":23.61862,
+         "html":"Jaana-vaimo",
+         "label":"22:55:03",
+         "type":"private",
+         "imei":"01"
+      },
+      {
+         "lat":61.52359,
+         "lng":23.65562,
+         "html":"Bussi 26",
+         "label":"23:59:09",
+         "type":"public",
+         "imei":"02"
+      },
+      {
+         "lat":61.52313,
+         "lng":23.63462,
+         "html":"Wille-poika",
+         "label":"22:50:11",
+         "type":"private",
+         "imei":"03"
+      },
+      {
+         "lat":61.52359,
+         "lng":23.65562,
+         "html":"Bussi 21",
+         "label":"22:45:09",
+         "type":"public",
+         "imei":"04"
+      },
+      {
+         "lat":61.51359,
+         "lng":23.60462,
+         "html":"BMW X5",
+         "label":"22:45:09",
+         "type":"public",
+         "imei":"05"
+      },
+      {
+         "lat":61.50359,
+         "lng":23.64462,
+         "html":"Toiwo-kissa",
+         "label":"22:42:19",
+         "type":"public",
+         "imei":"06"
+      }
+   ]
+}

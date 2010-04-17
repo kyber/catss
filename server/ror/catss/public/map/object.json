@@ -1,0 +1,43 @@
+{
+   "markers":[
+      {
+         "lat":61.50059,
+         "lng":23.61012,
+         "html":"<span class='item'>Wille-poika</span>",
+         "label":"22:55:03"
+      },
+      {
+         "lat":61.52313,
+         "lng":23.63462,
+         "html":"<span class='item'>Wille-poika</span>",
+         "label":"22:50:11"
+      },
+      {
+         "lat":61.52359,
+         "lng":23.65562,
+         "html":"<span class='item'>Wille-poika</span>",
+         "label":"22:45:09"
+      },
+      {
+         "lat":61.51359,
+         "lng":23.60462,
+         "html":"<span class='item'>Wille-poika</span>",
+         "label":"22:45:09"
+      },
+      {
+         "lat":61.50359,
+         "lng":23.64462,
+         "html":"<span class='item'>Wille-poika</span>",
+         "label":"22:42:19"
+      }
+   ],
+   "config":[
+      {
+         "power":56,
+         "imei":123456789,
+         "status":1,
+         "name":"Wille-poika",
+         "public":"0"
+      }
+   ]
+}

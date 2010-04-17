@@ -4,6 +4,8 @@
   <tr>
     <th>Name</th>
     <th>Imei</th>
+    <th>Display</th>
+    <th>Tracker</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +15,8 @@
   <tr>
     <td><%= device.name %></td>
     <td><%= device.imei %></td>
+    <td><%= device.display %></td>
+    <td><%= device.tracker %></td>
     <td><%= link_to 'Show', device %></td>
     <td><%= link_to 'Edit', edit_device_path(device) %></td>
     <td><%= link_to 'Destroy', device, :confirm => 'Are you sure?', :method => :delete %></td>

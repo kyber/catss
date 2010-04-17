@@ -14,6 +14,11 @@ ActiveRecord::Schema.define(:version => 20100417075445) do
   create_table "devices", :force => true do |t|
     t.string   "name"
     t.text     "imei"
+    t.float    "tracker"
+    t.text     "display"
+    t.float    "hwrel"
+    t.string   "locationunit"
+    t.string   "speedunit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
