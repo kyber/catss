@@ -1,0 +1,23 @@
+<%= form_for(@event) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :imei %><br />
+    <%= f.text_field :imei %>
+  </div>
+  <div class="field">
+    <%= f.label :coordinates %><br />
+    <%= f.text_field :coordinates %>
+  </div>
+  <div class="field">
+    <%= f.label :altitude %><br />
+    <%= f.text_field :altitude %>
+  </div>
+  <div class="field">
+    <%= f.label :speed %><br />
+    <%= f.text_field :speed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

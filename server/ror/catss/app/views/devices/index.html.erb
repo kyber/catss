@@ -2,9 +2,9 @@
 <h2>Public devices</h2>
 <ul>
 <li class="fill-up"></li>
-<% @devices_pub.each do |device| %>
-    <li><%= link_to device.name, device %></li>
-<% end %>
+ <% @devices_pub.each do |device| %>
+  <li><%= link_to device.name, { :action => 'show', :id => device.id}, :class => 'middle' %></li>
+ <% end %>
 <li class="fill-down"></li>
 </ul>
 </div>

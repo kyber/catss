@@ -1,0 +1,23 @@
+<p>
+  <b>Imei:</b>
+  <%= @event.imei %>
+</p>
+
+<p>
+  <b>Coordinates:</b>
+  <%= @event.coordinates %>
+</p>
+
+<p>
+  <b>Altitude:</b>
+  <%= @event.altitude %>
+</p>
+
+<p>
+  <b>Speed:</b>
+  <%= @event.speed %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100417075445) do
+ActiveRecord::Schema.define(:version => 20100418144442) do
 
   create_table "devices", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(:version => 20100417075445) do
     t.float    "hwrel"
     t.string   "locationunit"
     t.string   "speedunit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "imei",        :limit => 16
+    t.string   "coordinates"
+    t.string   "altitude"
+    t.string   "speed"
+    t.string   "bearing"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

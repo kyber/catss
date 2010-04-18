@@ -1,4 +1,6 @@
 Catss::Application.routes.draw do |map|
+  resources :events
+
   resources :devices
 
   # The priority is based upon order of creation:
