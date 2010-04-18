@@ -1,8 +1,9 @@
 Catss::Application.routes.draw do |map|
   resources :events
 
-  resources :devices
-
+  resources :devices, :path_prefix => '/:locale'
+  # map.device '/:locale', :controller => "device"
+  # map.resources :devices, :path_prefix => '/:locale'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

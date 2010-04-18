@@ -33,23 +33,23 @@
 }
 
 #facebox .b {
-  background:url(/b.png);
+  background:url(/images/b.png);
 }
 
 #facebox .tl {
-  background:url(/tl.png);
+  background:url(/images/tl.png);
 }
 
 #facebox .tr {
-  background:url(/tr.png);
+  background:url(/images/tr.png);
 }
 
 #facebox .bl {
-  background:url(/bl.png);
+  background:url(/images/bl.png);
 }
 
 #facebox .br {
-  background:url(/br.png);
+  background:url(/images/br.png);
 }
 
 #facebox {
