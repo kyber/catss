@@ -176,7 +176,7 @@ background: #288db1; color:#fff; width:90px; height:34px; display:block;
 	margin:0px 0 0 8px; font: normal 24px/34px Arial, Helvetica, sans-serif; padding: 0 0 0 25px;
 text-shadow: #000 2px 2px 3px;*/
 	background:url(/images/yksityiset-v.png) no-repeat 0 2px; color:#fff; height:34px; display:block;  
-	color:#fff; width:152px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
+	color:#fff; width:172px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
 	font: normal 24px/24px Arial, Helvetica, sans-serif; 
 	text-shadow: #000 2px 2px 3px;
 	
@@ -187,7 +187,7 @@ text-shadow: #000 2px 2px 3px;*/
 #leftPan ul li{
 /*	background:url(/images/left_side_arrow.gif) no-repeat 0 9px; padding: 0 0 0 11px; display:block; height:24px;*/
 list-style:none;
-padding:1px;
+padding-top:1px;
 text-shadow: #000 2px 2px 3px;
 
 	}
@@ -215,6 +215,7 @@ text-shadow: none;
 	background-color:#454545; color:#fff;
 	background:url(/images/orange.png) repeat-x; 
 	border: solid 1px #ffaf0f;
+
 	}
 #leftPan ul li a.first{
 	 
@@ -224,6 +225,35 @@ text-shadow: none;
   -moz-border-radius-topleft: 10px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+}
+
+#leftPan ul li.fill-up{
+height:5px;	 
+font:14px/28px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none; background-color:#626262; display:block;
+-webkit-border-top-right-radius: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-topleft: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+margin-left:0px;
+margin-right:0px;
+border: solid 1px #626262; 
+}
+
+#leftPan ul li.fill-down{
+height:5px;	 
+font:14px/28px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none; background-color:#626262; display:block;
+-webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+border: solid 1px #626262;
+margin-left:0px;
+margin-right:0px;
+margin-top:1px;
 }
 
 #leftPan ul li.first{
@@ -256,6 +286,13 @@ font:12px/24px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none
 	padding:9px;
 
 }
+
+#leftPan ul li a middle:hover{
+	background-color:#288db1; color:#fff; 
+text-shadow: none;
+}
+
+
 
 div.icon-observer{
 background:url(/images/iconObs.png) no-repeat;
@@ -1243,3 +1280,73 @@ float:right;
 #event-log span {
 font-size:0.8em;
 }
+
+div.indexpage_public_devices{
+    margin-left:60px;
+    font-size:0.9em;
+    float:left;
+    width: 465px; 
+    margin-bottom:5px;
+    border:solid 1px #797878;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow:hidden;
+    color:#fff;
+    padding:10px;
+    background-color:#444444;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+div.indexpage_public_devices ul{
+/*margin-left:10px;*/
+font-family: Arial, Helvetica, sans-serif; 
+}
+
+div.indexpage_public_devices ul li{
+/*padding-top:10px;*/
+font-family: Arial, Helvetica, sans-serif; 
+
+}
+
+div.indexpage_public_devices ul li a{
+font-family: Arial, Helvetica, sans-serif; 
+text-decoration:none;
+color:#fff;
+font-size:1.2em;
+}
+
+div.about p{
+font-family: Arial, Helvetica, sans-serif; 
+color:#fff;
+padding-top:10px;
+}
+
+div.about ol{
+font-family: Arial, Helvetica, sans-serif; 
+color:#fff;
+padding-top:0px;
+}
+
+/*-------------left side------*/
+.about{
+    background: #444444; margin-top:13px;padding:20px 0 0 0; float:left;
+    width:600px;
+	border: solid 1px #171717;
+-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  color:#fff;
+  border-radius: 10px;
+ margin-left:10px;
+ padding:10px;    
+}
+
+.about h2{
+	margin:0px 0 0 0px; font: normal 24px/34px Arial, Helvetica, sans-serif; padding: 0 0 0 0px;
+        text-shadow: #000 2px 2px 3px;*/
+	background:url(/images/yksityiset-v.png) no-repeat 0 2px; color:#fff; height:34px; display:block;  
+	color:#fff; width:172px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
+	font: normal 24px/24px Arial, Helvetica, sans-serif; 
+	text-shadow: #000 2px 2px 3px;
+	margin-top:10px;
+        text-transform:uppercase;
+	}

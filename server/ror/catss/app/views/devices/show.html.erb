@@ -17,13 +17,31 @@
 <div id="leftPan">
 <h2>Julkiset</h2>
 <ul>
-<li><a class="first last" href="#">Toiwo-kissa</a></li>
+<li class="fill-up"></li>
+<% Device.public.each do |dev| %>
+  <% if dev.imei == @device.imei %>
+   <li><a class="selected" href="#"><%= dev.name %></a></li>
+  <% else %>
+   <li><a class="middle" href="#"><%= dev.name %></a></li>
+  <% end %>
+<% end %>
+<li class="fill-down"></li>
 </ul>
-
 <h2>Yksityiset <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
 <ul>
+<li class="fill-up">
+</li>
+<% Device.private.each do |dev| %>
+  <% if dev.imei == @device.imei %>
+   <li><a class="selected" href="#"><%= dev.name %></a></li>
+  <% else %>
+   <li><a class="middle" href="#"><%= dev.name %></a></li>
+  <% end %>
+<% end %>
+<li class="fill-down"></li>
+<!-- 
 <li><a class="first" href="#">Jaana-vaimo<div class="off-line-div"></div></a></li>
-<li><a href="#" class="selected last">Wille-poika</a></li>
+-->
 </ul>
 
 <h2>Uusi laite</h2>
@@ -1541,5 +1559,4 @@ $(".row input").each(function(index){
     //]]>
     </script> 
 
-<%= link_to 'Edit', edit_device_path(@device) %> |
 <%= link_to 'Back', devices_path %>

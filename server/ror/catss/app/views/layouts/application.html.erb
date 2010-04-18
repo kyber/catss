@@ -2,13 +2,14 @@
 <html>
 <head>
   <title><%= controller.action_name %> &ndash; <%= controller.controller_name %> &ndash; Catss</title>
+<!-- MAP STUFF -->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAAwyXJyclH0lUZHl1NSsXBBR-GnEQV2Q1KV0CZ-zB-cw9e0o6BBSsLtv7MMXi3qBcHQ9ey3TPSQSLPw" type="text/javascript"></script>
+  <%= javascript_include_tag 'BdccArrowedPolyline.js' %>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' %>
-  <%= javascript_include_tag 'rails', 'jquery-ui-1.8.custom.min.js', 'jquery.rotate.1-1.js', 'facebox.js', 'BdccArrowedPolyline.js' , 'jquery.tablesorter.js', :cache => true %>
+  <%= javascript_include_tag 'rails', 'jquery-ui-1.8.custom.min.js', 'jquery.rotate.1-1.js', 'facebox.js', 'jquery.tablesorter.js', :cache => true %>
   <%= stylesheet_link_tag 'jquery-ui-1.8.custom', 'style', 'table' %>
   <%= csrf_meta_tag %>
 
-<!-- MAP STUFF -->
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAAwyXJyclH0lUZHl1NSsXBBR-GnEQV2Q1KV0CZ-zB-cw9e0o6BBSsLtv7MMXi3qBcHQ9ey3TPSQSLPw" type="text/javascript"></script>
 
 <script type="text/javascript"> 
 	$(document).ready(function() {
@@ -198,6 +199,7 @@ $(document).ready(function() {
 
 <div id="titlebar">
 <h1></h1>
+<%= link_to 'Back', devices_path %>
 <h2>CATSS </h2><br/><h3>Cat (or other mobile item) Surveillance System</h3>
 </div>
 </div>

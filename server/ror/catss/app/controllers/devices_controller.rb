@@ -1,7 +1,9 @@
 class DevicesController < ApplicationController
+
   # GET /devices
   def index
     @devices = Device.scoped
+    @devices_pub = Device.scoped(:conditions => { :display => 'public' })
   end
 
   # GET /devices/1
