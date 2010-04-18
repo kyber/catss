@@ -20,9 +20,9 @@
 <li class="fill-up"></li>
 <% Device.public.each do |dev| %>
   <% if dev.imei == @device.imei %>
-   <li><a class="selected" href="#"><%= dev.name %></a></li>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'selected' %></li>
   <% else %>
-   <li><a class="middle" href="#"><%= dev.name %></a></li>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'middle' %></li>
   <% end %>
 <% end %>
 <li class="fill-down"></li>
@@ -33,9 +33,9 @@
 </li>
 <% Device.private.each do |dev| %>
   <% if dev.imei == @device.imei %>
-   <li><a class="selected" href="#"><%= dev.name %></a></li>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'selected' %></li>
   <% else %>
-   <li><a class="middle" href="#"><%= dev.name %></a></li>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'middle' %></li>
   <% end %>
 <% end %>
 <li class="fill-down"></li>
@@ -46,7 +46,7 @@
 
 <h2>Uusi laite</h2>
 <ul>
-<li><a href="uusi-laite.htm" rel="facebox" class="first last">Lisää uusi laite...</a></li>
+<li><a href="/uusi-laite.htm" rel="facebox" class="first last">Lisää uusi laite...</a></li>
 </ul>
 
 <h3>Karttamerkit</h3>
