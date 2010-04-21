@@ -8,6 +8,7 @@ class CreateDevices < ActiveRecord::Migration
       t.float :hwrel
       t.string :locationunit 
       t.string :speedunit
+      t.text :description
 
       t.timestamps
     end

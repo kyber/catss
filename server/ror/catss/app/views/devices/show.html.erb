@@ -15,7 +15,7 @@
 <div id="mainBody">
 <!--left side start -->
 <div id="leftPan">
-<h2>Julkiset</h2>
+<h2>Public</h2>
 <ul>
 <li class="fill-up"></li>
 <% Device.public.each do |dev| %>
@@ -27,7 +27,7 @@
 <% end %>
 <li class="fill-down"></li>
 </ul>
-<h2>Yksityiset <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
+<h2>Private <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
 <ul>
 <li class="fill-up">
 </li>
@@ -44,21 +44,22 @@
 -->
 </ul>
 
-<h2>Uusi laite</h2>
+<h2>New Device</h2>
 <ul>
-<li><a href="/uusi-laite.htm" rel="facebox" class="first last">Lisää uusi laite...</a></li>
+<!-- <li><a href="/uusi-laite.htm" rel="facebox" class="first last">Lisää uusi laite...</a></li> -->
+<li><%= link_to "Add new device", { :action => 'new'}, :class => 'first last' %></li> 
 </ul>
 
-<h3>Karttamerkit</h3>
+<h3>Map Icons</h3>
 <ul>
-<li class="first">Oma sijainti<div class="icon-observer"></div></li>
-<li class="middle">Kohde, viimeisin paikkka<div class="icon-object-last"></div></li>
-<li class="last">Kohde, paikat<div class="icon-object-old"></div></li>
+<li class="first">Observer<div class="icon-observer"></div></li>
+<li class="middle">Mobile, last location<div class="icon-object-last"></div></li>
+<li class="last">Mobile, locations<div class="icon-object-old"></div></li>
 </ul>
 
-<h3>Tietoja</h3>
+<h3>About</h3>
 <ul>
-<li class="first">Tekijät: kyb3R ja sergimon. <a href="http://5w.fi/con/index.php/projektit/catss">Lue lisää projektista!</a></li>
+<li class="first">Developers: kyb3R and sergimon. <a href="http://5w.fi/con/index.php/projektit/catss">Read more about project!</a></li>
 <li class="last">Hackerspace Tampere<a href="http://5w.fi"><img border="0" src="http://5w.fi/data/logo/logo-120x50.png"/></a></li>
 </ul>
 </div>
@@ -72,9 +73,9 @@
   <h2></h2>
   <div id="tabs" style="border:none;background:none;height:500px;width:850px;"> <!-- 850px -->
     <ul style="height:25px;border:none;background:none;min-height:25px;padding:0;">
-      <li style="width:250px;margin-left:-200px;"><a href="#tabs-1">Sijainti</a></li>
-      <li style="width:300px;"><a href="#tabs-2">Laitteiden asetukset</a></li>
-      <li style="width:213px;"><a href="#tabs-3">Laitteiden historia</a></li>
+      <li style="width:250px;margin-left:-200px;"><a href="#tabs-1">Locations</a></li>
+      <li style="width:300px;"><a href="#tabs-2">Mobile Config</a></li>
+      <li style="width:213px;"><a href="#tabs-3">Mobile History</a></li>
     </ul>
     <div id="tabs-1" style="background:none;width:100%;">
       <div id="detailsMap" style="float:left;margin-left:-200px;padding-left:0px;height:400px;padding-bottom:10px;background:none;"><br/>
@@ -90,7 +91,7 @@
 	<span id="timeNow" style="font-size:0.7em;padding-top:10px;padding-left:5px;">yyyy-mm-dd, hh:mm:ss</span>
       </br><br/>
       <div class="item-basic">
-	<span class="item-title">Koordinaatit:</span> 
+	<span class="item-title">Coordinates:</span> 
 	<div style="margin-top:5px;padding-left:15px;font-weight:bold;">latitude 
 	  <span style="float:right;padding-right:10px;">
 	    <input type="text" class="coord" id="cur-lat" size="7" style="font-size:0.8em;" value="47.643186"/>°</span>
@@ -106,7 +107,7 @@
 	  <img id="c-arrow" src="/images/compas-arrow.png"/>
 	</div>
 
-	<span class="item-title">Etäisyys:
+	<span class="item-title">Distance:
 	  <span style="float:right;padding-right:10px;margin-top:3px;">
 	    <input class="coord" size="10" type="text" id="item-distance" style="font-size:0.7em;" value=""/>
 	  </span>
@@ -128,24 +129,24 @@
 
     <div id="control_and_map" class="control_and_map">
       <div id="control"><input type="text" id="item-address" style="width:280px;" value="address..."/>
-	<a href="#map_options" rel="facebox" class="first last">Kartan asetukset...</a>
+	<a href="#map_options" rel="facebox" class="first last">Map View Config...</a>
         <!-- <span id="tallenna"><input href="#map_options" rel="facebox" value="Kartan asetukset..."></input></span> -->
 	<div id="map_options" style="display:none;">
-	  <h3>Kartan asetukset</h3>
+	  <h3>Map View Config</h3>
           <div class="row">
-	  <input type="checkbox" selected="false" id="cbShowRadius" onChange="javascript:toggleAlertCircle();" value="1">Näytä hälytyssäde</input>
+	  <input type="checkbox" selected="false" id="cbShowRadius" onChange="javascript:toggleAlertCircle();" value="1">Show Alert-circle</input>
           </div>
           <div class="row">
-	  <input type="checkbox" selected="false" id="cbShowNavi" onChange="javascript:toggleNavi();" value="1">Näytä navigointi</input> 
+	  <input type="checkbox" selected="false" id="cbShowNavi" onChange="javascript:toggleNavi();" value="1">Show Navigation</input> 
           </div>
           <div class="row">
-	  <input type="checkbox" selected="false" id="cbShowRoute" onChange="javascript:toggleRoute();" value="1">Piirrä kohteen sijaintien väliin reitti.</input>
+	  <input type="checkbox" selected="false" id="cbShowRoute" onChange="javascript:toggleRoute();" value="1">Draw connections between mobile locations</input>
           </div>
           <div class="row">
-	    <input type="checkbox" selected="false" id="cbDrawConnection" onChange="javascript:toggleDrawConnection();" value="1">Piirrä viiva tarkkailupisteestä valittuun kohteeseen.</input>
+	    <input type="checkbox" selected="false" id="cbDrawConnection" onChange="javascript:toggleDrawConnection();" value="1">Draw connection line between observer and selected mobile unit.</input>
           </div>
           <div class="row">
-	  Valitse karttatyyppi:<select name="mymaptype" onChange="setCurMapType(this.value);" id="sMapType"></select>
+	  Select Maptype:<select name="mymaptype" onChange="setCurMapType(this.value);" id="sMapType"></select>
 	  </div>
 	</div>
       </div>
@@ -160,17 +161,17 @@
        <thead>
          <tr> 
            <th></th> 
-           <th>Koska</th> 
-           <th>Kuka</th> 
-           <th>Mitä</th> 
+           <th>When</th> 
+           <th>Who</th> 
+           <th>What</th> 
          </tr> 
        </thead> 
        <tbody> 
         <tr> 
           <td><img src="images/private.png" border="0"/></td>
 	  <td>2004-04-10 17:45</td>
-          <td>Toiwo-kissa</td> 
-	  <td>Vaihtoi paikkaa.</td> 
+          <td>Toiwo</td> 
+	  <td>New location received.</td> 
         </tr> 
        </tbody> 
      </table>
@@ -186,9 +187,18 @@
 <div id="tabs-2" style="text-indent:none;border:none;">
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
     
-    <div id="sijainti-kohde">Wille-poika</span><span style="font-size:0.5em;padding-top:10px;"> (4.4.2010 14:56:03)</div></br><br/>
-<span id="tallenna"><input type="button" value="tallenna"/><input type="button" value="poista laite"/></span>
-<h3>Laitteen asetukset palvelimella</h3>
+    <div id="sijainti-kohde">Wille-poika</span><span style="font-size:0.5em;padding-top:10px;"> (4.4.2010 14:56:03)
+<% form_for @device, :html => { :method =>  'delete' } do |f | %>       
+<%= hidden_field_tag(:id, @device.id) %>
+  <span id="tallenna" style="font-size:1.5em;">
+  <%= submit_tag "remove mobile unit" %>
+  </span>
+<% end -%>
+
+
+     </div></br><br/>
+<span id="tallenna"><input type="button" value="save settings"/></span>
+<h3>Mobile unit server configuration</h3>
 <ol id="asetus">
 <li class='fancy-li'>
 Nimi<span class="asetukset-desc">
@@ -203,11 +213,10 @@ Nimi<span class="asetukset-desc">
 </li>
 
 <li class='fancy-li'>
-Näkyvyys:<span class="asetukset-desc" style="width:250px;">
+Visibility:<span class="asetukset-desc" style="width:250px;">
 <select name="public" class="asetukset-input-select" style="border:solid 1px #fff;">
-<option value="1">Näkyy vain minulle (Yksityinen)</option>
-<option value="0">Näkyy kaikille (Julkinen)</option>
-<!-- <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> -->
+<option value="1">Visible only to me (Private)</option>
+<option value="0">Visible to everyone (Public)</option>
 </select>
 
 </span>
@@ -217,25 +226,25 @@ Näkyvyys:<span class="asetukset-desc" style="width:250px;">
 
 
 <li class='fancy-li'>
-Tarkkailupaikan koordinaatit (lat/long):
+Observer location(lat/long):
 <span class="asetukset-desc" style="width:250px;"><input type="text" id="user-settings-pos-lat" class="asetukset-input-text" style="width:95px;" value="47.643186"/><input type="text" id="user-settings-pos-lng" class="asetukset-input-text" style="width:95px;margin-left:10px;" value="07.643186"/></span>
 </li>
 
 <li class='fancy-li'>
-Hälytysraja (metriä):
+Alert-circle (in meters):
 <span class="asetukset-desc"><input type="text" id="user-settings-alarm-meters" class="asetukset-input-text" value="100"/></span>
 </li>
 
 </ol>
 <span id="tallenna"><input type="button" value="tallenna"/></span>
-<h3>Laitteen omat asetukset</h3>
+<h3>Mobile unit internal configuration</h3>
 <ol id="asetus">
 <li class='fancy-li'>
-IMEI-koodi:<span class="asetukset-desc"><input type="text" class="asetukset-input-text" value="as324543254dfdfg345"/></span>
+IMEI-code:<span class="asetukset-desc"><input type="text" class="asetukset-input-text" value="as324543254dfdfg345"/></span>
 </li>
 
 <li class='fancy-li'>
-Koordinaatin lähetystiheys (minuuttia):<span class="asetukset-desc" style="width:250px;">
+Coordinate transmit frequency (in minutes):<span class="asetukset-desc" style="width:250px;">
 <select name="update-freq" class="asetukset-input-select" style="border:solid 1px #fff;">
 <option value="1">1</option>
 <option value="2">2</option>
@@ -249,20 +258,21 @@ Koordinaatin lähetystiheys (minuuttia):<span class="asetukset-desc" style="widt
 <option value="30">30</option>
 <option value="45">45</option>
 <option value="60">60</option>
-<!-- <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> -->
 </select>
 
 </span>
 </li>
+<!-- 
 <li class='fancy-li'>
 Lähtöpaikan koordinaatit (lat/long):
 <span class="asetukset-desc" style="width:250px;"><input type="text" class="asetukset-input-text" style="width:95px;" value="47.643186"/><input type="text" class="asetukset-input-text" style="width:95px;margin-left:10px;" value="07.643186"/></span>
 </li>
+-->
 </ol>
-
-
-  </div>
 </div>
+</div>
+
+<!-- ### HISTORY TAB ### -->
 <div id="tabs-3" style="text-indent:none;border:none;">
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:780px;border:dotted 0px #ddd;float:left;">
     <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span>
@@ -289,13 +299,13 @@ Lähtöpaikan koordinaatit (lat/long):
 <option value="18">18</option>
 </select>
 <select name="yksikko" style="border:solid 1px #fff;margin-left:0px;font-size:0.8em;">
-<option value="1">tuntia</option>
-<option value="3">vuorokautta</option>
-<option value="4">kuukautta</option>
+<option value="1">hours</option>
+<option value="3">days</option>
+<option value="4">months</option>
 </select>
-<input type="button" value="näytä" style="border:solid 1px #fff;margin-left:0px;font-size:0.8em;"/>
+<input type="button" value="show" style="border:solid 1px #fff;margin-left:0px;font-size:0.8em;"/>
 
-<input type="button" value="lisää..." class="right-input" style="border:solid 1px #fff;margin-left:20px;font-size:0.8em;"/>
+<input type="button" value="more..." class="right-input" style="border:solid 1px #fff;margin-left:20px;font-size:0.8em;"/>
 </br><br/>
 <input type="text" id="sliderval" value="1"/>
 <div id="historyslider"></div>
@@ -462,7 +472,7 @@ if(firstUpdate == 'false'){
         }
          // redraw observer ALWAYS   
         try {
-         var marker = createObserverMarker(obsLat,obsLng,'oma sijainti','oma sijainti');
+         var marker = createObserverMarker(obsLat,obsLng,'observer','observer');
          map.addOverlay(marker);
          }catch(error)
          {
@@ -965,7 +975,7 @@ function reDrawMarkers(){
 
         observergmarkers[j] = marker;
         observerhtmls[j] = html;
-        observer_bar_html += '<a href="javascript:myObserverclick(' + j + ')">' + name + '<\/a><br>';
+        observer_bar_html += '<a href="javascript:myObserverclick(' + j + ')">' + 'observer' + '<\/a><br>';
         j++;
         return marker;
       }
@@ -1559,4 +1569,4 @@ $(".row input").each(function(index){
     //]]>
     </script> 
 
-<%= link_to 'Back', devices_path %>
+

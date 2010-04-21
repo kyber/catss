@@ -133,8 +133,8 @@ text-shadow: #6374AB 2px 2px 4px;
 text-shadow: #6374AB 2px 2px 4px;
 	}
 #headerPan form{
-	width:397px; height:46px; background:url(/images/search_bg.gif) no-repeat 0 0; margin:125px 0 0 84px; font-size:0;
-	padding:0;
+/*	width:397px; height:46px; background:url(/images/search_bg.gif) no-repeat 0 0; margin:125px 0 0 84px; font-size:0;
+	padding:0;*/
 	display:none;
 	}
 #headerPan form label{
@@ -1329,9 +1329,11 @@ padding-top:0px;
 
 /*-------------left side------*/
 .about{
-    background: #444444; margin-top:13px;padding:20px 0 0 0; float:left;
+/*    background: #444444;*/ 
+margin-top:13px;padding:20px 0 0 0; float:left;
     width:600px;
-	border: solid 1px #171717;
+/*	border: solid 1px #171717;*/
+
 -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   color:#fff;
@@ -1350,3 +1352,14 @@ padding-top:0px;
 	margin-top:10px;
         text-transform:uppercase;
 	}
+
+
+/* NEW DEVICE */
+div.new_device{
+	border:solid 1px #fff;
+	font: normal 12px/24px Arial, Helvetica, sans-serif;
+}
+div.field {
+    font: normal 12px/24px Arial, Helvetica, sans-serif;
+    
+}

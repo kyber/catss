@@ -4,6 +4,7 @@ class DevicesController < ApplicationController
   def index
     @devices = Device.scoped
     @devices_pub = Device.scoped(:conditions => { :display => 'public' })
+    # navititle[:notice] = t(:navititle) 
   end
 
   # GET /devices/1
@@ -14,7 +15,8 @@ class DevicesController < ApplicationController
   # GET /devices/new
   def new
     @device = Device.new
-  end
+    @devices_pub = Device.scoped(:conditions => { :display => 'public' })
+   end
 
   # GET /devices/1/edit
   def edit
@@ -26,7 +28,8 @@ class DevicesController < ApplicationController
     @device = Device.new(params[:device])
 
     if @device.save
-      redirect_to(@device, :notice => 'Device was successfully created.') 
+       redirect_to(@device, :notice => 'Device was successfully created.') 
+      
     else
       render :action => "new" 
     end
