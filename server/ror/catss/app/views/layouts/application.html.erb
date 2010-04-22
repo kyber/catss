@@ -171,6 +171,20 @@ $(document).ready(function() {
   </div> 
 </div> 
 
+
+<div id="sliderLang"> 
+ <div id="sliderLangRight"></div>
+ <div id="sliderLangMiddle"> 
+  <div> <%= link_to 'fi', { :locale => 'fi'} %> | 
+        <%= link_to 'en', { :locale => 'en'} %> |
+        <%= link_to 'se', { :locale => 'se'} %>
+        
+
+   <!-- fi | en | se | ge -->
+   </div></div>
+ <div id="sliderLangLeft"></div>  
+</div> 
+
 <div id="sliderWrap"> 
   <div id="openCloseIdentifier"></div> 
   <div id="slider"> 
@@ -199,7 +213,9 @@ $(document).ready(function() {
 
 <div id="titlebar">
 <h1></h1>
-<%= link_to 'Back', devices_path %>
+<div class="back-left">
+<div class="rotate"><%= link_to 'Index', { :action => 'index'} %></div>
+</div>
 <h2>CATSS </h2><br/><h3>Cat (or other mobile item) Surveillance System</h3>
 </div>
 </div>

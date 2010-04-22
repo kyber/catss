@@ -1,0 +1,191 @@
+h1. VALIDATIOUS-ON-RAILS
+
+_Rails plugin that maps model validations to class names on form elements to integrate with *Validatious*._
+
+h2. What Is Validatious?
+
+*Elevator pitch:* A (kick-ass) unobtrusive client-side validation javascript library - the only one you'll ever need.
+
+"http://validatious.org":http://validatious.org
+
+h2. ...So What Is Validatious-On-Rails?
+
+*Elevator pitch:* A (kick-ass) seamless "glue" between ActiveRecord and Validatious: Automatically maps models validations to client-side Validatious-validators - and when client-side won't work: Validatious-backed AJAX validators - on form elements in a obtrusive way using DOM classes. Makes your form-filling users happier, and you code cleaner and more scalable (tjing-tjing!). Why define client-side validations "once-again", when they already defined in the model?
+
+h2. Features & Goals
+
+h3. Current Features:
+
+* Rails core validations
+** Client-side
+*** @validates_acceptance_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_confirmation_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_exclusion_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_format_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_inclusion_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_length_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_numericality_of@ - <small>except: :on, :if/:unless</small>
+*** @validates_presence_of@ - <small>except :on, :if/:unless</small>
+*** @validates_size_of@ - <small>except :on, :if/:unless</small>
+** Remote (AJAX)
+*** @validates_uniqueness_of@ (remote validations a bit unstable still, work in progress but works "okay") =)
+* Client-side & remote (AJAX) validations hand-in-hand: You won't notice, it's all taken care of seamlessly. When it works client-side; that is used. When more complex stuff is happening; an AJAX request is performed under the hood.
+* Supports all Rails core form field helpers.
+* Remote validators (AJAX) use Rails core validations, so the API for additional validations is very clean - seamless actually.
+* Seamless Rails I18n integration (validation error messages).
+* Generator for getting started - easy as 1-2-3 (see below).
+* Custom client-side and AJAX validators API (announced soon, not documented yet).
+* Client-side validations can easily be disabled for specific fields.
+* Ruby 1.9.x support (note: Rails 2.3.4 + Ruby 1.9.1 + validatious-on-rails don't work - because of a known Rails 2.3.4-bug)
+* JavaScript framework agnostic.
+* Test-suit.
+* Bonus: For "Formtastic":http://github.com/justinfrench/formtastic form-builder users like me: With default config, it's compatible with the Formtastic semantic HTML structure.
+
+_*Note:* This project is under heavy development; a lot of experimenting going on - things might change under the hood. See the "TODO":http://github.com/grimen/validatious-on-rails/blob/master/TODO for more info. Please help out file any issues/problems._
+
+h3. Goals:
+
+* Should support all Rails core validations (using preferably *client-side* validation, or last-resort solution using *server-side* validation - backed by Validatious)
+* Should be very easy to extend with custom validations (plugins, e.g. @Validatious::Validators.add MyCustomValidator@), but within the domain of *Validatious* (focus) - no vision of support multiple libraries (only makes the code base unnecessary big and complex)
+* Support all Rails core form helpers, but should also be easy to extend with custom form field helpers.
+* Should not only perform the validations, but also respect the Rails validation options
+* Should integrate with the Rails I18n API seamlessly
+* Should have solid test suit
+
+_*Note:* Somethings fundamental is missing? Let me know! =)_
+
+h3. Known Issues
+
+* Remote validations (validates_uniqueness_of, ...) is not super stable, but I'm sure it will be very soon. Help me out by reporting issues you have, or submitting a patch - or two. =)
+
+h2. Installation
+
+*Gem:*
+
+<pre>sudo gem install validatious-on-rails --source http://gemcutter.org</pre>
+
+and in @config/environment.rb@:
+
+<pre>config.gem 'validatious-on-rails', :source => 'http://gemcutter.org'</pre>
+
+*Plugin:*
+
+<pre>./script/plugin install git://github.com/grimen/validatious-on-rails.git</pre>
+
+*Dependencies:*
+
+* "validatious 2.0":http://github.com/cjohansen/validatious
+* "validation_reflection":http://github.com/redinger/validation_reflection
+* "XMLHttpRequest":http://code.google.com/p/xmlhttprequest
+
+*Note:* For testing, get: "context":http://github.com/jeremymcanally/context, "rr":http://github.com/btakita/rr, "acts_as_fu":http://github.com/nakajima/acts_as_fu, and "redgreen":http://gemcutter.org/gems/redgreen.
+
+h2. Configuration
+
+h3. 1. Generate required javascript files
+
+<pre>
+$ ./script/generate v2
+      create  config/initializers/validatious-on-rails.rb
+      create  public/javascripts/XMLHttpRequest.js
+      create  public/javascripts/v2.standalone.full.min.js
+      create  public/javascripts/v2.config.js
+      create  public/javascripts/v2.rails.js
+</pre>
+
+*Note:* @./script/generate v2@ <=> @./script/generate validatious@
+
+*Important:* It is very impostant that you do this (update these scripts) on each new gem release; especially @v2.rails@ will be a subject for change because this library contains kind of low level helpers to get Validatious and additional features such as AJAX validations to play. I'm not sure what might be added/removed in the future, but as long as you keep these updated you probably won't notice any difference.
+
+h3. 2. Include the javascripts in your layout
+
+@app/views/application.html.erb@ or similar:
+
+<pre>
+<head>
+  ...
+  <%= javascript_include_tag 'XMLHttpRequest' ,'v2.standalone.full.min', 'v2.config', 'v2.rails' %>
+  <%= javascript_for_validatious %>
+  ...
+</head>
+</pre>
+
+*Notes:*
+
+* @XMLHttpRequest.js@ - Unobtrusive cross-browser implementation of the native "XMLHttpRequest":http://www.w3.org/TR/XMLHttpRequest/ (remote validations only, not required for client-side validations).
+* @v2.standalone.full.min.js@ - "Validatious Core API":http://validatious.org/learn/features/core with included extensions: "Reporting":http://validatious.org/learn/features/reporting, "HTML":http://validatious.org/learn/features/html, and "DSL":http://validatious.org/learn/features/dsl.
+* @v2.config.js@ - Default Valdiatious-configuration that easily can be tweaked or extended - see "Validatious documentation":http://validatious.org/learn.
+* @v2.rails.js@ - Helpers to get remote AJAX validations to work without any configuration.
+* @javascript_for_validatious@ - This is where custom validations - and any additional meta data associated with these - gets inserted. No worries; the plugin is doing the magic!
+
+h2. Usage
+
+*Easy!*
+
+Consider you got some model validations:
+
+<pre>
+class Post < ActiveRecord::Base
+  validates_presence_of :title
+  validates_uniqueness_of :title
+  validates_length_of :title, :within => 3..20
+  validates_length_of :body, :within => 3..20, :client_side => false
+end
+</pre>
+
+...then you now got working client-side validations for any forms with class @validate@ (or any custom class - see documentation/config):
+
+<pre>
+<% form_for(@post, :html => {:class => 'validate'}) do |f| %>
+  <%= f.text_field :title %>  # Validated performed using client-side. Note: uniqueness-check is performed using an AJAX-request.
+  <%= f.text_area :body %>    # No client-side validation performed, i.e. ignored.
+<% end %>
+</pre>
+
+h2. Validatious ♥ Formtastic
+
+For all you "Formtastic":http://github.com/justinfrench/formtastic users out there: This plugin is out-of-the-box compatible with Formtastic - unlike the similar solution(s) out there. But to get Validatious and Formtastic to play well with each other, you need to tweak the *configuration* settings a bit. These settings are very much recommended:
+
+*Formtastic:*
+
+<pre>
+Formtastic::SemanticFormBuilder.inline_errors = :list
+Formtastic::SemanticFormBuilder.inline_order  = [:input, :hints, :errors]
+</pre>
+
+*Validatious:*
+
+<pre>
+v2.Field.prototype.positionErrorsAbove = false;
+v2.Fieldset.prototype.positionErrorsAbove = false;
+v2.Fieldset.prototype.messagesClass = 'errors';
+v2.Fieldset.prototype.failureClass = 'error';
+v2.Fieldset.prototype.successClass = '';
+v2.Field.prototype.messagesClass = 'errors';
+v2.Field.prototype.failureClass = 'error';
+v2.Field.prototype.successClass = '';
+</pre>
+
+Actually, Validatious errors can be tweaked to work with *any form builder/markup*, but how that is done is out of context for this plugin. For more info; checkout the documentation for the "Validatious Reporting extension":http://validatious.org/learn/features/reporting.
+
+h2. Limitations
+
+This is very much work-in-progress, so there are some known limitations that should work very soon. See "TODO":http://github.com/grimen/validatious-on-rails/blob/master/TODO.
+
+h2. Origin
+
+This project was originally forked from:
+
+"http://github.com/cjohansen/validatious-on-rails":http://github.com/cjohansen/validatious-on-rails
+
+h2. License
+
+*Original work:*
+
+Released under the MIT license.<br />
+Copyright (c) 2008 "Christian Johansen":http://github.com/cjohansen
+
+*Additional work:*
+
+Released under the MIT license.<br />
+Copyright (c) 2009 "Jonas Grimfelt":http://github.com/grimen

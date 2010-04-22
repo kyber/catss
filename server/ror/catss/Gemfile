@@ -8,7 +8,11 @@ gem 'rails', '3.0.0.beta2'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql', '>= 2.8.1'
+# authologic
 
+## THIS AS PLUGIN SINCE AS BUNDLE INSTALL FAILS!!
+# gem "authologic"
+gem 'authlogic', :git => 'git://github.com/danhawkins/authlogic.git', :branch => 'rails3'
 # Use unicorn as the web server
 # gem 'unicorn'
 

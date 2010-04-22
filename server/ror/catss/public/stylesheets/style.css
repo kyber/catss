@@ -1363,3 +1363,51 @@ div.field {
     font: normal 12px/24px Arial, Helvetica, sans-serif;
     
 }
+#sliderLang {
+position:absolute;
+margin: -1px 0 0 600px;
+}
+#sliderLangMiddle {
+background:url(/images/languages-middle.png) repeat-x; 
+color:#2c9ac3; height:26px; display:block; 
+font: bold 13px/24px Arial, Helvetica, sans-serif; 
+float:left;
+}
+
+#sliderLangRight {
+background:url(/images/languages-left.png) no-repeat; color:#fff; width:18px; height:26px; display:block; 
+float:left;
+}
+#sliderLangLeft {
+background:url(/images/languages-right.png) no-repeat; color:#fff; width:18px; height:26px; display:block; 
+float:left;
+}
+
+#sliderLangMiddle div {
+padding-top:2px;
+letter-spacing:0.2em;
+float:left;
+}
+#sliderLangMiddle div a{
+color:#288db1;
+font: bold 13px/24px Arial, Helvetica, sans-serif; 
+text-decoration:none;
+letter-spacing:0.2em;
+}
+
+.back-left{
+background:url(/images/back-bg.png) no-repeat; color:#fff; width:26px; height:103px; display:block; 
+padding-top:55px;
+}
+.rotate{
+-webkit-transform: rotate(-90deg); 
+-moz-transform: rotate(-90deg);	
+color:#2c9ac3;
+}
+
+.rotate a{
+color:#288db1;
+font: bold 13px/24px Arial, Helvetica, sans-serif; 
+text-decoration:none;
+letter-spacing:0.2em;
+}

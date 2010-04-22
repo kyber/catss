@@ -4,12 +4,13 @@ class DevicesController < ApplicationController
   def index
     @devices = Device.scoped
     @devices_pub = Device.scoped(:conditions => { :display => 'public' })
-    # navititle[:notice] = t(:navititle) 
+    flash[:navititle] = t(:navititle) 
   end
 
   # GET /devices/1
   def show
     @device = Device.find(params[:id])
+    @devices = Device.scoped
   end
 
   # GET /devices/new

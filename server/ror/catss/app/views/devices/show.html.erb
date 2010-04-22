@@ -15,7 +15,7 @@
 <div id="mainBody">
 <!--left side start -->
 <div id="leftPan">
-<h2>Public</h2>
+<h2><%=t :navigation_public_title %></h2>
 <ul>
 <li class="fill-up"></li>
 <% Device.public.each do |dev| %>
@@ -27,7 +27,7 @@
 <% end %>
 <li class="fill-down"></li>
 </ul>
-<h2>Private <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
+<h2><%=t :navigation_private_title %> <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
 <ul>
 <li class="fill-up">
 </li>
@@ -44,22 +44,22 @@
 -->
 </ul>
 
-<h2>New Device</h2>
+<h2><%=t :navigation_new_title %></h2>
 <ul>
 <!-- <li><a href="/uusi-laite.htm" rel="facebox" class="first last">Lisää uusi laite...</a></li> -->
 <li><%= link_to "Add new device", { :action => 'new'}, :class => 'first last' %></li> 
 </ul>
 
-<h3>Map Icons</h3>
+<h3><%=t :navigation_icons_title %></h3>
 <ul>
-<li class="first">Observer<div class="icon-observer"></div></li>
-<li class="middle">Mobile, last location<div class="icon-object-last"></div></li>
-<li class="last">Mobile, locations<div class="icon-object-old"></div></li>
+<li class="first"><%=t :navigation_icons_observer %><div class="icon-observer"></div></li>
+<li class="middle"><%=t :navigation_icons_last_location %><div class="icon-object-last"></div></li>
+<li class="last"><%=t :navigation_icons_other_location %><div class="icon-object-old"></div></li>
 </ul>
 
-<h3>About</h3>
+<h3><%=t :navigation_about_title %></h3>
 <ul>
-<li class="first">Developers: kyb3R and sergimon. <a href="http://5w.fi/con/index.php/projektit/catss">Read more about project!</a></li>
+<li class="first"><%=t :navigation_developers %>: kyb3R, sergimon. <a href="http://5w.fi/con/index.php/projektit/catss"><%=t :navigation_read_more %></a></li>
 <li class="last">Hackerspace Tampere<a href="http://5w.fi"><img border="0" src="http://5w.fi/data/logo/logo-120x50.png"/></a></li>
 </ul>
 </div>
@@ -79,7 +79,14 @@
     </ul>
     <div id="tabs-1" style="background:none;width:100%;">
       <div id="detailsMap" style="float:left;margin-left:-200px;padding-left:0px;height:400px;padding-bottom:10px;background:none;"><br/>
-	<span id="sijainti-kohde"><%= @device.name %></span><span><img id="isPrivate" class="private-icon" src="/images/private.png" border="0"/></span><br/>
+	<span id="sijainti-kohde">
+         <% if @device.name.length >= 10 %> 
+          <%= @device.name[0..10] %>
+         <% else %>
+          <%= @device.name %>
+         <% end %>
+
+	</span><span><img id="isPrivate" class="private-icon" src="/images/private.png" border="0"/></span><br/>
         <!-- ### POWER INDICATOR ### -->
         <div id="powerindicator"> 
 	  <div id="power-level">?? %</div>
@@ -187,13 +194,14 @@
 <div id="tabs-2" style="text-indent:none;border:none;">
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
     
-    <div id="sijainti-kohde">Wille-poika</span><span style="font-size:0.5em;padding-top:10px;"> (4.4.2010 14:56:03)
-<% form_for @device, :html => { :method =>  'delete' } do |f | %>       
-<%= hidden_field_tag(:id, @device.id) %>
-  <span id="tallenna" style="font-size:1.5em;">
-  <%= submit_tag "remove mobile unit" %>
-  </span>
-<% end -%>
+  <div id="sijainti-kohde"><%= @device.name %></span><span style="font-size:0.5em;padding-top:10px;"> 
+  (<%= @device.created_at.to_s(:datetime) %>)
+   <% form_for @device, :html => { :method =>  'delete' } do |f | %>       
+   <%= hidden_field_tag(:id, @device.id) %>
+   <span id="tallenna" style="font-size:1.5em;">
+     <%= submit_tag "remove mobile unit" %>
+   </span>
+   <% end -%>
 
 
      </div></br><br/>
@@ -202,21 +210,17 @@
 <ol id="asetus">
 <li class='fancy-li'>
 Nimi<span class="asetukset-desc">
-<select name="nimi" class="asetukset-input-select" style="border:solid 1px #fff;">
-<option value="0">Wille-poika</option>
-<option value="1">Jaana-vaimo</option>
-<option value="3">Toiwo-kissa</option>
-
-</select>
-
+<!-- <span class="asetukset-desc"><input type="text" id="user-settings-name" class="asetukset-input-text" value="100"/></span>
+-->
+<% select("device", "id", Device.find(:all).collect {|p| [ p.name, p.id ] }) %>
 </span>
 </li>
 
 <li class='fancy-li'>
 Visibility:<span class="asetukset-desc" style="width:250px;">
 <select name="public" class="asetukset-input-select" style="border:solid 1px #fff;">
-<option value="1">Visible only to me (Private)</option>
-<option value="0">Visible to everyone (Public)</option>
+<option value="private">Visible only to me (Private)</option>
+<option value="public">Visible to everyone (Public)</option>
 </select>
 
 </span>
@@ -1450,7 +1454,8 @@ $(".row input").each(function(index){
         var powerlevel = json.config[0].power;
         var status = json.config[0].status; // 0 = offline | 1 = online
         trgname = json.config[0].name;
-        $("#sijainti-kohde").text(trgname);
+
+        //$("#sijainti-kohde").text(trgname);
         trgpublicity = json.config[0].public; // 0 = private | 1 = public
            if(trgpublicity == 1){
             $("#isPrivate").hide();
@@ -1558,7 +1563,7 @@ $(".row input").each(function(index){
 
     initConfig();
    
-    setTimeout("updateLoop()", 10000);
+    //setTimeout("updateLoop()", 10000);
     }
  
     else {
