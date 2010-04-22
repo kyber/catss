@@ -1,0 +1,29 @@
+# English localization file for object views for
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+
+en:
+  # first tab
+  object_locations_title: "Location view"
+  object_locations_coordinates: "Coordinates"
+  object_locations_latitude: "Latitude"
+  object_locations_longitude: "Longitude"
+  object_locations_distance: "Distance"
+  object_locations_noticed: "Locations:"
+  object_locations_address: "address..."
+  object_locations_map_config: "Map View Config..."
+  object_locations_observer: "Observer"
+  
+  # second tab
+  object_configuration_title: "Configuration View"
+  
+  # third tab
+  object_history_title: "History View"

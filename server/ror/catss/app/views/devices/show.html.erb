@@ -73,9 +73,9 @@
   <h2></h2>
   <div id="tabs" style="border:none;background:none;height:500px;width:850px;"> <!-- 850px -->
     <ul style="height:25px;border:none;background:none;min-height:25px;padding:0;">
-      <li style="width:250px;margin-left:-200px;"><a href="#tabs-1">Locations</a></li>
-      <li style="width:300px;"><a href="#tabs-2">Mobile Config</a></li>
-      <li style="width:213px;"><a href="#tabs-3">Mobile History</a></li>
+      <li style="width:250px;margin-left:-200px;"><a href="#tabs-1"><%=t :object_locations_title %></a></li>
+      <li style="width:300px;"><a href="#tabs-2"><%=t :object_configuration_title %></a></li>
+      <li style="width:213px;"><a href="#tabs-3"><%=t :object_history_title %></a></li>
     </ul>
     <div id="tabs-1" style="background:none;width:100%;">
       <div id="detailsMap" style="float:left;margin-left:-200px;padding-left:0px;height:400px;padding-bottom:10px;background:none;"><br/>
@@ -98,12 +98,12 @@
 	<span id="timeNow" style="font-size:0.7em;padding-top:10px;padding-left:5px;">yyyy-mm-dd, hh:mm:ss</span>
       </br><br/>
       <div class="item-basic">
-	<span class="item-title">Coordinates:</span> 
-	<div style="margin-top:5px;padding-left:15px;font-weight:bold;">latitude 
+	<span class="item-title"><%=t :object_locations_coordinates %></span> 
+	<div style="margin-top:5px;padding-left:15px;font-weight:bold;"><%=t :object_locations_latitude %>
 	  <span style="float:right;padding-right:10px;">
 	    <input type="text" class="coord" id="cur-lat" size="7" style="font-size:0.8em;" value="47.643186"/>°</span>
 	</div><br/>
-	<div style="margin-top:-10px;padding-left:15px;font-weight:bold;">longitude 
+	<div style="margin-top:-10px;padding-left:15px;font-weight:bold;"><%=t :object_locations_longitude %>
 	  <span style="float:right;padding-right:10px;">
 	    <input class="coord" id="cur-lng" size="7" type="text" style="font-size:0.8em;" value="11.228027"/>°</span>
 	</div><br/>
@@ -114,7 +114,7 @@
 	  <img id="c-arrow" src="/images/compas-arrow.png"/>
 	</div>
 
-	<span class="item-title">Distance:
+	<span class="item-title"><%=t :object_locations_distance %>
 	  <span style="float:right;padding-right:10px;margin-top:3px;">
 	    <input class="coord" size="10" type="text" id="item-distance" style="font-size:0.7em;" value=""/>
 	  </span>
@@ -130,13 +130,13 @@
   <div class="map_wrap" style="border:solid 0px #fff;">
 
     <div class="side_wrap" style="border:solid 0px #fff;">
-      <div id="side_bar"><div>Havaittu:<div id="side_bar_items"></div></div></div>
+      <div id="side_bar"><div><%=t :object_locations_noticed %><div id="side_bar_items"></div></div></div>
       <div id="obs_pos"><div></div></div>
     </div>
 
     <div id="control_and_map" class="control_and_map">
-      <div id="control"><input type="text" id="item-address" style="width:280px;" value="address..."/>
-	<a href="#map_options" rel="facebox" class="first last">Map View Config...</a>
+      <div id="control"><input type="text" id="item-address" style="width:280px;" value="<%=t :object_locations_address %>"/>
+	<a href="#map_options" rel="facebox" class="first last"><%=t :object_locations_map_config %></a>
         <!-- <span id="tallenna"><input href="#map_options" rel="facebox" value="Kartan asetukset..."></input></span> -->
 	<div id="map_options" style="display:none;">
 	  <h3>Map View Config</h3>
@@ -979,7 +979,7 @@ function reDrawMarkers(){
 
         observergmarkers[j] = marker;
         observerhtmls[j] = html;
-        observer_bar_html += '<a href="javascript:myObserverclick(' + j + ')">' + 'observer' + '<\/a><br>';
+        observer_bar_html += '<a href="javascript:myObserverclick(' + j + ')">' + '<%=t :object_locations_observer %>' + '<\/a><br>';
         j++;
         return marker;
       }

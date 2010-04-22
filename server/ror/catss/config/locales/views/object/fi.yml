@@ -1,0 +1,29 @@
+# Finnish localization file for object views for
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+
+fi:
+  # first tab
+  object_locations_title: "Paikkatieto"
+  object_locations_coordinates: "Koordinaatit"
+  object_locations_latitude: "Leveysaste"
+  object_locations_longitude: "Pituusaste"
+  object_locations_distance: "Etäisyys"
+  object_locations_noticed: "havaittu:"
+  object_locations_address: "osoite..."
+  object_locations_map_config: "Kartan asetukset..."
+  object_locations_observer: "Tarkkailija"
+   
+  # second tab
+  object_configuration_title: "Asetukset"
+ 
+  # third tab
+  object_history_title: "Historia"
