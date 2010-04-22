@@ -11,8 +11,11 @@
   <%= csrf_meta_tag %>
 
 
+
+
 <script type="text/javascript"> 
 	$(document).ready(function() {
+        checkCookie();
 		$(".topMenuAction").click( function() {
 			if ($("#openCloseIdentifier").is(":hidden")) {
 				$("#slider").animate({ 
@@ -39,6 +42,7 @@
                                 $("#headerPan h3").show();
                                 $("#headerPan h2").show();
                                 $("#openCloseIdentifier2").show();
+                                setCookie('catssmaxview','0',365);
 			} else {
 				$("#topMenuImage2").html('<img border="0" src="/images/max.png" alt="close" />');
                                 
@@ -46,13 +50,17 @@
                                 $("#headerPan h3").hide();
                                 $("#headerPan h2").hide();
                                 $("#openCloseIdentifier2").hide();
+                                setCookie('catssmaxview','1',365);
 			}
 		});  
 	});
 
 </script> 
+
+
 <script type="text/javascript">
 $(document).ready(function() {
+
 		$("#FIXMEcbShowRadius").change( function() {
                    if(!this.checked){
                      this.checked=true;
@@ -86,9 +94,36 @@ $(document).ready(function() {
   $('a[rel*=facebox]').facebox(); 
   $('input[rel*=facebox]').facebox(); 
   $("#isPrivate").hide();
+  // should the view be maximized?!
+ 
   });
+
+
 </script>
 
+<script>
+if ( window.addEventListener ) {
+  var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
+  window.addEventListener("keydown", function(e) {
+    if ( e.keyCode == konami[state] ) state++;
+    else state = 0;
+    if ( state == 10 )
+      alert('You found it!');
+    }, true);
+}
+
+if ( window.addEventListener ) {
+var found = 0, manseraattori = [77,65,78,83,69];
+window.addEventListener("keydown", function(e) {
+    if ( e.keyCode == manseraattori[found] ) found++;
+    else found = 0;
+    if ( found == 5 )
+     var msg = "<p>Yay! You must be a big fan of Tampere. Go ahead and try UI with local (Tampere) language!</p>";
+     msg += "<a href='?locale=manse'>Nääs nääs...</a>";
+     jQuery.facebox(msg);
+    }, true);
+}
+</script>
 
 
 <script type="text/javascript">
@@ -155,7 +190,46 @@ $(document).ready(function() {
   });
 
 </script>
+<script type="text/javascript">
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=");
+  if (c_start!=-1)
+    {
+    c_start=c_start + c_name.length+1;
+    c_end=document.cookie.indexOf(";",c_start);
+    if (c_end==-1) c_end=document.cookie.length;
+    return unescape(document.cookie.substring(c_start,c_end));
+    }
+  }
+return "";
+}
 
+function setCookie(c_name,value,expiredays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate()+expiredays);
+document.cookie=c_name+ "=" +escape(value)+
+((expiredays==null) ? "" : ";expires="+exdate.toUTCString());
+}
+
+function checkCookie()
+{
+maxview=getCookie('catssmaxview');
+if (maxview == '1')
+  {
+  // it was found! hide quick!!
+  $("#headerPan").css({height:"30px"});
+  $("#headerPan h3").hide();
+  $("#headerPan h2").hide();
+  $("#openCloseIdentifier2").hide();
+  
+  }
+
+}
+</script>
 
 </head>
 <body onunload="GUnload()">
@@ -229,6 +303,11 @@ $(document).ready(function() {
 <div id="footer">
 </div>
 </div>
+
+<div id="manseraattori" style="display:none;">
+
+</div>
+
 <!--footer end -->
 </body>
 </html>

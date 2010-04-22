@@ -1,0 +1,30 @@
+# Swedish localization file for object views for
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+
+se:
+  # first tab
+  object_locations_title: "Läge visa"
+  object_locations_coordinates: "Koordinater"
+  object_locations_latitude: "Latitude"
+  object_locations_longitude: "Longitud"
+  object_locations_distance: "Avstånd"
+  object_locations_noticed: "Platser:"
+  object_locations_address: "adress..."
+  object_locations_map_config: "Karta konfiguration..."
+  object_locations_observer: "Observer"
+  object_locations_events_title: "Andra objekt / händelser"
+   
+  # second tab
+  object_configuration_title: "Konfiguration"
+ 
+  # third tab
+  object_history_title: "Historia"

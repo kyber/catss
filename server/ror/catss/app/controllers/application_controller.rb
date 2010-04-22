@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     #elsif cookies['locale'] && I18n.available_locales.include?(cookies['locale'].to_sym)
     #  I18n.locale = cookies['locale'].to_sym
     #end
+  
  end
 
 end
