@@ -1,0 +1,23 @@
+# Swedish localization file for object views for
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+
+se:
+  navigation_public_title: "Offentliga"
+  navigation_private_title: "Privata"
+  navigation_new_title: "Ny enhet"
+  navigation_icons_title: "Kartsymboler"
+  navigation_icons_observer: "Observatör"
+  navigation_icons_last_location: "Enhet, senaste plats"
+  navigation_icons_other_location: "Laite, platser"
+  navigation_about_title: "Mer information"
+  navigation_read_more: "Läs mer om projektet!"
+  navigation_developers: "Utvecklare"

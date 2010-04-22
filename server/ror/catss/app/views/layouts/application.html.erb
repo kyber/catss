@@ -189,14 +189,14 @@ $(document).ready(function() {
   <div id="openCloseIdentifier"></div> 
   <div id="slider"> 
     <div id="rpx">
-      <a class="rpxnow" onclick="return false;" href="https://catss.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Fcatss.5w.fi%2Frpx.php">tai käytä 3-osapuolen kirjautumista</a>
+      <!-- <a class="rpxnow" onclick="return false;" href="https://catss.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Fcatss.5w.fi%2Frpx.php">tai käytä 3-osapuolen kirjautumista</a> -->
     </div>
     <div id="sliderContent"> 
       <ul>
-	<li class="first">Tunnus:<span class="fill">&nbsp;</span><input class="login" type="text" name="username"/></li>
+	<li class="first"><%=t :login_name %><span class="fill">&nbsp;</span><input class="login" type="text" name="username"/></li>
       </ul>
       <ul>
-	<li class="last">Salasana:<input class="login-btn" type="submit" value="login" onClick="alert('not implemented yet');"/><input class="login" type="password" name="password"/></li>
+	<li class="last"><%=t :login_passwd %><input class="login-btn" type="submit" value="<%=t :login_submit %>" onClick="alert('not implemented yet');"/><input class="login" type="password" name="password"/></li>
       </ul>
     </div> 
     <div id="openCloseWrap"> 
@@ -216,7 +216,7 @@ $(document).ready(function() {
 <div class="back-left">
 <div class="rotate"><%= link_to 'Index', { :action => 'index'} %></div>
 </div>
-<h2>CATSS </h2><br/><h3>Cat (or other mobile item) Surveillance System</h3>
+<h2>CATSS </h2><br/><h3><%=t :page_subtitle %></h3>
 </div>
 </div>
 <!--header part end -->

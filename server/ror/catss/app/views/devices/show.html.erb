@@ -163,7 +163,7 @@
 </div>
    <!-- ####### map event table ######### -->
    <div id="eventTable">
-  <h3>Muut tapahtumat/objektit<span id="otherEventsTime"></span><span id="event-log"></span></h3>
+  <h3><%=t :object_locations_events_title %><span id="otherEventsTime"></span><span id="event-log"></span></h3>
      <table id="sortable" cellspacing="1" class="tablesorter">             
        <thead>
          <tr> 
@@ -195,7 +195,7 @@
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:800px;border:dotted 0px #ddd;float:left;">
     
   <div id="sijainti-kohde"><%= @device.name %></span><span style="font-size:0.5em;padding-top:10px;"> 
-  (<%= @device.created_at.to_s(:datetime) %>)
+  (<%= @device.updated_at.to_s(:datetime) %>)
    <% form_for @device, :html => { :method =>  'delete' } do |f | %>       
    <%= hidden_field_tag(:id, @device.id) %>
    <span id="tallenna" style="font-size:1.5em;">
@@ -279,7 +279,7 @@ Lähtöpaikan koordinaatit (lat/long):
 <!-- ### HISTORY TAB ### -->
 <div id="tabs-3" style="text-indent:none;border:none;">
   <div style="text-indent:0px; margin-top:22px;left-indent:0px;margin-left:-200px;width:780px;border:dotted 0px #ddd;float:left;">
-    <span id="sijainti-kohde">Wille-poika</span><span style="font-size:0.7em;padding-top:10px;"> (4.4.2010 14:56:03)</span>
+    <span id="sijainti-kohde"><%= @device.name %></span><span style="font-size:0.7em;padding-top:10px;"> (<%= @device.updated_at.to_s(:datetime) %>)</span>
 
 <select name="nimi" id="history-name-select" class="left-input" style="border:solid 1px #fff;margin-left:50px;font-size:0.8em;">
 <option value="0">Wille-poika</option>

@@ -21,6 +21,7 @@ fi:
   object_locations_address: "osoite..."
   object_locations_map_config: "Kartan asetukset..."
   object_locations_observer: "Tarkkailija"
+  object_locations_events_title: "Muut objektit/tapahtumat"
    
   # second tab
   object_configuration_title: "Asetukset"

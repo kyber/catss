@@ -21,6 +21,7 @@ en:
   object_locations_address: "address..."
   object_locations_map_config: "Map View Config..."
   object_locations_observer: "Observer"
+  object_locations_events_title: "Other Devices/Events"
   
   # second tab
   object_configuration_title: "Configuration View"
