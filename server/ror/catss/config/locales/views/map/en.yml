@@ -1,0 +1,21 @@
+# English localization file for Map view for
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+
+en:
+  map_config_title: "Map View Configuration"
+  map_config_draw_circle: "Show Alert-circle"
+  map_config_draw_navigation: "Show Navigation"
+  map_config_draw_connection_objects: "Draw connections between mobile locations"
+  map_config_draw_connection_observer: "Draw connection line between observer and selected mobile unit."
+  map_config_select_maptype: "Select Maptype:"
+  map_config_remember: "Remember settings"
+

@@ -21,7 +21,7 @@
 				$("#slider").animate({ 
 					marginTop: "-135px"
 					}, 500 );
-				$("#topMenuImage").html('<img src="images/open.png" alt="open" />');
+				$("#topMenuImage").html('<img src="/images/open.png" alt="open" />');
 				$("#openCloseIdentifier").show();
 			} else {
 				$("#slider").animate({ 
@@ -108,19 +108,23 @@ if ( window.addEventListener ) {
     if ( e.keyCode == konami[state] ) state++;
     else state = 0;
     if ( state == 10 )
-      alert('You found it!');
+      alert('Konamied!');
+//      $("#headerPan h1").css('background-image','url(/images/logo-bad-konami.png)');
+//      $("#headerPan").css('background-image','url(/images/skyline-konami.png)');
     }, true);
 }
 
 if ( window.addEventListener ) {
-var found = 0, manseraattori = [77,65,78,83,69];
+var msg = "<p>Yay! You must be a big fan of Tampere. Go ahead and try UI with local (Tampere) language!</p>";
+msg += "<a href='?locale=manse'>Nääs nääs...</a>";
+var found = 0;
+var manseraattori = [77,65,78,83,69];
 window.addEventListener("keydown", function(e) {
     if ( e.keyCode == manseraattori[found] ) found++;
     else found = 0;
     if ( found == 5 )
-     var msg = "<p>Yay! You must be a big fan of Tampere. Go ahead and try UI with local (Tampere) language!</p>";
-     msg += "<a href='?locale=manse'>Nääs nääs...</a>";
-     jQuery.facebox(msg);
+     window.location = "?locale=manse"
+//     jQuery.facebox(msg);
     }, true);
 }
 </script>
@@ -284,12 +288,12 @@ if (maxview == '1')
 <!--header paer start -->
 <div id="headerPan"> <!-- // 260px height -->
 
-
-<div id="titlebar">
-<h1></h1>
 <div class="back-left">
 <div class="rotate"><%= link_to 'Index', { :action => 'index'} %></div>
 </div>
+<div id="titlebar">
+<h1></h1>
+
 <h2>CATSS </h2><br/><h3><%=t :page_subtitle %></h3>
 </div>
 </div>
@@ -302,10 +306,6 @@ if (maxview == '1')
 <div id="footerMain">
 <div id="footer">
 </div>
-</div>
-
-<div id="manseraattori" style="display:none;">
-
 </div>
 
 <!--footer end -->

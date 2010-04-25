@@ -1,6 +1,7 @@
-<%= form_for (@device) do |f| %>
+<%= form_for :device, @device, :url => { :action => "create" } do |f| %>
+<div class="errors">
   <%= f.error_messages %>
-
+</div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -11,7 +12,7 @@
   </div>
   <div class="field">
     <%= f.label :display %><br />
-    <%= select( "display", "id", { "Private" => "1", "Public" => "0"}) %>
+    <%= select( "display", "id", { "private" => "1", "public" => "0"}) %>
   </div>
 
   <div class="actions">

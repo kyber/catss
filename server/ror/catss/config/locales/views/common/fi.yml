@@ -16,3 +16,10 @@ fi:
   login_name: "Tunnus:"
   login_passwd: "Salasana:"
   login_submit: "login"
+
+  # add device
+  common_add_new_title: "Lisää uusi laite"
+  item_labels_name: "Nimi"
+  item_labels_imei: "IMEI-koodi"
+  item_labels_display: "Näkyvyys"
+  item_labels_submit: "Tallenna laite"

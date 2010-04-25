@@ -1,8 +1,8 @@
 Catss::Application.routes.draw do |map|
+
   resources :events
-  resource :user_session
   resources :devices, :path_prefix => '/:locale'
-  
+ 
   # map.device '/:locale', :controller => "device"
   # map.resources :devices, :path_prefix => '/:locale'
   # The priority is based upon order of creation:
@@ -61,4 +61,8 @@ Catss::Application.routes.draw do |map|
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  scope "/:locale" do
+    resources :devices
+  end
+
 end

@@ -1,34 +1,45 @@
 <div style="margin-top:16px;margin-left:30px;width:100%;background-color:#000; height:500px;">
 <div id="leftPan" class="indexpage_public_devices">
-<h2>Public devices</h2>
+<h2><%=t :navigation_public_title %></h2>
 <ul>
 <li class="fill-up"></li>
- <% @devices_pub.each do |device| %>
+<% @devices_pub.each do |device| %>
+  <li><%= link_to device.name, { :action => 'show', :id => device.id}, :class => 'middle' %></li>
+ <% end %>
+<li class="fill-down"></li>
+</ul>
+<h2><%=t :navigation_private_title %><img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
+<ul>
+<li class="fill-up"></li>
+<% @devices_pri.each do |device| %>
   <li><%= link_to device.name, { :action => 'show', :id => device.id}, :class => 'middle' %></li>
  <% end %>
 <li class="fill-down"></li>
 </ul>
 </div>
 <div class="about">
-<h2>New device</h2>
+<h2><%=t :common_add_new_title %></h2>
+
 <% form_for(@device) do |f| %>
-<%= f.error_messages %>
+<div class="error-content">
+<%= error_messages_for :device, :header_message => I18n.t(:error_header), :message => I18n.t(:error_subheader) %>
+</div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label t(:item_labels_name) %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :imei %><br />
+    <%= f.label t(:item_labels_imei) %><br />
     <%= f.text_field :imei %>
   </div>
   <div class="field">
-    <%= f.label :display %><br />
-    <%= select( "device", "display", { "Private" => "private", "Public" => "public"}) %>
+    <%= f.label t(:item_labels_display) %><br />
+<%= select( "device", "display", { "Private" => "private", "Public" => "public"}, { :selected => 'private'}) %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t(:item_labels_submit)%>
   </div>
 <% end %>
 

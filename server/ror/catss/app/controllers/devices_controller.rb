@@ -4,7 +4,6 @@ class DevicesController < ApplicationController
   def index
     @devices = Device.scoped
     @devices_pub = Device.scoped(:conditions => { :display => 'public' })
-    flash[:navititle] = t(:navititle) 
   end
 
   # GET /devices/1
@@ -17,6 +16,7 @@ class DevicesController < ApplicationController
   def new
     @device = Device.new
     @devices_pub = Device.scoped(:conditions => { :display => 'public' })
+    @devices_pri = Device.scoped(:conditions => { :display => 'private' })
    end
 
   # GET /devices/1/edit
@@ -27,7 +27,8 @@ class DevicesController < ApplicationController
   # POST /devices
   def create
     @device = Device.new(params[:device])
-
+    @devices_pub = Device.scoped(:conditions => { :display => 'public' })
+    @devices_pri = Device.scoped(:conditions => { :display => 'private' })
     if @device.save
        redirect_to(@device, :notice => 'Device was successfully created.') 
       
@@ -52,6 +53,6 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
     @device.destroy
 
-    redirect_to(devices_url) 
+    redirect_to(devices_url, :notice => 'Device was successfully removed.') 
   end
 end

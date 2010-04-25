@@ -137,23 +137,22 @@
     <div id="control_and_map" class="control_and_map">
       <div id="control"><input type="text" id="item-address" style="width:280px;" value="<%=t :object_locations_address %>"/>
 	<a href="#map_options" rel="facebox" class="first last"><%=t :object_locations_map_config %></a>
-        <!-- <span id="tallenna"><input href="#map_options" rel="facebox" value="Kartan asetukset..."></input></span> -->
 	<div id="map_options" style="display:none;">
-	  <h3>Map View Config</h3>
+	  <h3><div><%=t :map_config_title %></h3>
           <div class="row">
-	  <input type="checkbox" selected="false" id="cbShowRadius" onChange="javascript:toggleAlertCircle();" value="1">Show Alert-circle</input>
+	  <input type="checkbox" selected="false" id="cbShowRadius" onChange="javascript:toggleAlertCircle();" value="1"><%=t :map_config_draw_circle %></input>
           </div>
           <div class="row">
-	  <input type="checkbox" selected="false" id="cbShowNavi" onChange="javascript:toggleNavi();" value="1">Show Navigation</input> 
+	  <input type="checkbox" selected="false" id="cbShowNavi" onChange="javascript:toggleNavi();" value="1"><%=t :map_config_draw_navigation %></input> 
           </div>
           <div class="row">
-	  <input type="checkbox" selected="false" id="cbShowRoute" onChange="javascript:toggleRoute();" value="1">Draw connections between mobile locations</input>
+	  <input type="checkbox" selected="false" id="cbShowRoute" onChange="javascript:toggleRoute();" value="1"><%=t :map_config_draw_connection_objects %></input>
           </div>
           <div class="row">
-	    <input type="checkbox" selected="false" id="cbDrawConnection" onChange="javascript:toggleDrawConnection();" value="1">Draw connection line between observer and selected mobile unit.</input>
+	    <input type="checkbox" selected="false" id="cbDrawConnection" onChange="javascript:toggleDrawConnection();" value="1"><%=t :map_config_draw_connection_observer %></input>
           </div>
           <div class="row">
-	  Select Maptype:<select name="mymaptype" onChange="setCurMapType(this.value);" id="sMapType"></select>
+	  <%=t :map_config_select_maptype %><select name="mymaptype" onChange="setCurMapType(this.value);" id="sMapType"></select>
 	  </div>
 	</div>
       </div>

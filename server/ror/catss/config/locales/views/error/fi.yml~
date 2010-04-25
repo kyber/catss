@@ -1,0 +1,35 @@
+# Finnish localization file for errors
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+
+fi:
+        header: "Oops! Antamasi tiedot vaativat tarkennusta..."
+        subheader: "Tarkista seuraavat tiedot:"
+        inclusion: "ei löydy listasta"
+        exclusion: "on varattu"
+        invalid: "on kelvoton"
+        confirmation: "ei vastaa varmennusta"
+        accepted: "täytyy olla hyväksytty"
+        empty: "ei voi olla tyhjä"
+        blank: "ei voi olla sisällötön"
+        too_long: "on liian pitkä (saa olla enintään {{count}} merkkiä)"
+        too_short: "on liian lyhyt (oltava vähintään {{count}} merkkiä)"
+        wrong_length: "on väärän pituinen (täytyy olla täsmälleen {{count}} merkkiä)"
+        taken: "on jo käytössä"
+        not_a_number: "ei ole luku"
+        greater_than: "täytyy olla suurempi kuin {{count}}"
+        greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin {{count}}"
+        equal_to: "täytyy olla yhtä suuri kuin {{count}}"
+        less_than: "täytyy olla pienempi kuin {{count}}"
+        less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin {{count}}"
+        odd: "täytyy olla pariton"
+        even: "täytyy olla parillinen"
+        record_invalid: "Validointi epäonnistui: {{errors}}"

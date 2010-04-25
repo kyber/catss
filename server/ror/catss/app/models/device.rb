@@ -4,8 +4,25 @@ class Device < ActiveRecord::Base
  scope :private, where(:display => 'private')
  scope :public, where(:display => 'public')
 
+
+
  # validations
- validates_length_of :name, :within => 6..20, :too_long => "pick a shorter name", :too_short => "pick a longer name"
- validates_uniqueness_of :imei
- validates_numericality_of :imei, :on => :create 
+ # VALIDATE HASH INPUTS
+
+ validates_length_of :name, :within => 3..20, :too_long => I18n.t(:too_long), :too_short => I18n.t(:too_short)
+ validates_uniqueness_of :imei, :message => I18n.t(:taken)
+
+ # MASS_ASSIGNMENTS
+ # By default mass-assignments are prohibited in 
+ #   config/initializers/protect_models_from_mass_assignment.rb
+ #
+ # The problem with mass assignment is that some malicious [cr|h]acker might write a script to 
+ # PUT something like name=New+Name&admin=1, thereby adding himself as an administrative user! 
+ # This would be a Bad Thing™. The standard solution to this problem is to use attr_accessible 
+ # in the model to declare explicitly the attributes that can be modified by mass assignment. 
+ # see more: http://blog.mhartl.com/2008/09/21/mass-assignment-in-rails-applications/
+ # 
+ attr_accessible :imei, :name, :display
+ #
+
 end

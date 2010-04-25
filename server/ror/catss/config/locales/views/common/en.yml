@@ -12,7 +12,17 @@
 
 en:
    page_subtitle: "Cat (or other mobile item) Surveillance System"   
+ 
+   # index page texts
+   index_first_para: "CATSS is a mobile device surveillance system. It consists of two services: <ol><li>Web interface for surveillance and administration (CATSS Server) of </li><li>unlimited amount of mobile devices (CATSS Mobile).</li></ol>" 
+ 
    # login stuff
    login_name: "Username:"
    login_passwd: "Passwd:"
    login_submit: "login"
+
+   common_add_new_title: "Add new device"
+   item_labels_name: "Name"
+   item_labels_imei: "IMEI-code"
+   item_labels_display: "Visibility"
+   item_labels_submit: "Add device"

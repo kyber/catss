@@ -1,0 +1,36 @@
+# English localization file for errors
+#  __  _   ___  _   _
+# /    |\   |  (_  (_
+# |    |-\  |    \   \
+# \__  |  \ |  \_/ \_/
+#
+# 
+# Translator: Jarkko Moilanen, jm60697@gmail.com
+# Long live Hackerspace mode 5w, Tampere
+# Want to do better translation? Contact current translator
+###############################################################
+en:
+  inclusion: 			"is not included in the list"
+  exclusion: 			"is reserved"
+  invalid: 			"is invalid"
+  confirmation: 		"doesn't match confirmation"
+  accepted: 			"must be accepted"
+  empty: 			"can't be empty"
+  blank: "can't be blank"
+  too_long: "is too long (maximum is {{count}} characters)"
+  too_short: "is too fucking short (minimum is {{count}} characters)"
+  wrong_length: "is the wrong length (should be {{count}} characters)"
+  taken: "has already been taken"
+  not_a_number: "is not a number"
+  not_a_date: "is not a valid date"
+  greater_than: "must be greater than {{count}}"
+  greater_than_or_equal_to: "must be greater than or equal to {{count}}"
+  equal_to: "must be equal to {{count}}"
+  less_than: "must be less than {{count}}"
+  less_than_or_equal_to: "must be less than or equal to {{count}}"
+  odd: "must be odd"
+  even: "must be even"
+  greater_than_start_date: "must be greater than start date"
+  not_same_project: "doesn't belong to the same project"
+  circular_dependency: "This relation would create a circular dependency"
+  cant_link_an_issue_with_a_descendant: "An issue can not be linked to one of its subtasks"

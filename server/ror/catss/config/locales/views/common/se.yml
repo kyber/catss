@@ -1,4 +1,4 @@
-# Finnish localization file for object views for
+# Swedish localization file common
 #  __  _   ___  _   _
 # /    |\   |  (_  (_
 # |    |-\  |    \   \
@@ -12,7 +12,18 @@
 
 se:
   page_subtitle: "Katt (eller andra mobila objekt) Surveillance System"
+ 
+  # index page texts
+  index_first_para: "CATSS enheten är ett mobilt övervakningssystem. Den består av två tjänster: <ol> <li> webbgränssnitt för administration och övervakning (CATSS Server) på </li> <li> obegränsat antal mobila enheter (Mobile CATSS). </li> </ol>" 
+ 
   # login stuff
   login_name: "Anv.namn:"
   login_passwd: "Lösenord:"
   login_submit: "login"
+
+  # add device
+  common_add_new_title: "Lägg till ny enhet" 
+  item_labels_name: "Namn"
+  item_labels_imei: "IMEI-kod"
+  item_labels_display: "Synlighet"
+  item_labels_submit: "Inkomma"

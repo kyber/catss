@@ -1329,11 +1329,14 @@ padding-top:0px;
 
 /*-------------left side------*/
 .about{
-/*    background: #444444;*/ 
 margin-top:13px;padding:20px 0 0 0; float:left;
     width:600px;
 /*	border: solid 1px #171717;*/
 
+/*background-image:url(/images/config-bg.png);*/
+background:url(/images/orange.png) repeat-x; 
+
+background-position: top;
 -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   color:#fff;
@@ -1346,11 +1349,11 @@ margin-top:13px;padding:20px 0 0 0; float:left;
 	margin:0px 0 0 0px; font: normal 24px/34px Arial, Helvetica, sans-serif; padding: 0 0 0 0px;
         text-shadow: #000 2px 2px 3px;*/
 	background:url(/images/yksityiset-v.png) no-repeat 0 2px; color:#fff; height:34px; display:block;  
-	color:#fff; width:172px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
+	color:#fff; 
 	font: normal 24px/24px Arial, Helvetica, sans-serif; 
 	text-shadow: #000 2px 2px 3px;
-	margin-top:10px;
-        text-transform:uppercase;
+	margin-top:0px;
+        text-transform:none;
 	}
 
 
@@ -1397,12 +1400,16 @@ letter-spacing:0.2em;
 
 .back-left{
 background:url(/images/back-bg.png) no-repeat; color:#fff; width:26px; height:103px; display:block; 
-padding-top:55px;
+padding-top:0px;
+position:absolute;
+top:10px;
 }
 .rotate{
 -webkit-transform: rotate(-90deg); 
 -moz-transform: rotate(-90deg);	
 color:#2c9ac3;
+position:relative;
+top:60px;
 }
 
 .rotate a{
@@ -1410,4 +1417,72 @@ color:#288db1;
 font: bold 13px/24px Arial, Helvetica, sans-serif; 
 text-decoration:none;
 letter-spacing:0.2em;
+}
+
+
+
+/* ### ERRORS #### */
+
+div.errors {
+width:620px;
+border:solid 0px #fff;
+}
+div.error-cat {
+float:left;
+width:100px;
+}
+
+div.error-content {
+background:url(/images/cat.png) no-repeat;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-left: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-right: 10px;
+    border-bottom-right-radius: 10px;
+background-position: 5px 5px;
+border:solid 0px #474747;
+background-color:#cdcdcd;
+width:620px;
+margin-left:-10px;
+color:#000;
+padding:0px;
+}
+
+
+div.errorExplanation {
+border:dotted 0px #ddd;
+padding:10px;
+}
+
+div.errorExplanation h2 {
+margin-left:100px;
+width:80%;
+text-transform:none;
+font-size:1.3em;
+color:#288db1;
+/*color:#f48401;*/
+text-shadow: #000 1px 1px 1px;
+}
+
+div.errorExplanation p {
+margin-left:20px;
+margin-top:35px;
+color:#000;
+}
+
+div.errorExplanation ul {
+margin-left:40px;
+margin-top:10px;
+font: normal 12px/24px Arial, Helvetica, sans-serif;
+list-style-type: square;
+}
+
+div.errorExplanation ul li {
+
+}
+
+
+.add-device {
+
 }
