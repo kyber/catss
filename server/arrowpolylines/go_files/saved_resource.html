@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0034)http://www.iltalehti.fi/nostot/?al -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Iltalehti.fi</TITLE>
+
+
+<LINK rel="stylesheet" href="./go_files/ilnosto-v1.css" type="text/css">
+
+<SCRIPT type="text/javascript">
+function MyShortLink(){
+var myString = '<p><a href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/jaakiekko/2010042611543027_jk.shtml" target="_blank">Lukko hankki maalivahdin AHL:stä 13:21</a></p><p><a href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/uutiset/2010042611543003_uu.shtml" target="_blank">Elintarvikealan työriidat jatkuvat - työsulku alkaa illalla 13:07</a></p><p><a href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/viihde/2010042611542495_vi.shtml" target="_blank">Ashlee Simpson kirmaili bikineissä Havaijilla 12:59</a></p>';
+var myLink = myString.split("<p>");
+myLink = myLink[1].split("<\/p>");
+myLink = myLink[0].split(">");
+myLink = myLink[0]+'>';
+var myText = myString.split("<\/a>");
+myText = myText[0].split('_blank">');
+myText = myText[1].substring(0,27)+'...';
+var myReturnString = myLink+'<span id="ilboksi_juurinyt">JUURI NYT: <\/span>'+ myText+'<\/a>';
+return myReturnString;
+}
+function MyTopLink(osasto){
+var myString = '';
+if(osasto=='uutiset'){
+myString = '<p><a href="http://www.iltalehti.fi/uutiset/2010042611543003_uu.shtml">Elintarvikealan työriidat jatkuvat - työsulku alkaa illalla</a></p>';
+}else if(osasto=='urheilu'){
+myString = '<p><a href="http://www.iltalehti.fi/formulat/2010042611542536_fo.shtml">Mika Häkkinen palaa formuloihin?</a></p>';
+}else if(osasto=='viihde'){
+myString = '<p><a href="http://www.iltalehti.fi/viihde/2010042611542476_vi.shtml">Jonas Bergströmin salarakkaan perhe pakeni kotoaan</a></p>';
+}
+var mySivu = 'http://www.iltalehti.fi/nostot/al_redir.shtml?';
+var myLink = myString.split("a href=\"");
+var myLink = myLink[1].split(">");
+var myText = myLink[1].split("<");
+if(myText[0].length>53){
+myText = myText[0].substring(0,50)+'...';	}else{
+myText = myText[0];
+}
+var myReturnString = '<p><a target="_blank" href=\"' + mySivu + myLink[0] + '>' + myText + '</a></p>';
+return myReturnString;
+}	</SCRIPT>
+</HEAD><BODY id="ilboksi" marginheight="0">
+ <DIV id="ilboksi_ylaosa">
+<SCRIPT type="text/javascript">
+document.write(MyShortLink());
+</SCRIPT><A href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/jaakiekko/2010042611543027_jk.shtml" target="_blank"><SPAN id="ilboksi_juurinyt">JUURI NYT: </SPAN>Lukko hankki maalivahdin AH...</A>	</DIV>
+<DIV id="ilboksi_kuvaosa"><A href="http://www.iltalehti.fi/nostot/al_redir.shtml?" target="_blank"><IMG src="./go_files/klnosto.gif" alt="Iltalehti.fi etusivu" border="0" id="ilboksi_kuva"></A></DIV>
+<DIV id="ilboksi_valiosa"></DIV>
+<DIV id="ilboksi_otsikkoosa">
+<P id="ilboksi_isootsikko"><A href="http://www.iltalehti.fi/nostot/al_redir.shtml?/viihde/2010042611542341_vi.shtml" target="_blank"><SPAN class="otsikko k24">Teinisensaation keikalla kaaos<BR> - poliisi perui esiintymisen</SPAN></A></P>
+<SCRIPT type="text/javascript">
+document.write(MyTopLink('viihde'));
+document.write(MyTopLink('uutiset'));
+document.write(MyTopLink('urheilu'));
+</SCRIPT><P><A target="_blank" href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/viihde/2010042611542476_vi.shtml">Jonas Bergströmin salarakkaan perhe pakeni kotoaan</A></P><P><A target="_blank" href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/uutiset/2010042611543003_uu.shtml">Elintarvikealan työriidat jatkuvat - työsulku alka...</A></P><P><A target="_blank" href="http://www.iltalehti.fi/nostot/al_redir.shtml?http://www.iltalehti.fi/formulat/2010042611542536_fo.shtml">Mika Häkkinen palaa formuloihin?</A></P>	<P><A href="http://www.iltalehti.fi/nostot/al_redir.shtml?/uutiset/2010042611542458_uu.shtml" target="_blank"><SPAN class="otsikko k24">Jalostamolla typpeä hengittänyt kriittisessä tilassa</SPAN></A></P>
+</DIV>
+<DIV id="ilboksi_alaosa"></DIV>
+	 
+</BODY></HTML>

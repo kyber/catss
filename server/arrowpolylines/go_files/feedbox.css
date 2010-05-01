@@ -1,0 +1,154 @@
+/* Style of the sparkbox */
+.feedbox-topl { width: 10px; background: url('../images/sparkbox_embed.png') top left no-repeat; }
+.feedbox-topr { overflow: hidden; min-height: 13px; background: url('../images/sparkbox_embed.png') top right no-repeat; padding: 10px 10px 0px 0px; }
+.feedbox-contl { width: 10px; background: url('../images//sparkbox_embed-bg.png') left repeat-y; }
+.feedbox-contr { overflow: hidden; background: url('../images//sparkbox_embed-bg.png') right repeat-y; padding: 0px 10px 0px 0px; }
+.feedbox-contr img { max-width: 470px; }
+
+.feedbox-bottoml { width: 25px; min-height: 0px; background: url('../images/sparkbox_embed.png') bottom left; }
+.feedbox-bottomr { overflow: hidden; min-height: 0px; background: url('../images/sparkbox_embed.png') bottom right; padding: 0px 25px 10px 0px; }
+
+/*Text styles*/
+.feed-item-topic a,.feed-item-topic-old a{
+	font-family:Arial,Helvetica,MS Sans Serif;
+	font-size:12px; color:#106bad;
+	font-weight:normal;
+	text-decoration:none;
+	padding-right:3px;
+}
+.feed-item-topic a:hover,.feed-item-user a:hover,.feed-item-topic-old a:hover,.feed-item-user-old a:hover{color:#000000;}
+.feed-item-date,.feed-item-date-old {font-family:Arial; font-size:10px; color:#9d9d9d;}
+.feed-item-user a,.feed-item-user-old a{font-family:Arial; font-size:11px; color:#333333; font-weight:bold; text-decoration:none}
+.feed-item-text, .feed-item-text-old {font-family:Arial; font-size:11px; color:#444444;}
+.feed-item-delete {font-family:Arial; font-size:11px; color:#ff0000; font-weight:bold}
+
+.feed-item-topic-old a{color:#0061AA;}
+.feed-item-date-old {color:#9d9d9d;}
+.feed-item-user-old a{color:#333333;}
+.feed-item-text-old {color:#9d9d9d;}
+
+/* Boxes to columns*/
+div#leftcol { width: 50%; float:left;}
+div#rightcol { width: 50%; float:left;}
+div#feedItemLeft { padding:0 0 0 0px;}
+div#feedItemRight { padding:0 0 0 5px;}
+
+/*Background*/
+body { 
+	background-color:transparent;
+
+}
+
+
+/* 
+  -- Even more rounded corners with CSS: Base stylesheet --
+*/
+
+.dialog,
+.dialog-old{
+ position:relative;
+ margin:0px auto;
+ /*min-width:8em;
+ max-width:225px; based on image dimensions - not quite consistent with drip styles yet */
+ width:96%;
+ color:#fff;
+ z-index:1;
+ margin-left:5px; /* default, width of left corner */
+ margin-bottom:0.5em; /* spacing under dialog */
+}
+
+.dialog .content,
+.dialog .t,
+.dialog .b,
+.dialog .b div {
+ background:transparent url(../images/itembox_new.png) no-repeat top right;
+ height:60px;
+}
+
+.dialog-old .content,
+.dialog-old .t,
+.dialog-old .b,
+.dialog-old .b div {
+ /*background:transparent url(../images/itembox_old.png) no-repeat top right;*/
+ background:transparent url(../images/itembox_new.png) no-repeat top right;
+ height:60px;
+}
+
+.dialog .content,
+.dialog-old .content {
+ position:relative;
+ zoom:1;
+ _overflow-y:hidden;
+ padding:5px 0px 0px 0px;
+}
+
+.dialog .t,
+.dialog-old .t {
+ /* top+left vertical slice */
+ position:absolute;
+ left:0px;
+ top:0px;
+ width:5px; /* top slice width */
+ margin-left:-5px;
+ height:100%;
+ _height:1600px; /* arbitrary long height, IE 6 */
+ background-position:top left;
+}
+
+.dialog .b,
+.dialog-old .b{
+ /* bottom */
+ position:relative;
+ width:100%;
+}
+
+.dialog .b,
+.dialog .b div,
+.dialog-old .b,
+.dialog-old .b div {
+ height:5px; /* height of bottom cap/shade */
+ font-size:1px;
+}
+
+.dialog .b,
+.dialog-old .b {
+ background-position:bottom right;
+}
+
+.dialog .b div,
+.dialog-old .b div {
+ position:relative;
+ width:5px; /* bottom corner width */
+ margin-left:-5px;
+ background-position:bottom left;
+}
+
+.dialog .hd,
+.dialog .bd,
+.dialog .ft,
+.dialog-old .hd,
+.dialog-old .bd,
+.dialog-old .ft {
+ position:relative;
+}
+
+.dialog .wrapper
+.dialog-old .wrapper {
+ /* extra content protector - preventing vertical overflow (past background) */
+ position:static;
+ max-height:1000px;
+ overflow:auto; /* note that overflow:auto causes a rather annoying redraw "lag" in Firefox 2, and may degrade performance. Might be worth trying without if you aren't worried about height/overflow issues. */
+}
+
+.dialog h1,
+.dialog p,
+.dialog-old h1,
+.dialog-old p {
+ margin:0px; /* margins will blow out backgrounds, leaving whitespace. */
+ padding:0.5em 0px 0.5em 0px;
+}
+
+.dialog h1,
+.dialog-old h1{
+ padding-bottom:0px;
+}

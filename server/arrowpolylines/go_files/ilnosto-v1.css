@@ -1,0 +1,28 @@
+body { font:bold 11px verdana; }
+
+#ilboksi { width:427px; margin:0px; background-color:#ffffff; }
+#ilboksi a { padding:0px; margin:0px; color:#000000; text-decoration:none; }
+#ilboksi a:visited { text-decoration:none; }
+
+#ilboksi_ylaosa { position:relative; height:35px; background:url(http://static.iltalehti.fi/kuvat/grafiikat/nosto/nosto_ylapalkki_teksti.gif) no-repeat; }
+#ilboksi_ylaosa a { position:absolute; top:13px; left:131px; }
+#ilboksi_ylaosa a:hover { text-decoration:underline; }
+
+#ilboksi_juurinyt { color:#999999; }
+
+#ilboksi_kuvaosa { background: url(http://static.iltalehti.fi/kuvat/grafiikat/nosto/nosto_bg.gif) repeat-y; }
+#ilboksi_kuva { margin-left:9px; }
+
+#ilboksi_valiosa { overflow: hidden; height:5px; width:427px; background: url(http://static.iltalehti.fi/kuvat/grafiikat/nosto/vali.gif) no-repeat; }
+
+#ilboksi_otsikkoosa { padding: 3px 14px 3px 16px; background:url(http://static.iltalehti.fi/kuvat/grafiikat/nosto/nosto_bg_reunat.gif) repeat-y;}
+#ilboksi_otsikkoosa p { padding-left:13px; margin:0px; background:url(http://static.iltalehti.fi/kuvat/grafiikat/nosto/nosto_nuoli.gif) no-repeat 1px 2px; }
+#ilboksi_otsikkoosa a { display:block; line-height:16px; }
+#ilboksi_otsikkoosa a:hover { display:block; text-decoration:none; background-color:#ead9bf;  }
+
+#ilboksi_isootsikko { padding-bottom:4px; margin-bottom:3px; border-bottom:solid #000000 1px; }
+#ilboksi_isootsikko a, #webslice_otsikko { font-size:15px; }
+
+#ilboksi_alaosa { height:11px; background:url(http://static.iltalehti.fi/kuvat/grafiikat/nosto/nosto_alapalkki.gif) no-repeat; }
+
+#webslice_header { margin:9px 0px 9px 9px; }

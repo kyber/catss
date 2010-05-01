@@ -11,8 +11,8 @@
 ###############################################################
 
 se:
-  header: "Oops! Några av de detaljer behov beroende förtydligande."
-  subheader: "Kontrollera dessa:"
+  error_header: "Oops! Några av de detaljer behov beroende förtydligande."
+  error_subheader: "Kontrollera dessa:"
   inclusion: "finns inte i listan"
   exclusion: "är reserverat"
   invalid: "är ogiltigt"

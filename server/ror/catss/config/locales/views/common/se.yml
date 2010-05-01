@@ -14,6 +14,7 @@ se:
   page_subtitle: "Katt (eller andra mobila objekt) Surveillance System"
  
   # index page texts
+  index_title: "Var uppmärksam på plats"
   index_first_para: "CATSS enheten är ett mobilt övervakningssystem. Den består av två tjänster: <ol> <li> webbgränssnitt för administration och övervakning (CATSS Server) på </li> <li> obegränsat antal mobila enheter (Mobile CATSS). </li> </ol>" 
  
   # login stuff
@@ -22,7 +23,7 @@ se:
   login_submit: "login"
 
   # add device
-  common_add_new_title: "Lägg till ny enhet" 
+  common_add_new_title: "Lägg till en ny enhet" 
   item_labels_name: "Namn"
   item_labels_imei: "IMEI-kod"
   item_labels_display: "Synlighet"

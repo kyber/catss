@@ -14,6 +14,7 @@ en:
    page_subtitle: "Cat (or other mobile item) Surveillance System"   
  
    # index page texts
+   index_title: "Be aware of location"
    index_first_para: "CATSS is a mobile device surveillance system. It consists of two services: <ol><li>Web interface for surveillance and administration (CATSS Server) of </li><li>unlimited amount of mobile devices (CATSS Mobile).</li></ol>" 
  
    # login stuff

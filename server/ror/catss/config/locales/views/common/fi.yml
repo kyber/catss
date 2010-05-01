@@ -12,6 +12,7 @@
 
 fi:
   page_subtitle: "Kissan (tai muun mobiilin) reaaliaikainen seuranta"
+  index_title: "Paikanna kohteesi"
   # login stuff
   login_name: "Tunnus:"
   login_passwd: "Salasana:"
