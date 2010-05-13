@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20100422093846) do
     t.float    "hwrel"
     t.string   "locationunit"
     t.string   "speedunit"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
