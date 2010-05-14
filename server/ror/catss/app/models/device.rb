@@ -4,14 +4,12 @@ class Device < ActiveRecord::Base
  scope :private, where(:display => 'private')
  scope :public, where(:display => 'public')
 
-
-
  # validations
  # VALIDATE HASH INPUTS
 
  validates_length_of :name, :within => 3..20, :too_long => I18n.t(:too_long), :too_short => I18n.t(:too_short)
  validates_uniqueness_of :imei, :message => I18n.t(:taken)
-
+ validates_length_of :imei, :is => 15, :message => I18n.t(:wrong_length)
  # MASS_ASSIGNMENTS
  # By default mass-assignments are prohibited in 
  #   config/initializers/protect_models_from_mass_assignment.rb
