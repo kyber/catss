@@ -11,11 +11,11 @@
 ###############################################################
 
 se:
-  error_header: "Oops! Några detaljer behöver förtydligande."
+  error_header: "Oops!"
   error_subheader: "Kontrollera dessa:"
   inclusion: "finns inte i listan"
-  exclusion: "är reserverat"
-  invalid: "är ogiltigt"
+  exclusion: " reserverat"
+  invalid: " ogiltigt"
   confirmation: "stämmer inte överens"
   accepted: "måste vara accepterad"
   empty: "får ej vara tom"

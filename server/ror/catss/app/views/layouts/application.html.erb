@@ -3,10 +3,10 @@
 <head>
   <title><%= controller.action_name %> &ndash; <%= controller.controller_name %> &ndash; Catss</title>
 <!-- MAP STUFF -->
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAAwyXJyclH0lUZHl1NSsXBBR-GnEQV2Q1KV0CZ-zB-cw9e0o6BBSsLtv7MMXi3qBcHQ9ey3TPSQSLPw" type="text/javascript"></script>
-  <%= javascript_include_tag 'BdccArrowedPolyline.js' %>
-  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' %>
-  <%= javascript_include_tag 'rails', 'jquery-ui-1.8.custom.min.js', 'jquery.rotate.1-1.js', 'facebox.js', 'jquery.tablesorter.js', :cache => true %>
+ <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAAwyXJyclH0lUZHl1NSsXBBQ8e-Ie_Ti5fcEU-hadygJTVQ6eCRS8GJBSS-jf1hW4glxJgDkPIgI7BQ" type="text/javascript"></script>
+  <%= javascript_include_tag 'BdccArrowedPolyline' %>
+  <%= javascript_include_tag 'rails', 'jquery-ui-1.8.custom.min', 'jquery.rotate.1-1', 'facebox', 'jquery.tablesorter', :cache => false %>
   <%= stylesheet_link_tag 'jquery-ui-1.8.custom', 'style', 'table', 'facebox' %>
   <%= csrf_meta_tag %>
 

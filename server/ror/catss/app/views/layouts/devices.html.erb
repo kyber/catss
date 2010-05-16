@@ -1,17 +1,314 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Devices: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= javascript_include_tag :defaults %>
+  <title><%= controller.action_name %> &ndash; <%= controller.controller_name %> &ndash; Catss</title>
+<!-- MAP STUFF -->
+ <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAAwyXJyclH0lUZHl1NSsXBBQ8e-Ie_Ti5fcEU-hadygJTVQ6eCRS8GJBSS-jf1hW4glxJgDkPIgI7BQ" type="text/javascript"></script>
+  <%= javascript_include_tag 'BdccArrowedPolyline' %>
+  <%= javascript_include_tag 'rails', 'jquery-ui-1.8.custom.min', 'jquery.rotate.1-1', 'facebox', 'jquery.tablesorter', :cache => false %>
+  <%= stylesheet_link_tag 'jquery-ui-1.8.custom', 'style', 'table', 'facebox' %>
   <%= csrf_meta_tag %>
+
+
+
+
+<script type="text/javascript"> 
+	$(document).ready(function() {
+        checkCookie();
+		$(".topMenuAction").click( function() {
+			if ($("#openCloseIdentifier").is(":hidden")) {
+				$("#slider").animate({ 
+					marginTop: "-135px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="/images/open.png" alt="open" />');
+				$("#openCloseIdentifier").show();
+			} else {
+				$("#slider").animate({ 
+					marginTop: "0px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="/images/close.png" alt="close" />');
+				$("#openCloseIdentifier").hide();
+			}
+		});  
+	});
+
+
+	$(document).ready(function() {
+		$(".topMenuAction2").click( function() {
+			if ($("#openCloseIdentifier2").is(":hidden")) {
+				$("#topMenuImage2").html('<img  border="0" src="/images/min.png" alt="open" />');
+                                $("#headerPan").css({height:"260px"});
+                                $("#headerPan h3").show();
+                                $("#headerPan h2").show();
+                                $("#openCloseIdentifier2").show();
+                                setCookie('catssmaxview','0',365);
+			} else {
+				$("#topMenuImage2").html('<img border="0" src="/images/max.png" alt="close" />');
+                                
+                                $("#headerPan").css({height:"30px"});
+                                $("#headerPan h3").hide();
+                                $("#headerPan h2").hide();
+                                $("#openCloseIdentifier2").hide();
+                                setCookie('catssmaxview','1',365);
+			}
+		});  
+	});
+
+</script> 
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+		$("#FIXMEcbShowRadius").change( function() {
+                   if(!this.checked){
+                     this.checked=true;
+                   }
+                   else{
+                     this.checked=false;
+                   }
+                   toggleAlertCircle();
+		});  
+	});
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+ $('.row').click(function(){ 
+       var $checkbox = $(this).find(':checkbox');
+       $checkbox.attr('checked', !$checkbox.is(':checked'));
+ });
+});
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+  
+  // Tabs
+  $('#tabs').tabs();
+ // alert('arrow next');
+  $('#c-arrow').rotateRight(0);
+  $('a[rel*=facebox]').facebox(); 
+  $('input[rel*=facebox]').facebox(); 
+  $("#isPrivate").hide();
+  // should the view be maximized?!
+ 
+  });
+
+
+</script>
+
+<script>
+if ( window.addEventListener ) {
+  var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
+  window.addEventListener("keydown", function(e) {
+    if ( e.keyCode == konami[state] ) state++;
+    else state = 0;
+    if ( state == 10 )
+      alert('Konamied!');
+//      $("#headerPan h1").css('background-image','url(/images/logo-bad-konami.png)');
+//      $("#headerPan").css('background-image','url(/images/skyline-konami.png)');
+    }, true);
+}
+
+if ( window.addEventListener ) {
+var msg = "<p>Yay! You must be a big fan of Tampere. Go ahead and try UI with local (Tampere) language!</p>";
+msg += "<a href='?locale=manse'>Nääs nääs...</a>";
+var found = 0;
+var manseraattori = [77,65,78,83,69];
+window.addEventListener("keydown", function(e) {
+    if ( e.keyCode == manseraattori[found] ) found++;
+    else found = 0;
+    if ( found == 5 )
+     window.location = "?locale=manse"
+//     jQuery.facebox(msg);
+    }, true);
+}
+</script>
+
+
+<script type="text/javascript">
+  function FIXMErotateImg(uusikulma) {
+        var vanhakulma = document.getElementById('v-aste');
+        var aste = document.getElementById('aste');
+        vaste = parseInt(vanhakulma.value);
+        asteint = parseInt(uusikulma);
+
+        if(vaste < asteint){
+         uusikulma = asteint-1;
+         $('#c-arrow').rotateRight(1);
+         vanhakulma.value = vaste+1;
+         aste.value = uusikulma;
+         if(vaste != uusikulma){
+          setTimeout("rotateImg("+uusikulma+")", 10);
+         }
+        }
+        else if (vaste > asteint) {
+         uusikulma = asteint+1;
+         $('#c-arrow').rotateLeft(1);
+         vanhakulma.value = vaste-1;
+         aste.value = uusikulma;
+         if(vaste != uusikulma){
+          setTimeout("rotateImg("+uusikulma+")", 10);
+         }
+        }
+        else{
+        vaste = asteint;
+        vanhakulma.value = asteint;
+        uusikulma = asteint;
+       
+        }
+        //alert(vaste+"/"+asteint);
+        if(vaste != asteint){
+         
+        }
+}
+
+  function rotateImg(uusikulma) {
+        vanhakulma = document.getElementById('v-aste');
+        vaste = parseInt(vanhakulma);
+        asteint = parseInt(uusikulma);
+        if(vaste != 0){
+         $('#c-arrow').rotateLeft(parseInt(vanhakulma.value));
+        }
+        $('#c-arrow').rotateRight(asteint);
+        vanhakulma.value = asteint;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+    $("#historyslider").slider( { animate: true } );
+    $("#historyslider").slider( "option", "max", 7 );
+    $("#historyslider").slider({
+        'slide': function(event, ui) { 
+         var cur = ui.value;
+         $("#sliderval").val(cur);
+        
+        }
+    });
+
+  });
+
+</script>
+<script type="text/javascript">
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=");
+  if (c_start!=-1)
+    {
+    c_start=c_start + c_name.length+1;
+    c_end=document.cookie.indexOf(";",c_start);
+    if (c_end==-1) c_end=document.cookie.length;
+    return unescape(document.cookie.substring(c_start,c_end));
+    }
+  }
+return "";
+}
+
+function setCookie(c_name,value,expiredays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate()+expiredays);
+document.cookie=c_name+ "=" +escape(value)+
+((expiredays==null) ? "" : ";expires="+exdate.toUTCString());
+}
+
+function checkCookie()
+{
+maxview=getCookie('catssmaxview');
+if (maxview == '1')
+  {
+  // it was found! hide quick!!
+  $("#headerPan").css({height:"30px"});
+  $("#headerPan h3").hide();
+  $("#headerPan h2").hide();
+  $("#openCloseIdentifier2").hide();
+  
+  }
+
+}
+</script>
+
 </head>
-<body>
+<body onunload="GUnload()">
+<div id="sliderWrap2"> 
+  <div id="openCloseIdentifier2"></div> 
+  <div id="slider2"> 
+    <div id="sliderContent2"></div> 
+    <div id="openCloseWrap2"> 
+      <a href="#" class="topMenuAction2" id="topMenuImage2"> 
+	<img  border="0" src="/images/min.png" alt="maximize mapview" /> 
+      </a> 
+    </div> 
+  </div> 
+</div> 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
+<div id="sliderLang"> 
+ <div id="sliderLangRight"></div>
+ <div id="sliderLangMiddle"> 
+  <div> <%= link_to 'fi', { :locale => 'fi'} %> | 
+        <%= link_to 'en', { :locale => 'en'} %> |
+        <%= link_to 'se', { :locale => 'se'} %>
+        
+
+   <!-- fi | en | se | ge -->
+   </div></div>
+ <div id="sliderLangLeft"></div>  
+</div> 
+
+<div id="sliderWrap"> 
+  <div id="openCloseIdentifier"></div> 
+  <div id="slider"> 
+    <div id="rpx">
+      <!-- <a class="rpxnow" onclick="return false;" href="https://catss.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Fcatss.5w.fi%2Frpx.php">tai käytä 3-osapuolen kirjautumista</a> -->
+    </div>
+    <div id="sliderContent"> 
+      <ul>
+	<li class="first"><%=t :login_name %><span class="fill">&nbsp;</span><input class="login" type="text" name="username"/></li>
+      </ul>
+      <ul>
+	<li class="last"><%=t :login_passwd %><input class="login-btn" type="submit" value="<%=t :login_submit %>" onClick="alert('not implemented yet');"/><input class="login" type="password" name="password"/></li>
+      </ul>
+    </div> 
+    <div id="openCloseWrap"> 
+      <a href="#" class="topMenuAction" id="topMenuImage"> 
+	<img src="/images/open.png" alt="open" /> 
+      </a> 
+    </div> 
+  </div> 
+</div> 
+
+<!--header paer start -->
+<div id="headerPan"> <!-- // 260px height -->
+
+<div class="back-left">
+<div class="rotate"><%= link_to 'Index', { :action => 'index'} %></div>
+</div>
+<div id="titlebar">
+<h1></h1>
+
+<h2>CATSS </h2><br/><h3><%=t :page_subtitle %></h3>
+</div>
+</div>
+<!--header part end -->
+
+<p class="notice"><%= notice %> </p>
 <%= yield %>
 
+<!--footer start -->
+<div id="footerMain">
+<div id="footer">
+</div>
+</div>
+
+<!--footer end -->
 </body>
 </html>
+

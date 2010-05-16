@@ -1,3 +1,4 @@
+# encoding: utf-8
 # Finnish localization file for errors
 #  __  _   ___  _   _
 # /    |\   |  (_  (_
@@ -9,27 +10,34 @@
 # Long live Hackerspace mode 5w, Tampere
 # Want to do better translation? Contact current translator
 ###############################################################
-
 fi:
-        error_header: "Oops! Antamasi tiedot vaativat tarkennusta..."
-        error_subheader: "Tarkista seuraavat tiedot:"
-        inclusion: "ei löydy listasta"
-        exclusion: "on varattu"
-        invalid: "on kelvoton"
-        confirmation: "ei vastaa varmennusta"
-        accepted: "täytyy olla hyväksytty"
-        empty: "ei voi olla tyhjä"
-        blank: "ei voi olla sisällötön"
-        too_long: "on liian pitkä (saa olla enintään {{count}} merkkiä)"
-        too_short: "on liian lyhyt (oltava vähintään {{count}} merkkiä)"
-        wrong_length: "on väärän pituinen (täytyy olla täsmälleen {{count}} merkkiä)"
-        taken: "on jo käytössä"
-        not_a_number: "ei ole luku"
-        greater_than: "täytyy olla suurempi kuin {{count}}"
-        greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin {{count}}"
-        equal_to: "täytyy olla yhtä suuri kuin {{count}}"
-        less_than: "täytyy olla pienempi kuin {{count}}"
-        less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin {{count}}"
-        odd: "täytyy olla pariton"
-        even: "täytyy olla parillinen"
-        record_invalid: "Validointi epäonnistui: {{errors}}"
+  activerecord:
+    attributes:
+      device:
+        name: "Nimi"
+        imei: "Imei-koodi"
+  error_header: "Oops! Antamasi tiedot vaativat tarkennusta..."
+  error_subheader: "Tarkista seuraavat tiedot:"
+  inclusion: "ei ole listalla"
+  exclusion: "on varattu"
+  invalid: "on kelvoton"
+  confirmation: "ei vastaa varmennusta"
+  accepted: "vaatii valinnan"
+  empty: "pakko olla jotain"
+  blank: "pakko olla jotain"
+  too_long: " liikaa tauhkaa (pituus saa olla maks {{count}})"
+  too_short: " on liian lyhyt (pituus oltava min {{count}})"
+  wrong_length: " on pituudeltaan kyseenalainen (pituus oltava {{count}})"
+  taken: "on jo varattu"
+  not_a_number: "ei ole luku"
+  greater_than: "oltava suurempi kuin {{count}}"
+  greater_than_or_equal_to: "oltava suurempi tai samankokoinen kuin {{count}}"
+  equal_to: "oltava samankokoinen kuin {{count}}"
+  less_than: "oltava pienempi kuin {{count}}"
+  less_than_or_equal_to: "oltava pienempi tai samankokoinen kuin {{count}}"
+  odd: "pakko olla pariton"
+  even: "pakko olla parillinen"
+  record_invalid: "Validoinnin virheet: {{errors}}"
+
+  fields_name: "Nimi "
+  fields_imei: "Imei "
