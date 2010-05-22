@@ -2,6 +2,7 @@ class Device < ActiveRecord::Base
 
  # scopes
  scope :private, where(:display => 'private')
+ scope :shared, where(:display => 'shared')
  scope :public, where(:display => 'public')
 
  # validations

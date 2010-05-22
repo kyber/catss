@@ -3,6 +3,7 @@
 en:
   navigation_public_title: "Public Devices"
   navigation_private_title: "Private"
+  navigation_shared_title: "Shared"
   navigation_new_title: "New Device"	  
   navigation_icons_title: "Map Icons" 
   navigation_icons_observer: "Observer"

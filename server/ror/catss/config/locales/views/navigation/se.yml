@@ -13,6 +13,7 @@
 se:
   navigation_public_title: "Offentliga"
   navigation_private_title: "Privata"
+  navigation_shared_title: "Delad"
   navigation_new_title: "Ny enhet"
   navigation_icons_title: "Kartsymboler"
   navigation_icons_observer: "Observatör"

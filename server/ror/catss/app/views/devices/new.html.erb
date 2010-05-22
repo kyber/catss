@@ -35,7 +35,8 @@
   </div>
   <div class="field">
     <%= f.label t(:item_labels_display) %><br />
-<%= select( "device", "display", { "Private" => "private", "Public" => "public"}, { :selected => 'private'}) %>
+<%= select( "device", "display", { "Private" => "private", "Shared" => "shared", "Public" => "public"}, { 
+:selected => 'private'}) %>
   </div>
 
   <div class="actions">

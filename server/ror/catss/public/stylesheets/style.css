@@ -171,21 +171,17 @@ z-index:-2;
 	background:url(/images/left_side_down.gif) no-repeat bottom left; height:8px; font-size:0; display:block;
 	}
 #leftPan h2{
-/*	background:url(/images/services_icon.gif) no-repeat 0 0 #171717; color:#fff; width:90px; height:34px; display:block; 
-background: #288db1; color:#fff; width:90px; height:34px; display:block;
-	margin:0px 0 0 8px; font: normal 24px/34px Arial, Helvetica, sans-serif; padding: 0 0 0 25px;
-text-shadow: #000 2px 2px 3px;*/
-	background:url(/images/yksityiset-v.png) no-repeat 0 2px; color:#fff; height:34px; display:block;  
-	color:#fff; width:172px; margin:0px 0 10px 26px; padding: 0 0 0 31px; background-color:transparent;	
+	background:url(/images/yksityiset-v.png) no-repeat 0 2px; color:#fff; height:20px; display:block;  
+	color:#fff; width:172px; margin:0px 0 10px 10px; padding: 0 0 0 31px; 
+	background-color:transparent;	
 	font: normal 24px/24px Arial, Helvetica, sans-serif; 
 	text-shadow: #000 2px 2px 3px;
 	
 	}
 #leftPan ul{
-	width:190px; display:block; margin:6px 0 24px 25px; font-size:0;
+	width:190px; display:block; margin:6px 0 14px 25px; font-size:0;
 	}
 #leftPan ul li{
-/*	background:url(/images/left_side_arrow.gif) no-repeat 0 9px; padding: 0 0 0 11px; display:block; height:24px;*/
 list-style:none;
 padding-top:1px;
 text-shadow: #000 2px 2px 3px;
@@ -193,7 +189,8 @@ text-shadow: #000 2px 2px 3px;
 	}
 #leftPan ul li a{
 	font:14px/28px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none; background-color:#626262; display:block;
-	padding:5px;
+	padding-left:5px;
+	padding-right:5px;
 	}
 #leftPan ul li a.last{
 	font:14px/28px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none; background-color:#626262; display:block;
@@ -227,8 +224,8 @@ text-shadow: none;
   border-top-left-radius: 10px;
 }
 
-#leftPan ul li.fill-up{
-height:5px;	 
+#leftPan ul li.fill-up {
+height:18px;	 
 font:14px/28px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none; background-color:#626262; display:block;
 -webkit-border-top-right-radius: 10px;
   -webkit-border-top-left-radius: 10px;
@@ -238,8 +235,58 @@ font:14px/28px Arial, Helvetica, sans-serif; color:#B6B6B5; text-decoration:none
   border-top-left-radius: 10px;
 margin-left:0px;
 margin-right:0px;
-border: solid 1px #626262; 
+border: solid 1px #626262;
+padding-left:5px;
+color:#fff; 
 }
+
+#leftPan ul li.fill-up a.listoptions{
+text-decoration:none;
+position:relative;
+padding:3px;
+float:right;
+height:10px;
+top:-2px;
+font-size:0.8em;
+color:#fff;
+border-left: solid 1px #797878;
+border-bottom: solid 0px #797878;
+}
+
+#leftPan ul li.fill-up a.listoptions span {
+position:relative;
+top:-10px;
+}
+
+#leftPan ul li.fill-up a.listoptions:hover{
+background-color:#288db1;
+}
+
+#leftPan ul li.fill-up a.left-corner-round{
+background-color:#797878;
+-webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+}
+
+#leftPan ul li.fill-up a.right-corner-round {
+background-color:#797878;
+-webkit-border-top-right-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+}
+
+#leftPan ul li.fill-up a.selected {
+border: solid 0px #797878;
+}
+
+#leftPan ul li.fill-up a.right-corner-round {
+-webkit-border-top-right-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+}
+
+
 
 #leftPan ul li.fill-down{
 height:5px;	 
@@ -978,7 +1025,6 @@ border:solid 0px #797878;
 #side_bar {
     text-align:center;
     margin-top:0px;
-    float:left;
     width:70px;
     border:solid 1px #797878;
     height:242px;  
@@ -987,8 +1033,8 @@ border:solid 0px #797878;
     border-top-left-radius: 5px;
     background-color:#444444;color:#fff;
     float:left;
-    overflow:auto; 
-    font-size:0.9em;
+    overflow:hidden; 
+    font-size:0.8em;
 }
 #side_bar div {
 margin-bottom:5px;
@@ -1178,12 +1224,14 @@ background-position: right;
 }
 
 .off-line-div {
-background-image:url(/images/off-line.png);
-background-repeat:no-repeat;
+background-image:url(/images/noaccess.png);
 background-position: right;
+background-repeat:no-repeat;
 float:right;
-width:30px;
+width:20px;
 height:20px;
+margin-top:-26px;
+margin-right:3px;
 }
 
 /* #### USER CONFIG #### */

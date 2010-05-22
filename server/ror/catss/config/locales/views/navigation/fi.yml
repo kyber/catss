@@ -13,6 +13,7 @@
 fi:
   navigation_public_title: "Julkiset laitteet"
   navigation_private_title: "Yksityiset"
+  navigation_shared_title: "Jaetut"
   navigation_new_title: "Uusi laite"
   navigation_icons_title: "Karttaikonit"
   navigation_icons_observer: "Tarkkailija"

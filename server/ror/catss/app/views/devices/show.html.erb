@@ -15,34 +15,74 @@
 <div id="mainBody">
 <!--left side start -->
 <div id="leftPan">
-<h2><%=t :navigation_public_title %></h2>
-<ul>
-<li class="fill-up"></li>
-<% Device.public.each do |dev| %>
-  <% if dev.imei == @device.imei %>
-   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'selected' %></li>
-  <% else %>
-   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'middle' %></li>
-  <% end %>
-<% end %>
-<li class="fill-down"></li>
-</ul>
-<h2><%=t :navigation_private_title %> <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
-<ul>
-<li class="fill-up">
+<!-- ## PUBLIC ## -->
+<% if Device.public.size > 0 %>
+ <h2><%=t :navigation_public_title %></h2>
+ <ul>
+ <li class="fill-up">
+  <!-- a little options to view -->
+  <div><a href="#" class="listoptions right-corner-round"><span>active </span></a><a href="#" 
+class="listoptions left-corner-round selected"><span>all</span></a>
+  </div>
+ </li>
+  <% Device.public.each do |dev| %>
+   <% if dev.imei == @device.imei %>
+    <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'selected' %>
+   <!-- test here if the device is online or off-line, if latter use: <div class="off-line-div"></div> -->
+    </li>
+   <% else %>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'middle' %>
+<div class="off-line-div"></div>
 </li>
-<% Device.private.each do |dev| %>
+   <% end %>
+  <% end %>
+ <li class="fill-down"></li>
+ </ul>
+<% end %>
+<!-- ## SHARED ## -->
+<% if Device.shared.size > 0 %>
+ <h2><%=t :navigation_shared_title %></h2>
+ <ul>
+ <li class="fill-up">
+  <!-- a little options to view -->
+  <div>
+  <a href="#" class="listoptions right-corner-round selected"><span>active </span></a>
+  <a href="#" class="listoptions left-corner-round"><span>all</span></a>
+  </div>
+ </li>
+ <% Device.shared.each do |dev| %>
+  <% if dev.imei == @device.imei %>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'selected' %>   
+   </li>
+  <% else %>
+   <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'middle' %>
+   <div class="off-line-div"></div>
+   </li>
+  <% end %>
+ <% end %>
+ <li class="fill-down"></li>
+ </ul>
+<% end %>
+<!-- ## PRIVATE ## -->
+<% if Device.private.size > 0 %>
+ <h2><%=t :navigation_private_title %> <img class="navi-private-icon" src="/images/private.png" border="0"/></h2>
+ <ul>
+ <li class="fill-up">
+  <!-- a little options to view -->
+  <div><a href="#" class="listoptions right-corner-round"><span>active </span></a><a href="#"
+class="listoptions left-corner-round selected"><span>all</span></a>
+  </div>
+ </li>
+ <% Device.private.each do |dev| %>
   <% if dev.imei == @device.imei %>
    <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'selected' %></li>
   <% else %>
    <li><%= link_to dev.name, { :action => 'show', :id => dev.id}, :class => 'middle' %></li>
   <% end %>
+ <% end %>
+ <li class="fill-down"></li>
+ </ul>
 <% end %>
-<li class="fill-down"></li>
-<!-- 
-<li><a class="first" href="#">Jaana-vaimo<div class="off-line-div"></div></a></li>
--->
-</ul>
 
 <h2><%=t :navigation_new_title %></h2>
 <ul>
@@ -86,7 +126,11 @@
           <%= @device.name %>
          <% end %>
 
-	</span><span><img id="isPrivate" class="private-icon" src="/images/private.png" border="0"/></span><br/>
+	</span>
+        <% if @device.display == 'private' %>
+         <span><img id="isPrivate" class="private-icon" src="/images/private.png" border="0"/></span>
+        <% end %>
+        <br/>
         <!-- ### POWER INDICATOR ### -->
         <div id="powerindicator"> 
 	  <div id="power-level">?? %</div>
