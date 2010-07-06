@@ -39,7 +39,7 @@ POST
   ],
 
 
-  "errors": [ 400, 627 ]
+  "errors": [ 400, 627 ] // Actually all errors goes to "meas".
   // OR
   [
     { "type": "location", "value": 400 },
