@@ -1,0 +1,33 @@
+<p>
+  <b>Sensor:</b>
+  <%= @sensor_data.sensor_id %>
+</p>
+
+<p>
+  <b>Meas type:</b>
+  <%= @sensor_data.meas_type_id %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @sensor_data.value %>
+</p>
+
+<p>
+  <b>Sequence:</b>
+  <%= @sensor_data.sequence %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @sensor_data.type %>
+</p>
+
+<p>
+  <b>Measured at:</b>
+  <%= @sensor_data.measured_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_sensor_data_path(@sensor_data) %> |
+<%= link_to 'Back', sensor_datas_path %>

@@ -1,0 +1,55 @@
+<%= form_for(@sensor) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :device_id %><br />
+    <%= f.text_field :device_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sensor_id %><br />
+    <%= f.text_field :sensor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer %><br />
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :sensor_type %><br />
+    <%= f.text_field :sensor_type %>
+  </div>
+  <div class="field">
+    <%= f.label :meas_min %><br />
+    <%= f.text_field :meas_min %>
+  </div>
+  <div class="field">
+    <%= f.label :meas_max %><br />
+    <%= f.text_field :meas_max %>
+  </div>
+  <div class="field">
+    <%= f.label :accuracy %><br />
+    <%= f.text_field :accuracy %>
+  </div>
+  <div class="field">
+    <%= f.label :resolution %><br />
+    <%= f.text_field :resolution %>
+  </div>
+  <div class="field">
+    <%= f.label :serial %><br />
+    <%= f.text_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :manufactured_at %><br />
+    <%= f.datetime_select :manufactured_at %>
+  </div>
+  <div class="field">
+    <%= f.label :calibrated_at %><br />
+    <%= f.datetime_select :calibrated_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

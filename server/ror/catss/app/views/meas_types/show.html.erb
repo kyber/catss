@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%= @meas_type.name %>
+</p>
+
+<p>
+  <b>Default meas unit:</b>
+  <%= @meas_type.default_meas_unit %>
+</p>
+
+<p>
+  <b>Default interval unit:</b>
+  <%= @meas_type.default_interval_unit %>
+</p>
+
+<p>
+  <b>Multiplier:</b>
+  <%= @meas_type.multiplier %>
+</p>
+
+
+<%= link_to 'Edit', edit_meas_type_path(@meas_type) %> |
+<%= link_to 'Back', meas_types_path %>

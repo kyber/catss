@@ -1,0 +1,31 @@
+<%= form_for(@sensor_data) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :sensor_id %><br />
+    <%= f.text_field :sensor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :meas_type_id %><br />
+    <%= f.text_field :meas_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :sequence %><br />
+    <%= f.text_field :sequence %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :measured_at %><br />
+    <%= f.datetime_select :measured_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

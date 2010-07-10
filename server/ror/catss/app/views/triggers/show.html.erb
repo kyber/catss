@@ -1,0 +1,23 @@
+<p>
+  <b>Device:</b>
+  <%= @trigger.device_id %>
+</p>
+
+<p>
+  <b>Meas type:</b>
+  <%= @trigger.meas_type_id %>
+</p>
+
+<p>
+  <b>Above below:</b>
+  <%= @trigger.above_below %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @trigger.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_trigger_path(@trigger) %> |
+<%= link_to 'Back', triggers_path %>

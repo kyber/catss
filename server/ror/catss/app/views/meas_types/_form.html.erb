@@ -1,0 +1,23 @@
+<%= form_for(@meas_type) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :default_meas_unit %><br />
+    <%= f.text_field :default_meas_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :default_interval_unit %><br />
+    <%= f.text_field :default_interval_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :multiplier %><br />
+    <%= f.text_field :multiplier %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

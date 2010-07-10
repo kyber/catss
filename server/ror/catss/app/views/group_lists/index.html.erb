@@ -1,0 +1,23 @@
+<h1>Listing group_lists</h1>
+
+<table>
+  <tr>
+    <th>Group</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @group_lists.each do |group_list| %>
+  <tr>
+    <td><%= group_list.group_id %></td>
+    <td><%= link_to 'Show', group_list %></td>
+    <td><%= link_to 'Edit', edit_group_list_path(group_list) %></td>
+    <td><%= link_to 'Destroy', group_list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Group list', new_group_list_path %>

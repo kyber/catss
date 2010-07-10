@@ -1,0 +1,27 @@
+<h1>Listing icons</h1>
+
+<table>
+  <tr>
+    <th>Iconset</th>
+    <th>Icon nro</th>
+    <th>Device</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @icons.each do |icon| %>
+  <tr>
+    <td><%= icon.iconset_id %></td>
+    <td><%= icon.icon_nro %></td>
+    <td><%= icon.device_id %></td>
+    <td><%= link_to 'Show', icon %></td>
+    <td><%= link_to 'Edit', edit_icon_path(icon) %></td>
+    <td><%= link_to 'Destroy', icon, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Icon', new_icon_path %>

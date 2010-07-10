@@ -2,6 +2,9 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
     t.string    :login,               :null => false                # optional, you can use email instead, or both
+    t.string 	:fname
+    t.string 	:lname
+    t.string	:avatar_path
     t.string    :email,               :null => false                # optional, you can use login instead, or both
     t.string    :crypted_password,    :null => false                # optional, see below
     t.string    :password_salt,       :null => false                # optional, but highly recommended
@@ -17,6 +20,11 @@ class CreateUsers < ActiveRecord::Migration
     t.datetime  :last_login_at                                      # optional, see Authlogic::Session::MagicColumns
     t.string    :current_login_ip                                   # optional, see Authlogic::Session::MagicColumns
     t.string    :last_login_ip                                      # optional, see Authlogic::Session::MagicColumns
+
+    # CATSS specific (kyb3R)
+    t.string    :ui_lang,               :null => false, :default => "en"
+    t.integer   :last_device_id	
+    t.integer	:group_list_id
 
       t.timestamps
     end

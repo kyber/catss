@@ -1,0 +1,29 @@
+<h1>Listing triggers</h1>
+
+<table>
+  <tr>
+    <th>Device</th>
+    <th>Meas type</th>
+    <th>Above below</th>
+    <th>Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @triggers.each do |trigger| %>
+  <tr>
+    <td><%= trigger.device_id %></td>
+    <td><%= trigger.meas_type_id %></td>
+    <td><%= trigger.above_below %></td>
+    <td><%= trigger.value %></td>
+    <td><%= link_to 'Show', trigger %></td>
+    <td><%= link_to 'Edit', edit_trigger_path(trigger) %></td>
+    <td><%= link_to 'Destroy', trigger, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trigger', new_trigger_path %>

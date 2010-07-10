@@ -1,4 +1,22 @@
 Catss::Application.routes.draw do |map|
+  resources :meas_types
+
+  resources :sensor_datas
+
+  resources :sensors
+
+  resources :triggers
+
+  resources :group_lists
+
+  resources :groups
+
+  resources :types
+
+  resources :iconsets
+
+  resources :icons
+
 
   resources :events
   resources :devices, :path_prefix => '/:locale'

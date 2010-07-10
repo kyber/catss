@@ -1,0 +1,29 @@
+<h1>Listing meas_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Default meas unit</th>
+    <th>Default interval unit</th>
+    <th>Multiplier</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meas_types.each do |meas_type| %>
+  <tr>
+    <td><%= meas_type.name %></td>
+    <td><%= meas_type.default_meas_unit %></td>
+    <td><%= meas_type.default_interval_unit %></td>
+    <td><%= meas_type.multiplier %></td>
+    <td><%= link_to 'Show', meas_type %></td>
+    <td><%= link_to 'Edit', edit_meas_type_path(meas_type) %></td>
+    <td><%= link_to 'Destroy', meas_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Meas type', new_meas_type_path %>

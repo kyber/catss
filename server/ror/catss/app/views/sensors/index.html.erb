@@ -1,0 +1,45 @@
+<h1>Listing sensors</h1>
+
+<table>
+  <tr>
+    <th>Device</th>
+    <th>Sensor</th>
+    <th>Name</th>
+    <th>Manufacturer</th>
+    <th>Sensor type</th>
+    <th>Meas min</th>
+    <th>Meas max</th>
+    <th>Accuracy</th>
+    <th>Resolution</th>
+    <th>Serial</th>
+    <th>Manufactured at</th>
+    <th>Calibrated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sensors.each do |sensor| %>
+  <tr>
+    <td><%= sensor.device_id %></td>
+    <td><%= sensor.sensor_id %></td>
+    <td><%= sensor.name %></td>
+    <td><%= sensor.manufacturer %></td>
+    <td><%= sensor.sensor_type %></td>
+    <td><%= sensor.meas_min %></td>
+    <td><%= sensor.meas_max %></td>
+    <td><%= sensor.accuracy %></td>
+    <td><%= sensor.resolution %></td>
+    <td><%= sensor.serial %></td>
+    <td><%= sensor.manufactured_at %></td>
+    <td><%= sensor.calibrated_at %></td>
+    <td><%= link_to 'Show', sensor %></td>
+    <td><%= link_to 'Edit', edit_sensor_path(sensor) %></td>
+    <td><%= link_to 'Destroy', sensor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sensor', new_sensor_path %>

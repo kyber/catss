@@ -1,0 +1,19 @@
+<%= form_for(@icon) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :iconset_id %><br />
+    <%= f.text_field :iconset_id %>
+  </div>
+  <div class="field">
+    <%= f.label :icon_nro %><br />
+    <%= f.text_field :icon_nro %>
+  </div>
+  <div class="field">
+    <%= f.label :device_id %><br />
+    <%= f.text_field :device_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<%= form_for(@iconset) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :file_path %><br />
+    <%= f.text_field :file_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

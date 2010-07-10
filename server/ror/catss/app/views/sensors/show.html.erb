@@ -1,0 +1,63 @@
+<p>
+  <b>Device:</b>
+  <%= @sensor.device_id %>
+</p>
+
+<p>
+  <b>Sensor:</b>
+  <%= @sensor.sensor_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @sensor.name %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @sensor.manufacturer %>
+</p>
+
+<p>
+  <b>Sensor type:</b>
+  <%= @sensor.sensor_type %>
+</p>
+
+<p>
+  <b>Meas min:</b>
+  <%= @sensor.meas_min %>
+</p>
+
+<p>
+  <b>Meas max:</b>
+  <%= @sensor.meas_max %>
+</p>
+
+<p>
+  <b>Accuracy:</b>
+  <%= @sensor.accuracy %>
+</p>
+
+<p>
+  <b>Resolution:</b>
+  <%= @sensor.resolution %>
+</p>
+
+<p>
+  <b>Serial:</b>
+  <%= @sensor.serial %>
+</p>
+
+<p>
+  <b>Manufactured at:</b>
+  <%= @sensor.manufactured_at %>
+</p>
+
+<p>
+  <b>Calibrated at:</b>
+  <%= @sensor.calibrated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_sensor_path(@sensor) %> |
+<%= link_to 'Back', sensors_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Id:</b>
+  <%= @iconset.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @iconset.name %>
+</p>
+
+<p>
+  <b>File path:</b>
+  <%= @iconset.file_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_iconset_path(@iconset) %> |
+<%= link_to 'Back', iconsets_path %>

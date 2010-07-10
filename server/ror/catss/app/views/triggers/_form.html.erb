@@ -1,0 +1,23 @@
+<%= form_for(@trigger) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :device_id %><br />
+    <%= f.text_field :device_id %>
+  </div>
+  <div class="field">
+    <%= f.label :meas_type_id %><br />
+    <%= f.text_field :meas_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :above_below %><br />
+    <%= f.check_box :above_below %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

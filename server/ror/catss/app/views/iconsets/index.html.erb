@@ -1,0 +1,27 @@
+<h1>Listing iconsets</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>File path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @iconsets.each do |iconset| %>
+  <tr>
+    <td><%= iconset.id %></td>
+    <td><%= iconset.name %></td>
+    <td><%= iconset.file_path %></td>
+    <td><%= link_to 'Show', iconset %></td>
+    <td><%= link_to 'Edit', edit_iconset_path(iconset) %></td>
+    <td><%= link_to 'Destroy', iconset, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Iconset', new_iconset_path %>
