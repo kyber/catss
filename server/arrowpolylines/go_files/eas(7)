@@ -1,5 +1,0 @@
-if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin && navigator.plugins && navigator.plugins["Shockwave Flash"]) {
-document.write('<embed src="http://eas3.emediate.se/media/40/1202/44542/0422_plussa.swf?clickTAG=http://eas3.emediate.se/eas?camp=44542::cu=1324::no=58351::ty=ct" type="application/x-shockwave-flash" width="150" height="120" AllowScriptAccess="always" />');
-} else {
-document.write('<a target="_blank" href="http://eas3.emediate.se/eas?camp=44542::cu=1324::no=58351::ty=ct"><img src="http://eas3.emediate.se/media/40/1202/44542/0422_plussa.gif" border="0"></a>');
-}
